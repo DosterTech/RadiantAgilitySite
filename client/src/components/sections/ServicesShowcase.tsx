@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardFooter } from '@/components/ui/card';
-import { RiLightbulbLine, RiApps2Line, RiTimerLine, RiStore2Line, RiBuilding4Line, RiRestaurantLine } from 'react-icons/ri';
+import { RiLightbulbLine, RiApps2Line, RiTimerLine, RiScissorsLine, RiBuilding4Line, RiHome4Line } from 'react-icons/ri';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -44,25 +44,25 @@ const approachPoints = [
 
 const exampleScenarios = [
   {
-    icon: <RiStore2Line className="h-10 w-10 text-primary-600 mb-4" />,
-    businessName: "Local Boutique Retailer",
-    challenge: "A small clothing boutique struggling to manage inventory and customer relationships while competing with larger retailers.",
-    solution: "Custom inventory management system integrated with a marketing automation platform for personalized email campaigns based on purchase history.",
-    potentialOutcome: "More efficient inventory management and targeted marketing to increase customer loyalty and repeat purchases."
+    icon: <RiLightbulbLine className="h-10 w-10 text-primary-600 mb-4" />,
+    businessName: "Personal Service Business",
+    challenge: "A small business struggling to manage client bookings, retain customers, and engage with clients outside of scheduled appointments.",
+    solution: "A custom appointment scheduling system integrated with automated SMS/email reminders, loyalty rewards, and post-appointment feedback requests.",
+    potentialOutcome: "Fewer no-shows, stronger customer relationships, and increased repeat business through automated engagement."
   },
   {
     icon: <RiBuilding4Line className="h-10 w-10 text-primary-600 mb-4" />,
     businessName: "Regional Consulting Firm",
-    challenge: "Mid-sized business consulting firm with inefficient client management processes and limited visibility into project status.",
-    solution: "Custom client portal application with integrated project management tools and automated reporting capabilities.",
-    potentialOutcome: "Streamlined operations, improved client communication, and better resource allocation across projects."
+    challenge: "A mid-sized consulting firm facing inefficiencies in client management, project tracking, and internal communication, leading to bottlenecks and revenue loss.",
+    solution: "A custom client portal with automated scheduling, project tracking, and reporting tools to streamline operations.",
+    potentialOutcome: "Faster client onboarding, improved communication, and better visibility into project timelines for data-driven decision-making."
   },
   {
-    icon: <RiRestaurantLine className="h-10 w-10 text-primary-600 mb-4" />,
-    businessName: "Restaurant Chain",
-    challenge: "Small restaurant group struggling with staff scheduling, inventory management, and coordinating between multiple locations.",
-    solution: "Implementation of agile methodologies and custom workflow application connecting all business processes across locations.",
-    potentialOutcome: "Reduced food waste, optimized staffing, and consistent customer experience across all restaurant locations."
+    icon: <RiApps2Line className="h-10 w-10 text-primary-600 mb-4" />,
+    businessName: "Local Service Business",
+    challenge: "A home services company struggling with scheduling, customer follow-ups, and generating repeat business.",
+    solution: "An automated booking & customer follow-up system that sends appointment confirmations, review requests, and special service reminders via SMS and email.",
+    potentialOutcome: "Increased customer retention, higher review ratings, and improved scheduling efficiency with minimal manual effort."
   }
 ];
 
