@@ -24,7 +24,7 @@ export default function CaseStudiesPage() {
               At Radiant Agility Technology, we focus on delivering practical technology solutions tailored to your business needs. Below you'll find some example scenarios that illustrate how our services could help businesses similar to yours.
             </p>
             <p className="mt-4 text-sm bg-primary-50 p-3 rounded-md inline-block">
-              <strong>Note:</strong> As a new business, these are example applications rather than completed case studies. We look forward to creating real success stories with clients like you!
+              <strong>Note:</strong> These are example applications that showcase how our solutions can address common business challenges. We look forward to creating success stories with clients like you!
             </p>
           </motion.div>
         </div>

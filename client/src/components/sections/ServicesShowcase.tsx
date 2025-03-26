@@ -34,7 +34,7 @@ const serviceShowcases = [
 const approachPoints = [
   {
     title: "Our Approach",
-    description: "As a new company, we're taking a fresh approach to technology solutions. We focus on understanding your business thoroughly before recommending any technology. This means we spend time learning about your operations, challenges, and goals to deliver truly tailored solutions.",
+    description: "We take a modern and innovative approach to technology solutions. We focus on understanding your business thoroughly before recommending any technology. This means we spend time learning about your operations, challenges, and goals to deliver truly tailored solutions.",
   },
   {
     title: "Working With Us",
@@ -169,7 +169,7 @@ const ServicesShowcase = () => {
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">Example Application Scenarios</h3>
             <p className="text-gray-600">
-              While we're a new company, here are some examples of how our solutions could be applied to help businesses like yours.
+              Here are some examples of how our solutions could be applied to help businesses like yours.
             </p>
           </div>
           
@@ -219,8 +219,8 @@ const ServicesShowcase = () => {
         >
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Our Commitment to Transparency</h3>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            As a new company, we understand that trust is earned through honest communication and delivering on our promises. 
-            We're committed to being upfront about what we can and can't do, providing realistic timelines, and focusing on quality over quantity.
+            At Radiant Agility Technology, we understand that trust is earned through honest communication and delivering on our promises. 
+            We're committed to being upfront about our capabilities, providing realistic timelines, and focusing on quality over quantity.
           </p>
         </motion.div>
       </div>

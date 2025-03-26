@@ -37,12 +37,12 @@ const About = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Radiant Agility Technology</h2>
             <p className="text-gray-600 text-lg mb-6">
-              We're a fresh, innovative technology company founded in 2023 with a passion for helping small and mid-sized businesses 
+              We're a fresh, innovative technology company founded in 2024 with a passion for helping small and mid-sized businesses 
               grow through smart automation, custom tech solutions, and agile approaches.
             </p>
             <p className="text-gray-600 text-lg mb-6">
-              As a new company, we bring enthusiasm, current knowledge, and a personalized approach to each project. What we might lack in years
-              of company history, we make up for with dedication, attention to detail, and a genuine desire to see your business succeed.
+              Our team brings energy, current industry knowledge, and a personalized approach to each project. We're committed to 
+              delivering high-quality solutions with dedication, attention to detail, and a genuine desire to see your business succeed.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
             <p className="text-gray-600 text-lg mb-8">
