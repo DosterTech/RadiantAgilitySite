@@ -118,25 +118,25 @@ const ChatWidget = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="mb-4"
           >
-            <Card className="w-80 overflow-hidden shadow-xl">
-              <CardHeader className="gradient-bg text-white p-4">
+            <Card className="w-[calc(100vw-32px)] max-w-[350px] sm:w-80 overflow-hidden shadow-xl border border-gray-200">
+              <CardHeader className="gradient-bg text-white p-3 sm:p-4">
                 <div className="flex justify-between items-center">
                   <h3 className="font-semibold">Chat with us</h3>
                   <Button 
                     variant="ghost" 
                     size="icon" 
                     onClick={() => setIsOpen(false)}
-                    className="text-white hover:text-gray-200 hover:bg-transparent"
+                    className="text-white hover:text-gray-200 hover:bg-transparent transition-colors duration-200"
                   >
                     <X className="h-5 w-5" />
                   </Button>
@@ -144,28 +144,34 @@ const ChatWidget = () => {
               </CardHeader>
               
               <CardContent className="p-0">
-                <div className="h-80 overflow-y-auto bg-gray-50 p-4 space-y-4">
+                <div className="h-[60vh] max-h-[400px] overflow-y-auto bg-gray-50 p-3 sm:p-4 space-y-3 sm:space-y-4">
                   {messages.map((msg, index) => (
-                    <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : ''}`}>
+                    <motion.div 
+                      key={index} 
+                      className={`flex ${msg.sender === 'user' ? 'justify-end' : ''}`}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
                       {msg.sender === 'bot' && (
-                        <div className="w-8 h-8 rounded-full gradient-bg flex items-center justify-center text-white text-xs mr-2">
+                        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full gradient-bg flex items-center justify-center text-white text-xs mr-2 flex-shrink-0">
                           RA
                         </div>
                       )}
                       <div 
-                        className={`rounded-lg p-3 max-w-[80%] ${
+                        className={`rounded-lg p-2 sm:p-3 max-w-[80%] ${
                           msg.sender === 'user' 
                             ? 'bg-primary-600 text-white' 
                             : 'bg-gray-200 text-gray-800'
                         }`}
                       >
-                        <p>{msg.message}</p>
+                        <p className="text-sm sm:text-base whitespace-pre-wrap break-words">{msg.message}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                   {isLoading && (
                     <div className="flex">
-                      <div className="w-8 h-8 rounded-full gradient-bg flex items-center justify-center text-white text-xs mr-2">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full gradient-bg flex items-center justify-center text-white text-xs mr-2 flex-shrink-0">
                         RA
                       </div>
                       <div className="bg-gray-200 rounded-lg p-3">
@@ -181,20 +187,20 @@ const ChatWidget = () => {
                 </div>
               </CardContent>
               
-              <CardFooter className="p-4 border-t">
+              <CardFooter className="p-3 sm:p-4 border-t">
                 <form onSubmit={sendMessage} className="flex w-full">
                   <Input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Type your message..."
-                    className="flex-1 focus-visible:ring-primary-600"
+                    className="flex-1 focus-visible:ring-primary-600 text-sm sm:text-base"
                     disabled={isLoading}
                   />
                   <Button 
                     type="submit" 
                     size="icon"
-                    className="ml-2 gradient-bg"
+                    className="ml-2 gradient-bg transition-all duration-200 hover:shadow-md"
                     disabled={isLoading || !input.trim()}
                   >
                     <Send className="h-4 w-4" />
@@ -209,13 +215,15 @@ const ChatWidget = () => {
       <motion.div
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        transition={{ duration: 0.2 }}
       >
         <Button 
           onClick={() => setIsOpen(!isOpen)} 
-          className="gradient-bg text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+          className="gradient-bg text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           size="icon"
+          aria-label="Open chat"
         >
-          <MessageSquare className="h-6 w-6" />
+          <MessageSquare className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
       </motion.div>
     </div>

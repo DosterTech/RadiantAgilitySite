@@ -90,7 +90,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mt-1 mr-3 text-gray-400" />
-                <span className="text-gray-400">123 Innovation Drive, San Francisco, CA 94103</span>
+                <span className="text-gray-400">8 The Green, Dover, Delaware</span>
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mt-1 mr-3 text-gray-400" />
