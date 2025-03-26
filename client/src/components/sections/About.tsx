@@ -1,10 +1,27 @@
 import { motion } from 'framer-motion';
+import { LightbulbIcon, HeartHandshakeIcon, RocketIcon, ZapIcon } from 'lucide-react';
 
-const stats = [
-  { label: 'Clients Served', value: '100+' },
-  { label: 'Client Satisfaction', value: '98%' },
-  { label: 'Projects Completed', value: '200+' },
-  { label: 'Industry Experts', value: '15+' }
+const values = [
+  { 
+    icon: <HeartHandshakeIcon className="h-8 w-8 text-primary-600 mb-3" />,
+    title: 'Transparency', 
+    description: 'We believe in being honest about our capabilities and limitations. No false promises, just genuine service.' 
+  },
+  { 
+    icon: <ZapIcon className="h-8 w-8 text-primary-600 mb-3" />,
+    title: 'Agility', 
+    description: 'As a nimble startup, we adapt quickly to your changing needs and market conditions.' 
+  },
+  { 
+    icon: <LightbulbIcon className="h-8 w-8 text-primary-600 mb-3" />,
+    title: 'Innovation', 
+    description: 'We stay current with the latest technologies to provide fresh, forward-thinking solutions.' 
+  },
+  { 
+    icon: <RocketIcon className="h-8 w-8 text-primary-600 mb-3" />,
+    title: 'Growth-Focused', 
+    description: 'We measure our success by your growth. Your business goals are our priority.' 
+  }
 ];
 
 const About = () => {
@@ -20,31 +37,32 @@ const About = () => {
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Radiant Agility Technology</h2>
             <p className="text-gray-600 text-lg mb-6">
-              We are a team of technology and business process experts dedicated to helping small and mid-sized businesses 
-              scale through automation, innovative technology solutions, and Agile methodologies.
+              We're a fresh, innovative technology company founded in 2023 with a passion for helping small and mid-sized businesses 
+              grow through smart automation, custom tech solutions, and agile approaches.
             </p>
             <p className="text-gray-600 text-lg mb-6">
-              Founded in 2023, Radiant Agility Technology brings together the expertise of marketing technologists, 
-              software developers, and Agile coaches to provide comprehensive business transformation services.
+              As a new company, we bring enthusiasm, current knowledge, and a personalized approach to each project. What we might lack in years
+              of company history, we make up for with dedication, attention to detail, and a genuine desire to see your business succeed.
             </p>
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h3>
             <p className="text-gray-600 text-lg mb-8">
-              To empower businesses with technology solutions and Agile methodologies that drive growth, 
-              increase efficiency, and create sustainable competitive advantages.
+              To empower businesses with accessible technology solutions that drive growth, 
+              increase efficiency, and create sustainable competitive advantages - without the enterprise-level price tag.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
+              {values.map((value, index) => (
                 <motion.div 
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                  className="bg-gray-50 p-4 rounded-lg hover:shadow-md transition-shadow duration-300"
+                  className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow duration-300"
                 >
-                  <div className="text-primary-600 font-bold text-4xl mb-2">{stat.value}</div>
-                  <p className="text-gray-600">{stat.label}</p>
+                  {value.icon}
+                  <h4 className="text-gray-900 font-semibold text-lg mb-2">{value.title}</h4>
+                  <p className="text-gray-600">{value.description}</p>
                 </motion.div>
               ))}
             </div>
