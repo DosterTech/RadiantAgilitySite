@@ -7,21 +7,35 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { blogPosts } from '@/components/sections/Blog';
 
+interface BlogPost {
+  id: string;
+  title: string;
+  date: string;
+  author: string;
+  readTime: string;
+  category: string;
+  tags: string[];
+  excerpt: string;
+  image: string;
+  featured: boolean;
+  content: string;
+}
+
 export default function BlogPost() {
   const [, params] = useRoute('/blog/:id');
-  const [post, setPost] = useState<any>(null);
-  const [relatedPosts, setRelatedPosts] = useState<any[]>([]);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     if (params && params.id) {
-      const foundPost = blogPosts.find(p => p.id === params.id);
+      const foundPost = blogPosts.find((p: BlogPost) => p.id === params.id);
       
       if (foundPost) {
         setPost(foundPost);
         
         // Find related posts with the same category, excluding current post
         const related = blogPosts
-          .filter(p => p.id !== params.id && p.category === foundPost.category)
+          .filter((p: BlogPost) => p.id !== params.id && p.category === foundPost.category)
           .slice(0, 3);
         
         setRelatedPosts(related);

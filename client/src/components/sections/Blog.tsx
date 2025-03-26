@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, User, Tag, Clock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
-const blogPosts = [
+export const blogPosts = [
   {
     id: '1',
     title: 'The Future of Marketing Automation: AI and Beyond',

@@ -76,7 +76,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create initial welcome message from bot
       await storage.createChatMessage({
         sender: 'bot',
-        message: 'Hello! How can we help you today?',
+        message: 'Welcome to Radiant Agility Technology! 👋 I\'m your virtual assistant. How can I help you today? Feel free to ask about our services, pricing, or how we can help your business grow.',
         sessionId
       });
       
@@ -110,10 +110,56 @@ export async function registerRoutes(app: Express): Promise<Server> {
         sessionId
       });
       
-      // Create bot response (in a real implementation, this would be more sophisticated)
+      // Create a more sophisticated keyword-based response system
+      let botMessage = "Thanks for your message! One of our consultants will get back to you shortly. In the meantime, would you like to schedule a free consultation?";
+      
+      // Convert message to lowercase for case-insensitive matching
+      const lowerCaseMessage = message.toLowerCase();
+      
+      // Simple keyword-based responses
+      if (lowerCaseMessage.includes('pricing') || lowerCaseMessage.includes('cost') || lowerCaseMessage.includes('price')) {
+        botMessage = "Our pricing depends on your specific needs and project scope. We offer flexible packages starting from $2,000 for basic marketing automation setup, and custom app development starting at $5,000. Would you like to schedule a consultation to discuss your requirements in detail?";
+      } 
+      else if (lowerCaseMessage.includes('service') || lowerCaseMessage.includes('offer')) {
+        botMessage = "We offer a range of services including marketing automation, custom app development, lead generation strategies, and agility consulting. Which specific service are you interested in learning more about?";
+      }
+      else if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('talk to') || lowerCaseMessage.includes('speak with')) {
+        botMessage = "You can reach our team directly at contact@radiantagility.tech or call us at (555) 123-4567. Alternatively, you can fill out our contact form and we'll get back to you within 24 hours. Would you like me to direct you to our contact page?";
+      }
+      else if (lowerCaseMessage.includes('marketing') || lowerCaseMessage.includes('automation')) {
+        botMessage = "Our marketing automation services help businesses streamline their marketing efforts, increase conversion rates, and improve ROI. We specialize in email marketing automation, lead nurturing workflows, and CRM integration. Would you like to learn more about our marketing automation solutions?";
+      }
+      else if (lowerCaseMessage.includes('app') || lowerCaseMessage.includes('development') || lowerCaseMessage.includes('software')) {
+        botMessage = "Our app development team creates custom web and mobile applications tailored to your business needs. We follow agile methodologies to ensure rapid development and high-quality results. Our expertise includes progressive web apps, mobile apps, and enterprise software solutions. What type of application are you looking to develop?";
+      }
+      else if (lowerCaseMessage.includes('agile') || lowerCaseMessage.includes('agility') || lowerCaseMessage.includes('consulting')) {
+        botMessage = "Our agility consulting services help organizations adopt agile methodologies and improve their business processes. We offer training, coaching, and implementation support to help your team become more efficient and responsive to market changes. Would you like to learn more about how agile practices can transform your business?";
+      }
+      else if (lowerCaseMessage.includes('hello') || lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('hey')) {
+        botMessage = "Hello! Welcome to Radiant Agility Technology. How can I assist you today? We offer marketing automation, app development, and agility consulting services.";
+      }
+      else if (lowerCaseMessage.includes('thank')) {
+        botMessage = "You're welcome! If you have any other questions, feel free to ask. We're here to help you transform your business with our technology solutions.";
+      }
+      else if (lowerCaseMessage.includes('location') || lowerCaseMessage.includes('address') || lowerCaseMessage.includes('where')) {
+        botMessage = "Our main office is located at 8 The Green, Dover, Delaware. However, we operate remotely with team members across the US, allowing us to serve clients nationwide. Would you like to schedule a virtual meeting with our team?";
+      }
+      else if (lowerCaseMessage.includes('experience') || lowerCaseMessage.includes('background') || lowerCaseMessage.includes('expertise')) {
+        botMessage = "Radiant Agility Technology was founded in 2023, but our team collectively brings over 30 years of experience in technology, marketing, and business consulting. Our expertise spans across various industries including finance, healthcare, retail, and education. Can I tell you more about our expertise in a specific area?";
+      }
+      else if (lowerCaseMessage.includes('case study') || lowerCaseMessage.includes('example') || lowerCaseMessage.includes('portfolio')) {
+        botMessage = "We have several case studies showcasing our successful projects. For example, we helped a healthcare provider increase patient engagement by 45% through a custom mobile app, and assisted a retail business in boosting their online sales by 60% with our marketing automation solutions. Would you like to see more detailed case studies on our website?";
+      }
+      else if (lowerCaseMessage.includes('time') || lowerCaseMessage.includes('timeline') || lowerCaseMessage.includes('how long')) {
+        botMessage = "Project timelines vary based on complexity and scope. Typically, our marketing automation setups take 2-4 weeks, while custom app development projects range from 2-6 months depending on requirements. We always work with clients to establish clear timelines and milestones at the beginning of each project. Would you like to discuss your specific project's potential timeline?";
+      }
+      else if (lowerCaseMessage.includes('blog') || lowerCaseMessage.includes('article') || lowerCaseMessage.includes('resource')) {
+        botMessage = "We regularly publish articles and resources on our blog covering the latest trends in marketing automation, app development, and business agility. You can find these resources in the Blog section of our website. Is there a specific topic you're interested in learning more about?";
+      }
+      
       const botResponse = await storage.createChatMessage({
         sender: 'bot',
-        message: "Thanks for your message! One of our consultants will get back to you shortly. In the meantime, would you like to schedule a free consultation?",
+        message: botMessage,
         sessionId
       });
       
