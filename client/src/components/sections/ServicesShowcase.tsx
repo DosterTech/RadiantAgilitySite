@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardFooter } from '@/components/ui/card';
-import { RiLightbulbLine, RiApps2Line, RiTimerLine } from 'react-icons/ri';
+import { RiLightbulbLine, RiApps2Line, RiTimerLine, RiStore2Line, RiBuilding4Line, RiRestaurantLine } from 'react-icons/ri';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -39,6 +39,30 @@ const approachPoints = [
   {
     title: "Working With Us",
     description: "We believe in transparent communication throughout the project lifecycle. You'll always know where things stand, what's coming next, and have direct access to our team. We're building our business one successful relationship at a time.",
+  }
+];
+
+const exampleScenarios = [
+  {
+    icon: <RiStore2Line className="h-10 w-10 text-primary-600 mb-4" />,
+    businessName: "Local Boutique Retailer",
+    challenge: "A small clothing boutique struggling to manage inventory and customer relationships while competing with larger retailers.",
+    solution: "Custom inventory management system integrated with a marketing automation platform for personalized email campaigns based on purchase history.",
+    potentialOutcome: "More efficient inventory management and targeted marketing to increase customer loyalty and repeat purchases."
+  },
+  {
+    icon: <RiBuilding4Line className="h-10 w-10 text-primary-600 mb-4" />,
+    businessName: "Regional Consulting Firm",
+    challenge: "Mid-sized business consulting firm with inefficient client management processes and limited visibility into project status.",
+    solution: "Custom client portal application with integrated project management tools and automated reporting capabilities.",
+    potentialOutcome: "Streamlined operations, improved client communication, and better resource allocation across projects."
+  },
+  {
+    icon: <RiRestaurantLine className="h-10 w-10 text-primary-600 mb-4" />,
+    businessName: "Restaurant Chain",
+    challenge: "Small restaurant group struggling with staff scheduling, inventory management, and coordinating between multiple locations.",
+    solution: "Implementation of agile methodologies and custom workflow application connecting all business processes across locations.",
+    potentialOutcome: "Reduced food waste, optimized staffing, and consistent customer experience across all restaurant locations."
   }
 ];
 
@@ -138,6 +162,51 @@ const ServicesShowcase = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+        
+        {/* Example Scenarios Section */}
+        <div className="mt-20">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Example Application Scenarios</h3>
+            <p className="text-gray-600">
+              While we're a new company, here are some examples of how our solutions could be applied to help businesses like yours.
+            </p>
+          </div>
+          
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+          >
+            {exampleScenarios.map((scenario, index) => (
+              <motion.div 
+                key={index}
+                variants={itemVariants}
+                className="bg-white p-8 rounded-xl shadow-md flex flex-col h-full"
+              >
+                <div className="flex justify-center">
+                  {scenario.icon}
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3 text-center">{scenario.businessName}</h4>
+                <div className="flex-grow">
+                  <div className="mb-4">
+                    <h5 className="text-sm uppercase tracking-wider text-gray-500 mb-1">Challenge</h5>
+                    <p className="text-gray-600">{scenario.challenge}</p>
+                  </div>
+                  <div className="mb-4">
+                    <h5 className="text-sm uppercase tracking-wider text-gray-500 mb-1">Our Approach</h5>
+                    <p className="text-gray-600">{scenario.solution}</p>
+                  </div>
+                  <div>
+                    <h5 className="text-sm uppercase tracking-wider text-gray-500 mb-1">Potential Outcome</h5>
+                    <p className="text-gray-600">{scenario.potentialOutcome}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
         
         {/* Commitment Banner */}
