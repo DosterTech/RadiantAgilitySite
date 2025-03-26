@@ -30,7 +30,7 @@ const HowWeWork = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How We Work</h2>
           <p className="text-gray-600 text-lg">
-            Our proven process helps businesses transform their operations through technology and Agile methodologies.
+            Our structured approach helps businesses transform their operations through technology and Agile methodologies.
           </p>
         </div>
         

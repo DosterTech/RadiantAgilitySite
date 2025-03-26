@@ -39,8 +39,8 @@ const Hero = () => {
     }
   };
 
-  const companies = [
-    "ACME Corp", "TechStart", "GlobalFirm", "Innovex", "PrimeSoft"
+  const expertiseAreas = [
+    "Marketing Automation", "Custom App Development", "Agility Consulting", "Growth Strategy", "Digital Transformation"
   ];
 
   return (
@@ -96,7 +96,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Trusted By Section */}
+      {/* Areas of Expertise Section */}
       <div className="bg-gray-100 py-8 sm:py-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.p 
@@ -105,7 +105,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            Trusted by innovative businesses
+            Our Areas of Expertise
           </motion.p>
           <motion.div 
             className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-12 gap-y-6 sm:gap-y-8"
@@ -113,10 +113,10 @@ const Hero = () => {
             animate="visible"
             variants={staggerChildren}
           >
-            {companies.map((company, index) => (
+            {expertiseAreas.map((area, index) => (
               <motion.div 
                 key={index} 
-                className="text-gray-400 text-lg sm:text-xl font-bold"
+                className="text-primary-600 text-lg sm:text-xl font-medium px-3 py-1 bg-primary-50 rounded-full border border-primary-100"
                 variants={{
                   hidden: { opacity: 0, y: 10 },
                   visible: { 
@@ -128,7 +128,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {company}
+                {area}
               </motion.div>
             ))}
           </motion.div>
