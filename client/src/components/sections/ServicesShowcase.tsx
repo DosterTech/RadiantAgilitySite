@@ -45,8 +45,8 @@ const approachPoints = [
 const exampleScenarios = [
   {
     icon: <RiLightbulbLine className="h-10 w-10 text-primary-600 mb-4" />,
-    businessName: "Personal Service Business",
-    challenge: "A small business struggling to manage client bookings, retain customers, and engage with clients outside of scheduled appointments.",
+    businessName: "Wellness Salon & Spa",
+    challenge: "A growing salon struggling to manage client bookings, retain customers, and engage with clients outside of scheduled appointments.",
     solution: "A custom appointment scheduling system integrated with automated SMS/email reminders, loyalty rewards, and post-appointment feedback requests.",
     potentialOutcome: "Fewer no-shows, stronger customer relationships, and increased repeat business through automated engagement."
   },
@@ -58,11 +58,11 @@ const exampleScenarios = [
     potentialOutcome: "Faster client onboarding, improved communication, and better visibility into project timelines for data-driven decision-making."
   },
   {
-    icon: <RiApps2Line className="h-10 w-10 text-primary-600 mb-4" />,
-    businessName: "Local Service Business",
-    challenge: "A home services company struggling with scheduling, customer follow-ups, and generating repeat business.",
-    solution: "An automated booking & customer follow-up system that sends appointment confirmations, review requests, and special service reminders via SMS and email.",
-    potentialOutcome: "Increased customer retention, higher review ratings, and improved scheduling efficiency with minimal manual effort."
+    icon: <RiTimerLine className="h-10 w-10 text-primary-600 mb-4" />,
+    businessName: "Family-Owned Restaurant",
+    challenge: "A restaurant struggling with customer loyalty, staff scheduling inefficiencies, and inconsistent customer engagement.",
+    solution: "A custom loyalty & engagement platform that integrates with POS systems to automate rewards, digital menus, and customer feedback collection.",
+    potentialOutcome: "Increased repeat customers, optimized staffing based on customer demand, and a better dining experience through digital touchpoints."
   }
 ];
 
