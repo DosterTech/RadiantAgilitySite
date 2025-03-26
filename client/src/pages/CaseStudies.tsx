@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import CaseStudies from "@/components/sections/CaseStudies";
+import ServicesShowcase from "@/components/sections/ServicesShowcase";
 import CallToAction from "@/components/sections/CallToAction";
 import { motion } from 'framer-motion';
 
@@ -7,8 +7,8 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Helmet>
-        <title>Case Studies | Radiant Agility Technology</title>
-        <meta name="description" content="Explore success stories from businesses that have partnered with Radiant Agility Technology to transform their operations and achieve remarkable growth." />
+        <title>Our Services | Radiant Agility Technology</title>
+        <meta name="description" content="Explore our range of services at Radiant Agility Technology designed to help your business grow with marketing automation, custom app development, and agility consulting." />
       </Helmet>
       
       <section className="py-16 md:py-24 bg-gray-50">
@@ -19,15 +19,15 @@ export default function CaseStudiesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Client Success Stories</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Services & Approach</h1>
             <p className="text-lg text-gray-600">
-              Discover how businesses like yours have achieved remarkable growth and transformation by partnering with Radiant Agility Technology. Our case studies demonstrate the real-world impact of our solutions.
+              At Radiant Agility Technology, we focus on delivering practical technology solutions tailored to your business needs. As a new company, we're committed to transparency, quality, and building long-term relationships with our clients.
             </p>
           </motion.div>
         </div>
       </section>
       
-      <CaseStudies />
+      <ServicesShowcase />
       <CallToAction />
     </>
   );
