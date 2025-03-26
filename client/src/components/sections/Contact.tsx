@@ -18,7 +18,7 @@ const contactInfo = [
   {
     icon: <Phone className="text-xl" />,
     title: 'Call Us',
-    value: '(555) 123-4567'
+    value: '302-505-2855'
   }
 ];
 
