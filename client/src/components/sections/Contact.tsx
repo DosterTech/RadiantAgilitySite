@@ -8,7 +8,7 @@ const contactInfo = [
   {
     icon: <MapPin className="text-xl" />,
     title: 'Office Location',
-    value: '123 Innovation Drive, San Francisco, CA 94103'
+    value: '8 The Green, suite A, Dover DE 19901'
   },
   {
     icon: <Mail className="text-xl" />,
