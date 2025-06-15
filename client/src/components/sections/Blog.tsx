@@ -8,15 +8,248 @@ import { Badge } from '@/components/ui/badge';
 export const blogPosts = [
   {
     id: '1',
+    title: 'What Is SAFe® Agile and Why Are So Many Teams Switching?',
+    date: 'June 15, 2025',
+    author: 'Radiant Agility Team',
+    readTime: '8 min read',
+    category: 'SAFe Training',
+    tags: ['SAFe', 'Agile', 'Scaled Agile', 'Enterprise'],
+    excerpt: 'As organizations scale, traditional Scrum often falls short. Discover what SAFe® — the Scaled Agile Framework — is and why so many enterprises are adopting it.',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+    featured: true,
+    content: `
+      <p>As organizations scale, traditional Scrum often falls short. That's where SAFe® — the Scaled Agile Framework — comes in. But what is SAFe exactly, and why are so many enterprises adopting it?</p>
+      
+      <h2>What Is SAFe and How It Works</h2>
+      <p>SAFe (Scaled Agile Framework) is a comprehensive framework that applies Lean-Agile principles at enterprise scale. Unlike traditional Scrum, which works well for single teams, SAFe coordinates multiple Agile teams working together on large, complex solutions.</p>
+      <p>At its core, SAFe provides:</p>
+      <ul>
+        <li><strong>Alignment</strong>: Ensures all teams work toward common business objectives</li>
+        <li><strong>Built-in Quality</strong>: Integrates quality practices throughout the development process</li>
+        <li><strong>Transparency</strong>: Creates visibility into progress and impediments across the organization</li>
+        <li><strong>Program Execution</strong>: Delivers value through synchronized Program Increments (PIs)</li>
+      </ul>
+
+      <h2>The 4 SAFe Configurations Explained</h2>
+      <p>SAFe offers four configurations to meet different organizational needs:</p>
+      <ol>
+        <li><strong>Essential SAFe</strong>: The basic building block with one Agile Release Train (ART)</li>
+        <li><strong>Large Solution SAFe</strong>: For building large, complex solutions requiring multiple ARTs</li>
+        <li><strong>Portfolio SAFe</strong>: Adds portfolio-level governance and strategy alignment</li>
+        <li><strong>Full SAFe</strong>: The most comprehensive configuration including all SAFe competencies</li>
+      </ol>
+
+      <h2>SAFe vs. Scrum: Key Differences</h2>
+      <p>While Scrum excels for individual teams, SAFe addresses enterprise-scale challenges:</p>
+      <ul>
+        <li><strong>Scale</strong>: Scrum works for 5-9 people; SAFe coordinates 50-125+ people per ART</li>
+        <li><strong>Planning</strong>: Scrum uses Sprint Planning; SAFe adds Program Increment Planning</li>
+        <li><strong>Roles</strong>: SAFe introduces new roles like Release Train Engineer and Product Manager</li>
+        <li><strong>Cadence</strong>: SAFe synchronizes multiple teams through shared PI cadences</li>
+      </ul>
+
+      <h2>Who Should Consider SAFe: Roles & Teams</h2>
+      <p>SAFe is ideal for organizations with:</p>
+      <ul>
+        <li>50+ people working on a single solution</li>
+        <li>Multiple teams that need coordination</li>
+        <li>Complex regulatory or compliance requirements</li>
+        <li>Need for predictable delivery at scale</li>
+        <li>Desire to maintain entrepreneurial flexibility while scaling</li>
+      </ul>
+
+      <h2>Real-World Use Cases from Leading Companies</h2>
+      <p>Leading enterprises across industries have successfully implemented SAFe:</p>
+      <ul>
+        <li><strong>Financial Services</strong>: Faster product launches while maintaining compliance</li>
+        <li><strong>Healthcare</strong>: Coordinated development of complex medical devices</li>
+        <li><strong>Manufacturing</strong>: Integrated hardware-software product development</li>
+        <li><strong>Technology</strong>: Scaled product development across global teams</li>
+      </ul>
+      
+      <p>Ready to master SAFe? Our expert-led training courses provide hands-on experience with real-world scenarios, helping your team successfully implement SAFe practices from day one.</p>
+      
+      <div style="background: #f8f9fa; padding: 24px; border-radius: 8px; margin: 24px 0; border-left: 4px solid #7C3AED;">
+        <h3 style="color: #7C3AED; margin-bottom: 12px;">Ready to Master SAFe?</h3>
+        <p style="margin-bottom: 16px;">Get your team certified with our comprehensive SAFe training courses led by expert instructors.</p>
+        <a href="/safe-training" style="display: inline-block; background: #7C3AED; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500; margin-right: 12px;">Explore SAFe Courses</a>
+        <a href="/contact" style="display: inline-block; background: #FBBF24; color: #1f2937; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500;">Request Team Consultation</a>
+      </div>
+    `
+  },
+  {
+    id: '2',
+    title: '7 Mistakes to Avoid When Implementing SAFe® in Your Organization',
+    date: 'June 12, 2025',
+    author: 'Radiant Agility Team',
+    readTime: '7 min read',
+    category: 'SAFe Training',
+    tags: ['SAFe Implementation', 'Agile Transformation', 'Best Practices'],
+    excerpt: 'SAFe adoption can drive big wins — but only if implemented with care. Here are the top mistakes we\'ve seen companies make, and how you can avoid them.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+    featured: false,
+    content: `
+      <p>SAFe adoption can drive big wins — but only if implemented with care. Here are the top mistakes we've seen companies make, and how you can avoid them.</p>
+
+      <h2>Mistake #1: No Executive Buy-In</h2>
+      <p>The biggest implementation killer is lack of executive support. Without leadership commitment, SAFe transformations stall at the first sign of resistance.</p>
+      <p><strong>How to avoid:</strong></p>
+      <ul>
+        <li>Secure executive sponsorship before beginning</li>
+        <li>Clearly communicate the business case and expected ROI</li>
+        <li>Ensure leaders understand their role in the transformation</li>
+        <li>Create accountability measures for leadership participation</li>
+      </ul>
+
+      <h2>Mistake #2: Treating SAFe Like a One-Time Event</h2>
+      <p>Many organizations treat SAFe implementation as a project with a defined end date. In reality, SAFe is an ongoing journey of continuous improvement.</p>
+      <p><strong>How to avoid:</strong></p>
+      <ul>
+        <li>Plan for multiple Program Increments of gradual improvement</li>
+        <li>Establish regular Inspect & Adapt workshops</li>
+        <li>Create communities of practice for ongoing learning</li>
+        <li>Budget for continuous coaching and training</li>
+      </ul>
+
+      <h2>Mistake #3: Skipping the ART Launch</h2>
+      <p>Some organizations try to gradually evolve into SAFe rather than properly launching Agile Release Trains (ARTs). This leads to half-measures and confusion.</p>
+      <p><strong>How to avoid:</strong></p>
+      <ul>
+        <li>Conduct proper ART identification workshops</li>
+        <li>Hold comprehensive PI Planning events from the start</li>
+        <li>Train all ART members on their roles and responsibilities</li>
+        <li>Establish clear ART boundaries and value streams</li>
+      </ul>
+
+      <h2>Mistake #4: Ignoring Metrics</h2>
+      <p>Without proper measurement, organizations can't track progress or identify areas for improvement in their SAFe implementation.</p>
+      <p><strong>How to avoid:</strong></p>
+      <ul>
+        <li>Establish baseline metrics before transformation</li>
+        <li>Track leading indicators (team health, velocity trends)</li>
+        <li>Monitor lagging indicators (customer satisfaction, time-to-market)</li>
+        <li>Use data to drive Inspect & Adapt decisions</li>
+      </ul>
+
+      <h2>How to Set Up for Success (and Sustain It)</h2>
+      <p>Successful SAFe implementations share common success factors:</p>
+      <ol>
+        <li><strong>Start with Why</strong>: Clearly articulate the business case for change</li>
+        <li><strong>Invest in Training</strong>: Ensure everyone understands their role in SAFe</li>
+        <li><strong>Focus on Value Streams</strong>: Organize around delivering customer value</li>
+        <li><strong>Embrace Servant Leadership</strong>: Leaders should remove impediments, not micromanage</li>
+        <li><strong>Celebrate Wins</strong>: Recognize progress and build momentum</li>
+      </ol>
+
+      <p>Remember: SAFe transformation is a journey, not a destination. The organizations that succeed are those that commit to continuous learning and improvement.</p>
+      
+      <div style="background: #f8f9fa; padding: 24px; border-radius: 8px; margin: 24px 0; border-left: 4px solid #7C3AED;">
+        <h3 style="color: #7C3AED; margin-bottom: 12px;">Need Guidance with Your SAFe Transformation?</h3>
+        <p style="margin-bottom: 16px;">Our experienced Agile coaches help organizations avoid common pitfalls and accelerate their SAFe adoption journey.</p>
+        <a href="/contact" style="display: inline-block; background: #7C3AED; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500;">Book a Consultation with Our Agile Coaches</a>
+      </div>
+    `
+  },
+  {
+    id: '3',
+    title: 'SAFe Roles Demystified: RTE, Product Owner, and More',
+    date: 'June 10, 2025',
+    author: 'Radiant Agility Team',
+    readTime: '6 min read',
+    category: 'SAFe Training',
+    tags: ['SAFe Roles', 'RTE', 'Product Owner', 'Scrum Master'],
+    excerpt: 'SAFe introduces new roles to align strategy with execution. Whether you\'re a Product Owner, Scrum Master, or Agile Coach, understanding each role is critical for success.',
+    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80',
+    featured: false,
+    content: `
+      <p>SAFe introduces new roles to align strategy with execution. Whether you're a Product Owner, Scrum Master, or Agile Coach, understanding each role is critical for success.</p>
+
+      <h2>Key Roles in SAFe: RTE, POPM, Scrum Master</h2>
+      
+      <h3>Release Train Engineer (RTE)</h3>
+      <p>The RTE is the chief Scrum Master for the Agile Release Train, responsible for facilitating ART events and processes.</p>
+      <p><strong>Key responsibilities:</strong></p>
+      <ul>
+        <li>Facilitate PI Planning, System Demos, and Inspect & Adapt workshops</li>
+        <li>Help manage risks, impediments, and dependencies</li>
+        <li>Coach leaders, teams, and Scrum Masters in Lean-Agile practices</li>
+        <li>Foster Communities of Practice</li>
+      </ul>
+
+      <h3>Product Owner/Product Manager (POPM)</h3>
+      <p>POPMs work at different levels to define and prioritize features and stories that deliver customer value.</p>
+      <p><strong>Product Owner responsibilities:</strong></p>
+      <ul>
+        <li>Define and accept user stories for the team</li>
+        <li>Participate in PI Planning and prioritization</li>
+        <li>Work closely with customers and stakeholders</li>
+        <li>Support iteration execution and testing</li>
+      </ul>
+      <p><strong>Product Manager responsibilities:</strong></p>
+      <ul>
+        <li>Define features and capabilities for the ART</li>
+        <li>Understand market and customer needs</li>
+        <li>Work with System Architect on solution intent</li>
+        <li>Participate in pre-PI and post-PI planning</li>
+      </ul>
+
+      <h3>Scrum Master</h3>
+      <p>In SAFe, Scrum Masters coach teams and help them deliver value through effective Agile practices.</p>
+      <p><strong>Key responsibilities:</strong></p>
+      <ul>
+        <li>Facilitate team events (Daily Standups, Sprint Planning, Retrospectives)</li>
+        <li>Help teams improve their practices and performance</li>
+        <li>Remove impediments and escalate when needed</li>
+        <li>Support the RTE in ART-level activities</li>
+      </ul>
+
+      <h2>How These Roles Work Across Agile Release Trains</h2>
+      <p>SAFe roles are designed to work together seamlessly across the ART:</p>
+      <ul>
+        <li><strong>Vertical alignment</strong>: Business Owners, Product Managers, and Product Owners ensure business value flows down</li>
+        <li><strong>Horizontal coordination</strong>: RTEs and Scrum Masters facilitate cross-team collaboration</li>
+        <li><strong>Continuous flow</strong>: System Teams and DevOps engineers enable continuous delivery</li>
+      </ul>
+
+      <h2>Role Misunderstandings That Hurt Adoption</h2>
+      <p>Common misconceptions that derail SAFe implementations:</p>
+      <ol>
+        <li><strong>"RTEs are just project managers"</strong>: RTEs are servant leaders, not command-and-control managers</li>
+        <li><strong>"Product Owners can skip training"</strong>: SAFe Product Owners need specific training on PI Planning and ART coordination</li>
+        <li><strong>"We don't need System Architects"</strong>: Complex solutions require intentional architecture and design</li>
+        <li><strong>"Scrum Masters can figure it out"</strong>: SAFe Scrum Masters need additional skills for ART-level facilitation</li>
+      </ol>
+
+      <h2>Tips for Training and Certification</h2>
+      <p>To maximize success in SAFe roles:</p>
+      <ul>
+        <li><strong>Get certified</strong>: SAFe certifications provide role-specific training and credibility</li>
+        <li><strong>Practice together</strong>: Train entire ARTs together when possible</li>
+        <li><strong>Start with foundations</strong>: Ensure everyone understands basic SAFe principles first</li>
+        <li><strong>Continuous learning</strong>: SAFe evolves – stay current with new practices and updates</li>
+        <li><strong>Learn by doing</strong>: Apply concepts immediately in your work environment</li>
+      </ul>
+
+      <p>Success in SAFe comes from understanding not just your own role, but how all roles work together to deliver value. When everyone understands their part in the larger system, magic happens.</p>
+      
+      <div style="background: #f8f9fa; padding: 24px; border-radius: 8px; margin: 24px 0; border-left: 4px solid #7C3AED;">
+        <h3 style="color: #7C3AED; margin-bottom: 12px;">Train Your Team for SAFe Success</h3>
+        <p style="margin-bottom: 16px;">We train Product Owners, Scrum Masters, and RTEs to succeed in SAFe environments with role-specific certification tracks.</p>
+        <a href="/safe-training" style="display: inline-block; background: #7C3AED; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500;">View Certification Tracks</a>
+      </div>
+    `
+  },
+  {
+    id: '4',
     title: 'The Future of Marketing Automation: AI and Beyond',
-    date: 'July 25, 2023',
-    author: 'Sarah Johnson',
+    date: 'May 25, 2025',
+    author: 'Tech Team',
     readTime: '8 min read',
     category: 'Marketing',
     tags: ['AI', 'Automation', 'Marketing'],
     excerpt: 'Discover how artificial intelligence is revolutionizing marketing automation and how businesses can leverage these technologies to stay ahead of the competition.',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    featured: true,
+    featured: false,
     content: `
       <p>The marketing landscape is evolving rapidly, with AI-powered automation at the forefront of this transformation. Today, businesses of all sizes can leverage sophisticated marketing automation tools that were once only available to enterprise-level companies.</p>
       <h2>How AI is Transforming Marketing Automation</h2>

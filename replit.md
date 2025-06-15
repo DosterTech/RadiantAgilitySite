@@ -96,6 +96,8 @@ The application uses three main database tables:
 Changelog:
 - June 15, 2025. Initial setup
 - June 15, 2025. Removed "Lead Generation & Growth" service section and replaced with SAFe Certification Courses section featuring corporate training offerings
+- June 15, 2025. Added three SEO-optimized SAFe blog posts: "What Is SAFe® Agile", "7 Mistakes to Avoid When Implementing SAFe®", and "SAFe Roles Demystified" with conversion-focused CTAs
+- June 15, 2025. Enhanced navigation with improved dropdown functionality and scroll-to-top behavior
 ```
 
 ## User Preferences
