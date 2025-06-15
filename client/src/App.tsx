@@ -15,6 +15,7 @@ import BlogPost from "./pages/BlogPost";
 import AdminInquiries from "./pages/AdminInquiries";
 import AdminInquiryDetail from "./pages/AdminInquiryDetail";
 import SafeTraining from "./pages/SafeTraining";
+import SafeTrainingDetail from "./pages/SafeTrainingDetail";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/safe-training" component={SafeTraining} />
+      <Route path="/safe-training/:id" component={SafeTrainingDetail} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />

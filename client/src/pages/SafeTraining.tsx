@@ -240,8 +240,16 @@ const SafeTraining = () => {
                       </ul>
                     </div>
 
-                    {/* Register Button */}
-                    <div className="pt-4 border-t">
+                    {/* Action Buttons */}
+                    <div className="pt-4 border-t space-y-3">
+                      <Link href={`/safe-training/${course.id}`}>
+                        <Button 
+                          variant="outline" 
+                          className="w-full border-gray-300 hover:bg-gray-50"
+                        >
+                          Learn More
+                        </Button>
+                      </Link>
                       <Button 
                         className="w-full gradient-bg hover:opacity-90 text-white"
                         onClick={() => window.open('https://eventbrite.com', '_blank')}
