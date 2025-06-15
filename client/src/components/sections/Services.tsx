@@ -119,39 +119,6 @@ const serviceItems = [
       }
     ]
   },
-  {
-    id: 'safe-certification',
-    title: 'SAFe Certification Courses',
-    description: 'Live instructor-led training with certification exams and hands-on practice to master the Scaled Agile Framework and advance your career.',
-    icon: <RiTeamLine className="text-2xl" />,
-    features: [
-      'Live instructor-led training sessions',
-      'Certification exams and hands-on practice',
-      'Expert-level SAFe framework mastery',
-    ],
-    detailedFeatures: [
-      {
-        icon: <RiTeamLine />,
-        title: 'Leading SAFe',
-        description: 'Learn to lead a Lean-Agile transformation by leveraging the Scaled Agile Framework and its underlying principles.'
-      },
-      {
-        icon: <RiTodoLine />,
-        title: 'SAFe DevOps',
-        description: 'Master the technical practices and cultural changes needed to implement DevOps in a SAFe environment.'
-      },
-      {
-        icon: <RiUserVoiceLine />,
-        title: 'SAFe POPM',
-        description: 'Develop skills as a Product Owner/Product Manager to effectively manage the product backlog in SAFe.'
-      },
-      {
-        icon: <RiDashboard3Line />,
-        title: 'SAFe Scrum Master',
-        description: 'Learn to facilitate Agile teams and programs while coaching others in Scrum and SAFe practices.'
-      }
-    ]
-  },
 ];
 
 const Services = () => {
