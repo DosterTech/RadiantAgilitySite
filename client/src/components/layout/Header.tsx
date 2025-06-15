@@ -77,10 +77,12 @@ const Header = () => {
             </Link>
             
             {/* Solutions Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setSolutionsDropdownOpen(true)}
+              onMouseLeave={() => setSolutionsDropdownOpen(false)}
+            >
               <button
-                onMouseEnter={() => setSolutionsDropdownOpen(true)}
-                onMouseLeave={() => setSolutionsDropdownOpen(false)}
                 className="flex items-center font-medium text-gray-500 hover:text-primary transition-colors"
               >
                 Solutions
@@ -88,16 +90,12 @@ const Header = () => {
               </button>
               
               {solutionsDropdownOpen && (
-                <div
-                  onMouseEnter={() => setSolutionsDropdownOpen(true)}
-                  onMouseLeave={() => setSolutionsDropdownOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border py-2 z-50"
-                >
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border py-2 z-50">
                   {solutionsItems.map((item, index) => (
                     <Link
                       key={`${item.href}-${index}`}
                       href={item.href}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -107,10 +105,12 @@ const Header = () => {
             </div>
 
             {/* SAFe Training Dropdown */}
-            <div className="relative">
+            <div 
+              className="relative"
+              onMouseEnter={() => setSafeTrainingDropdownOpen(true)}
+              onMouseLeave={() => setSafeTrainingDropdownOpen(false)}
+            >
               <button
-                onMouseEnter={() => setSafeTrainingDropdownOpen(true)}
-                onMouseLeave={() => setSafeTrainingDropdownOpen(false)}
                 className="flex items-center font-medium text-gray-500 hover:text-primary transition-colors"
               >
                 SAFe Training
@@ -118,16 +118,12 @@ const Header = () => {
               </button>
               
               {safeTrainingDropdownOpen && (
-                <div
-                  onMouseEnter={() => setSafeTrainingDropdownOpen(true)}
-                  onMouseLeave={() => setSafeTrainingDropdownOpen(false)}
-                  className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border py-2 z-50"
-                >
+                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border py-2 z-50">
                   {safeTrainingItems.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
+                      className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>
