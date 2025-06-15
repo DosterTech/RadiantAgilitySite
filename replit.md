@@ -95,6 +95,7 @@ The application uses three main database tables:
 ```
 Changelog:
 - June 15, 2025. Initial setup
+- June 15, 2025. Removed "Lead Generation & Growth" service section and replaced with SAFe Certification Courses section featuring corporate training offerings
 ```
 
 ## User Preferences

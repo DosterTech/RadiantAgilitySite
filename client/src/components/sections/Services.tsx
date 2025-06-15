@@ -52,36 +52,36 @@ const serviceItems = [
     ]
   },
   {
-    id: 'lead',
-    title: 'Lead Generation & Growth',
-    description: 'Attract and convert more qualified leads through data-driven strategies tailored to your business goals, focusing on sustainable growth and measurable ROI.',
-    icon: <RiLineChartLine className="text-2xl" />,
+    id: 'safe-certification',
+    title: 'SAFe Certification Courses',
+    description: 'Get your team certified in SAFe® with expert-led instruction, interactive simulations, and post-training support.',
+    icon: <RiTodoLine className="text-2xl" />,
     features: [
-      'SEO optimization and content strategy',
-      'Paid advertising campaigns (Google, Social)',
-      'Social media marketing and management',
-      'Lead nurturing and conversion optimization',
+      'Leading SAFe (Certified SAFe Agilist)',
+      'SAFe DevOps (Certified SAFe DevOps Practitioner)',
+      'SAFe POPM (Product Owner/Product Manager)',
+      'SAFe Scrum Master (Certified SAFe Scrum Master)',
     ],
     detailedFeatures: [
       {
-        icon: <RiSearchEyeLine />,
-        title: 'Comprehensive SEO Strategy',
-        description: 'Increase organic traffic with technical optimization, content strategy, and link building programs tailored to your industry and audience.'
+        icon: <RiTeamLine />,
+        title: 'Expert-Led Training',
+        description: 'Learn from certified SAFe Program Consultants with real-world implementation experience across multiple industries.'
       },
       {
-        icon: <RiAdvertisementLine />,
-        title: 'Targeted Paid Campaigns',
-        description: 'Drive qualified traffic with meticulously crafted paid advertising campaigns across search engines and social platforms.'
+        icon: <RiTodoLine />,
+        title: 'Interactive Simulations',
+        description: 'Practice SAFe concepts through hands-on exercises and real-world scenarios that reinforce learning outcomes.'
       },
       {
-        icon: <RiUserVoiceLine />,
-        title: 'Content Marketing & Distribution',
-        description: 'Develop valuable content that addresses customer pain points and positions your brand as an authority in your industry.'
+        icon: <RiDatabase2Line />,
+        title: 'Post-Training Support',
+        description: 'Receive ongoing guidance and resources to successfully implement SAFe practices in your organization.'
       },
       {
         icon: <RiLineChartLine />,
-        title: 'Conversion Rate Optimization',
-        description: 'Implement A/B testing and analytics-based improvements to maximize your conversion rates and reduce acquisition costs.'
+        title: 'Corporate Training Programs',
+        description: 'Customized training programs designed for teams and organizations ready to scale Agile practices enterprise-wide.'
       }
     ]
   },
