@@ -128,6 +128,7 @@ const Header = () => {
                     <Link
                       key={item.href}
                       href={item.href}
+                      onClick={handleNavClick}
                       className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                     >
                       {item.label}
@@ -196,7 +197,7 @@ const Header = () => {
                   <Link
                     key={`mobile-${item.href}-${index}`}
                     href={item.href}
-                    onClick={closeMobileMenu}
+                    onClick={() => { closeMobileMenu(); handleNavClick(); }}
                     className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
                   >
                     {item.label}
@@ -213,7 +214,7 @@ const Header = () => {
                   <Link
                     key={`mobile-${item.href}`}
                     href={item.href}
-                    onClick={closeMobileMenu}
+                    onClick={() => { closeMobileMenu(); handleNavClick(); }}
                     className="block px-4 py-2 text-gray-600 hover:bg-gray-100 hover:text-primary rounded-md transition-colors"
                   >
                     {item.label}
