@@ -16,6 +16,7 @@ import AdminInquiries from "./pages/AdminInquiries";
 import AdminInquiryDetail from "./pages/AdminInquiryDetail";
 import SafeTraining from "./pages/SafeTraining";
 import SafeTrainingDetail from "./pages/SafeTrainingDetail";
+import CareerChange from "./pages/CareerChange";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/blog/:id" component={BlogPost} />
       <Route path="/safe-training" component={SafeTraining} />
       <Route path="/safe-training/:id" component={SafeTrainingDetail} />
+      <Route path="/career-change" component={CareerChange} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />
