@@ -20,9 +20,9 @@ const Header = () => {
   }, []);
 
   const solutionsItems = [
-    { href: '/services#digital-growth-app', label: 'App Development' },
-    { href: '/services#digital-growth-marketing', label: 'Marketing Automation' },
-    { href: '/services#agility', label: 'Agile Consulting' },
+    { href: '/services', label: 'App Development' },
+    { href: '/services', label: 'Marketing Automation' },
+    { href: '/services', label: 'Agile Consulting' },
     { href: '/case-studies', label: 'Example Scenarios' },
   ];
 
@@ -46,6 +46,10 @@ const Header = () => {
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+  };
+
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -95,6 +99,7 @@ const Header = () => {
                     <Link
                       key={`${item.href}-${index}`}
                       href={item.href}
+                      onClick={handleNavClick}
                       className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
                     >
                       {item.label}

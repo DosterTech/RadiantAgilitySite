@@ -52,7 +52,7 @@ const serviceItems = [
     ]
   },
   {
-    id: 'safe-certification',
+    id: 'safe-training',
     title: 'SAFe Certification Courses',
     description: 'Get your team certified in SAFe® with expert-led instruction, interactive simulations, and post-training support.',
     icon: <RiTodoLine className="text-2xl" />,
@@ -239,7 +239,7 @@ const Services = () => {
               </div>
               
               <div className="mt-10 pt-6 border-t border-gray-100 text-right">
-                {service.id === 'safe-certification' ? (
+                {service.id === 'safe-training' ? (
                   <Link href="/safe-training">
                     <Button className="gradient-bg hover:opacity-90 text-white">
                       View Courses
