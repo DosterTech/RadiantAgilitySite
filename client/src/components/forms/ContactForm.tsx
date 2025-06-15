@@ -33,18 +33,11 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
-  company: z.string().optional(),
-  phone: z.string().optional(),
-  service: z.string({
-    required_error: "Please select a service you're interested in.",
+  subject: z.string().min(3, {
+    message: "Subject must be at least 3 characters.",
   }),
   message: z.string().min(10, {
     message: "Message must be at least 10 characters.",
-  }),
-  consent: z.boolean({
-    required_error: "You must agree to our terms to proceed.",
-  }).refine(val => val === true, {
-    message: "You must agree to our terms to proceed.",
   }),
 });
 
@@ -59,11 +52,8 @@ const ContactForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      company: "",
-      phone: "",
-      service: "",
+      subject: "",
       message: "",
-      consent: false,
     },
   });
 
@@ -71,7 +61,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      const response = await apiRequest('POST', '/api/contacts', data);
+      const response = await apiRequest('POST', '/api/inquiries', data);
       const result = await response.json();
       
       toast({
@@ -130,52 +120,13 @@ const ContactForm = () => {
           
           <FormField
             control={form.control}
-            name="company"
+            name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Company Name</FormLabel>
+                <FormLabel>Subject</FormLabel>
                 <FormControl>
-                  <Input {...field} />
+                  <Input {...field} placeholder="How can we help you?" />
                 </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Phone Number</FormLabel>
-                <FormControl>
-                  <Input type="tel" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="service"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Service You're Interested In</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="marketing">Marketing Automation</SelectItem>
-                    <SelectItem value="app">Custom App Development</SelectItem>
-                    <SelectItem value="lead">Lead Generation & Growth</SelectItem>
-                    <SelectItem value="agility">Agility Consulting & Training</SelectItem>
-                    <SelectItem value="other">Other/Not Sure</SelectItem>
-                  </SelectContent>
-                </Select>
                 <FormMessage />
               </FormItem>
             )}
@@ -188,30 +139,9 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Your Message</FormLabel>
                 <FormControl>
-                  <Textarea rows={4} {...field} />
+                  <Textarea rows={4} {...field} placeholder="Tell us about your project or question..." />
                 </FormControl>
                 <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="consent"
-            render={({ field }) => (
-              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md">
-                <FormControl>
-                  <Checkbox
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-                </FormControl>
-                <div className="space-y-1 leading-none">
-                  <FormLabel>
-                    I agree to receive communications from Radiant Agility Technology. I understand I can unsubscribe at any time.
-                  </FormLabel>
-                  <FormMessage />
-                </div>
               </FormItem>
             )}
           />

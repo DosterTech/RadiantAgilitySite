@@ -12,6 +12,8 @@ import CaseStudies from "./pages/CaseStudies";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import AdminInquiries from "./pages/AdminInquiries";
+import AdminInquiryDetail from "./pages/AdminInquiryDetail";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,6 +26,8 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:id" component={BlogPost} />
+      <Route path="/admin/inquiries" component={AdminInquiries} />
+      <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />
     </Switch>
   );

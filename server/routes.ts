@@ -1,9 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertLeadSchema, insertContactSchema, insertChatMessageSchema } from "@shared/schema";
+import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from 'zod-validation-error';
+import { sendInquiryNotification } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes with /api prefix
@@ -188,6 +189,113 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ 
         success: false,
         message: "Failed to retrieve chat messages. Please try again."
+      });
+    }
+  });
+
+  // Inquiry endpoints for Contact Us feature
+  app.post("/api/inquiries", async (req, res) => {
+    try {
+      const validatedInquiry = insertInquirySchema.parse(req.body);
+      const inquiry = await storage.createInquiry(validatedInquiry);
+      
+      // Send email notification
+      await sendInquiryNotification(inquiry);
+      
+      res.status(201).json({
+        success: true,
+        message: "Thank you for reaching out! We'll get back to you shortly.",
+        data: inquiry
+      });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        const validationError = fromZodError(error);
+        res.status(400).json({ 
+          success: false,
+          message: "Validation error", 
+          errors: validationError.details 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false,
+          message: "Failed to submit inquiry. Please try again."
+        });
+      }
+    }
+  });
+
+  // Admin dashboard endpoints
+  app.get("/api/admin/inquiries", async (req, res) => {
+    try {
+      const sortOrder = req.query.sort as 'newest' | 'oldest' || 'newest';
+      const inquiries = await storage.getInquiries(sortOrder);
+      
+      res.status(200).json({
+        success: true,
+        data: inquiries
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false,
+        message: "Failed to retrieve inquiries."
+      });
+    }
+  });
+
+  app.get("/api/admin/inquiries/:id", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const inquiry = await storage.getInquiry(id);
+      
+      if (!inquiry) {
+        return res.status(404).json({
+          success: false,
+          message: "Inquiry not found"
+        });
+      }
+      
+      res.status(200).json({
+        success: true,
+        data: inquiry
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false,
+        message: "Failed to retrieve inquiry."
+      });
+    }
+  });
+
+  app.patch("/api/admin/inquiries/:id/read", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      await storage.markInquiryAsRead(id);
+      
+      res.status(200).json({
+        success: true,
+        message: "Inquiry marked as read"
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false,
+        message: "Failed to mark inquiry as read."
+      });
+    }
+  });
+
+  app.patch("/api/admin/inquiries/:id/unread", async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      await storage.markInquiryAsUnread(id);
+      
+      res.status(200).json({
+        success: true,
+        message: "Inquiry marked as unread"
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        success: false,
+        message: "Failed to mark inquiry as unread."
       });
     }
   });
