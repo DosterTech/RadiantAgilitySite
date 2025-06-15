@@ -19,70 +19,35 @@ import {
 
 const serviceItems = [
   {
-    id: 'marketing',
-    title: 'Marketing Automation',
-    description: 'Streamline your marketing efforts and nurture leads automatically with our comprehensive marketing automation solutions, designed to save you time while boosting conversion rates.',
+    id: 'digital-growth',
+    title: 'Digital Growth Solutions',
+    description: 'Comprehensive digital transformation combining marketing automation, custom app development, and funnel optimization to accelerate your business growth.',
     icon: <RiRobot2Line className="text-2xl" />,
     features: [
-      'Email campaign automation and management',
-      'CRM setup, integration, and optimization',
-      'Customer journey and funnel optimization',
-      'Marketing analytics and performance tracking',
+      'CRM + Email Campaign Integration',
+      'Custom App + Platform Development',
+      'Funnel + Marketing Automation',
     ],
     detailedFeatures: [
       {
         icon: <RiMailLine />,
-        title: 'Email Marketing Automation',
-        description: 'Develop sophisticated drip campaigns and personalized customer journeys that automatically nurture leads and customers through the sales pipeline.'
+        title: 'Marketing Automation',
+        description: 'Develop sophisticated drip campaigns and personalized customer journeys that automatically nurture leads through the sales pipeline.'
       },
       {
-        icon: <RiUserVoiceLine />,
-        title: 'CRM Integration & Management',
-        description: 'Seamlessly integrate your CRM with marketing tools to create a unified view of customer interactions and behaviors.'
-      },
-      {
-        icon: <RiDeviceLine />,
-        title: 'Multi-channel Automation',
-        description: 'Create consistent customer experiences across email, SMS, social media, and web channels through integrated automation workflows.'
+        icon: <RiCodeSSlashLine />,
+        title: 'Custom Development',
+        description: 'Build applications that work seamlessly across web, mobile, and desktop platforms with custom APIs and integrations.'
       },
       {
         icon: <RiDatabase2Line />,
-        title: 'Analytics & Reporting',
-        description: 'Track campaign performance with custom dashboards and reports that help you optimize your marketing ROI.'
-      }
-    ]
-  },
-  {
-    id: 'app',
-    title: 'Custom App Development',
-    description: 'Create powerful, tailored applications that solve your unique business challenges and streamline operations, from internal tools to customer-facing platforms.',
-    icon: <RiCodeSSlashLine className="text-2xl" />,
-    features: [
-      'Business workflow and productivity applications',
-      'E-commerce platforms and integrations',
-      'Business automation tools and dashboards',
-      'Mobile app development for iOS and Android',
-    ],
-    detailedFeatures: [
-      {
-        icon: <RiTodoLine />,
-        title: 'Business Process Applications',
-        description: 'Digitize and optimize your business workflows with custom applications that automate repetitive tasks and streamline operations.'
-      },
-      {
-        icon: <RiDeviceLine />,
-        title: 'Cross-platform Development',
-        description: 'Build applications that work seamlessly across web, mobile, and desktop platforms, ensuring a consistent experience for all users.'
-      },
-      {
-        icon: <RiDatabase2Line />,
-        title: 'Integration Solutions',
-        description: 'Connect your existing systems and third-party services with custom APIs and middleware that ensure data flows smoothly across your tech stack.'
+        title: 'CRM Integration',
+        description: 'Seamlessly integrate your CRM with marketing tools and custom applications to create a unified business ecosystem.'
       },
       {
         icon: <RiLineChartLine />,
-        title: 'Performance Optimization',
-        description: 'Enhance user experience with applications designed for speed, responsiveness, and reliability even under heavy loads.'
+        title: 'Growth Analytics',
+        description: 'Track performance across all digital touchpoints with custom dashboards that help optimize your growth strategies.'
       }
     ]
   },
@@ -151,6 +116,39 @@ const serviceItems = [
         icon: <RiLineChartLine />,
         title: 'Metrics & Performance',
         description: 'Implement the right metrics to track your Agile transformation and continuously improve team performance and business outcomes.'
+      }
+    ]
+  },
+  {
+    id: 'safe-certification',
+    title: 'SAFe Certification Courses',
+    description: 'Live instructor-led training with certification exams and hands-on practice to master the Scaled Agile Framework and advance your career.',
+    icon: <RiTeamLine className="text-2xl" />,
+    features: [
+      'Live instructor-led training sessions',
+      'Certification exams and hands-on practice',
+      'Expert-level SAFe framework mastery',
+    ],
+    detailedFeatures: [
+      {
+        icon: <RiTeamLine />,
+        title: 'Leading SAFe',
+        description: 'Learn to lead a Lean-Agile transformation by leveraging the Scaled Agile Framework and its underlying principles.'
+      },
+      {
+        icon: <RiTodoLine />,
+        title: 'SAFe DevOps',
+        description: 'Master the technical practices and cultural changes needed to implement DevOps in a SAFe environment.'
+      },
+      {
+        icon: <RiUserVoiceLine />,
+        title: 'SAFe POPM',
+        description: 'Develop skills as a Product Owner/Product Manager to effectively manage the product backlog in SAFe.'
+      },
+      {
+        icon: <RiDashboard3Line />,
+        title: 'SAFe Scrum Master',
+        description: 'Learn to facilitate Agile teams and programs while coaching others in Scrum and SAFe practices.'
       }
     ]
   },
@@ -241,11 +239,19 @@ const Services = () => {
               </div>
               
               <div className="mt-10 pt-6 border-t border-gray-100 text-right">
-                <Link href="/contact">
-                  <Button className="gradient-bg hover:opacity-90 text-white">
-                    Request a Consultation
-                  </Button>
-                </Link>
+                {service.id === 'safe-certification' ? (
+                  <Link href="/safe-training">
+                    <Button className="gradient-bg hover:opacity-90 text-white">
+                      View Courses
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/contact">
+                    <Button className="gradient-bg hover:opacity-90 text-white">
+                      Request a Consultation
+                    </Button>
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}
