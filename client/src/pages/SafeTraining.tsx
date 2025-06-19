@@ -36,6 +36,10 @@ const courses = [
     description: 'Learn the technical practices and cultural changes needed to implement DevOps in a SAFe environment. Master Continuous Delivery Pipeline and DevOps practices that enable rapid value delivery.',
     duration: '2 days (16 hrs)',
     level: 'Technical',
+    originalPrice: '$950',
+    salePrice: '$750',
+    savings: '$200',
+    saleLabel: 'Summer Sale - $200 Off!',
     features: [
       'Map the current value stream and identify bottlenecks',
       'Design and implement a Continuous Delivery Pipeline',
@@ -59,6 +63,10 @@ const courses = [
     description: 'Develop the skills needed to guide the delivery of value in a Lean enterprise by becoming a SAFe Product Owner/Product Manager. Learn to apply Lean-Agile mindset and principles.',
     duration: '2 days (16 hrs)',
     level: 'Product',
+    originalPrice: '$995',
+    salePrice: '$795',
+    savings: '$200',
+    saleLabel: 'Limited-Time Discount',
     features: [
       'Apply Design Thinking for customer-centricity',
       'Build and prioritize the Team and Program Backlogs',
@@ -213,6 +221,26 @@ const SafeTraining = () => {
                         <span>Certification included</span>
                       </div>
                     </div>
+
+                    {/* Pricing Section */}
+                    {course.salePrice && (
+                      <div className="bg-gradient-to-r from-red-50 to-orange-50 p-4 rounded-lg border border-red-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <Badge className="bg-red-500 text-white font-semibold">
+                            {course.saleLabel}
+                          </Badge>
+                          <div className="text-right">
+                            <div className="text-sm text-gray-400 line-through">{course.originalPrice}</div>
+                            <div className="text-2xl font-bold text-red-600">{course.salePrice}</div>
+                          </div>
+                        </div>
+                        <div className="text-center">
+                          <Badge className="bg-green-100 text-green-800 text-sm">
+                            Save {course.savings} - Limited Time!
+                          </Badge>
+                        </div>
+                      </div>
+                    )}
 
                     {/* Key Features */}
                     <div>

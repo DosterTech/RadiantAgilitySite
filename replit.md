@@ -101,6 +101,9 @@ Changelog:
 - June 19, 2025. Consolidated duplicate SAFe certification sections into unified service block
 - June 19, 2025. Created conversion-focused career change landing page at /career-change targeting professionals seeking SAFe certification with success stories, statistics, and clear certification paths
 - June 19, 2025. Added sale pricing for Scrum Master course: original $1,125 (strikethrough) with sale price $580 and "Save $545 Today!" messaging
+- June 19, 2025. Updated SAFe Agilist pricing with sale display: original $1,185 → $895 with "Best Seller" and "Limited Seats" badges
+- June 19, 2025. Added sale pricing for SAFe POPM course: original $995 → $795 with "Limited-Time Discount" messaging
+- June 19, 2025. Added sale pricing for SAFe DevOps course: original $950 → $750 with "Summer Sale - $200 Off!" messaging
 ```
 
 ## User Preferences
