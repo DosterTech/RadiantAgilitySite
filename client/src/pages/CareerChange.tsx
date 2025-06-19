@@ -75,7 +75,10 @@ const CareerChange = () => {
       subtitle: "Perfect for Leaders & Career Changers",
       description: "Lead enterprise agile transformations and coordinate large-scale development efforts.",
       duration: "2 days",
-      price: "$1,295",
+      originalPrice: "$1,185",
+      salePrice: "$895",
+      savings: "$290",
+      bestSeller: true,
       idealFor: [
         "Former project managers",
         "Business analysts transitioning",
@@ -97,6 +100,7 @@ const CareerChange = () => {
       originalPrice: "$1,125",
       salePrice: "$580",
       savings: "$545",
+      bestSeller: false,
       idealFor: [
         "First-time agile practitioners",
         "Former teachers or trainers",
@@ -337,12 +341,23 @@ const CareerChange = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <Card className={`h-full border-2 transition-colors relative ${path.salePrice ? 'border-red-200 hover:border-red-300' : 'hover:border-purple-200'}`}>
+                <Card className={`h-full border-2 transition-colors relative ${path.salePrice ? (path.bestSeller ? 'border-green-200 hover:border-green-300' : 'border-red-200 hover:border-red-300') : 'hover:border-purple-200'}`}>
                   {path.salePrice && (
-                    <div className="absolute -top-3 left-4 z-10">
-                      <Badge className="bg-red-500 text-white font-semibold px-3 py-1">
-                        Limited Time Offer
-                      </Badge>
+                    <div className="absolute -top-3 left-4 z-10 flex gap-2">
+                      {path.bestSeller ? (
+                        <Badge className="bg-green-500 text-white font-semibold px-3 py-1">
+                          🔥 Best Seller
+                        </Badge>
+                      ) : (
+                        <Badge className="bg-red-500 text-white font-semibold px-3 py-1">
+                          Limited Time Offer
+                        </Badge>
+                      )}
+                      {path.bestSeller && (
+                        <Badge className="bg-orange-500 text-white font-semibold px-3 py-1">
+                          💥 Limited Seats
+                        </Badge>
+                      )}
                     </div>
                   )}
                   <CardHeader className="text-center pb-4">
@@ -354,13 +369,15 @@ const CareerChange = () => {
                         {path.salePrice ? (
                           <div className="space-y-1">
                             <div className="text-sm text-gray-400 line-through">{path.originalPrice}</div>
-                            <div className="text-2xl font-bold text-red-600">{path.salePrice}</div>
-                            <Badge className="bg-red-100 text-red-800 text-xs">
+                            <div className={`text-2xl font-bold ${path.bestSeller ? 'text-green-600' : 'text-red-600'}`}>
+                              {path.salePrice}
+                            </div>
+                            <Badge className={`text-xs ${path.bestSeller ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                               Save {path.savings} Today!
                             </Badge>
                           </div>
                         ) : (
-                          <div className="text-2xl font-bold text-gray-900">{path.price}</div>
+                          <div className="text-2xl font-bold text-gray-900">Contact for pricing</div>
                         )}
                         <div className="text-sm text-gray-600 mt-1">per person</div>
                       </div>
