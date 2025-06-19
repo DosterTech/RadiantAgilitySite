@@ -13,6 +13,11 @@ const courses = [
     description: 'Learn to lead a Lean-Agile transformation by leveraging the Scaled Agile Framework and its underlying principles derived from Lean, systems thinking, Agile development, product development flow, and DevOps.',
     duration: '2 days (16 hrs)',
     level: 'Leadership',
+    originalPrice: '$1,185',
+    salePrice: '$895',
+    savings: '$290',
+    saleLabel: '🔥 Best Seller',
+    bestSeller: true,
     features: [
       'Apply SAFe to scale Lean and Agile development',
       'Apply Lean-Agile mindset and principles',
@@ -90,6 +95,10 @@ const courses = [
     description: 'Learn the role of Scrum Master in a SAFe enterprise. Unlike traditional Scrum Master training, this course explores the role in the context of the entire enterprise.',
     duration: '2 days (16 hrs)',
     level: 'Team',
+    originalPrice: '$1,125',
+    salePrice: '$580',
+    savings: '$545',
+    saleLabel: 'Limited Time Offer',
     features: [
       'Facilitate Agile Team events and processes',
       'Support Program Increment planning and execution',
@@ -224,21 +233,30 @@ const SafeTraining = () => {
 
                     {/* Pricing Section */}
                     {course.salePrice && (
-                      <div className="bg-gradient-to-r from-red-50 to-orange-50 p-4 rounded-lg border border-red-100">
+                      <div className={`p-4 rounded-lg border ${course.bestSeller ? 'bg-gradient-to-r from-green-50 to-blue-50 border-green-100' : 'bg-gradient-to-r from-red-50 to-orange-50 border-red-100'}`}>
                         <div className="flex items-center justify-between mb-2">
-                          <Badge className="bg-red-500 text-white font-semibold">
+                          <Badge className={`text-white font-semibold ${course.bestSeller ? 'bg-green-500' : 'bg-red-500'}`}>
                             {course.saleLabel}
                           </Badge>
                           <div className="text-right">
                             <div className="text-sm text-gray-400 line-through">{course.originalPrice}</div>
-                            <div className="text-2xl font-bold text-red-600">{course.salePrice}</div>
+                            <div className={`text-2xl font-bold ${course.bestSeller ? 'text-green-600' : 'text-red-600'}`}>
+                              {course.salePrice}
+                            </div>
                           </div>
                         </div>
                         <div className="text-center">
-                          <Badge className="bg-green-100 text-green-800 text-sm">
+                          <Badge className={`text-sm ${course.bestSeller ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                             Save {course.savings} - Limited Time!
                           </Badge>
                         </div>
+                        {course.bestSeller && (
+                          <div className="text-center mt-2">
+                            <Badge className="bg-orange-100 text-orange-800 text-xs">
+                              💥 Limited Seats Available
+                            </Badge>
+                          </div>
+                        )}
                       </div>
                     )}
 
