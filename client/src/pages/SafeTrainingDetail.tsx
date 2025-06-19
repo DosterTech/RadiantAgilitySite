@@ -24,7 +24,11 @@ const courseDetails = {
     description: 'Learn to lead a Lean-Agile transformation by leveraging the Scaled Agile Framework and its underlying principles derived from Lean, systems thinking, Agile development, product development flow, and DevOps.',
     duration: '2 days (16 hrs)',
     level: 'Leadership',
-    price: '$1,295',
+    originalPrice: '$1,185',
+    salePrice: '$895',
+    savings: '$290',
+    saleLabel: '🔥 Best Seller',
+    bestSeller: true,
     color: 'bg-blue-500',
     accent: 'border-blue-200 bg-blue-50',
     overview: 'The Leading SAFe course teaches executives, managers, and other leaders how to lead a Lean-Agile transformation. You will gain the practical tools and techniques necessary to implement the Scaled Agile Framework (SAFe) and lead a transformation that enhances job satisfaction, increases productivity, improves quality, and shortens time-to-market.',
@@ -86,7 +90,10 @@ const courseDetails = {
     description: 'Learn the technical practices and cultural changes needed to implement DevOps in a SAFe environment. Master Continuous Delivery Pipeline and DevOps practices that enable rapid value delivery.',
     duration: '2 days (16 hrs)',
     level: 'Technical',
-    price: '$1,195',
+    originalPrice: '$950',
+    salePrice: '$750',
+    savings: '$200',
+    saleLabel: 'Summer Sale - $200 Off!',
     color: 'bg-green-500',
     accent: 'border-green-200 bg-green-50',
     overview: 'The SAFe DevOps course provides comprehensive training on implementing DevOps practices within the Scaled Agile Framework. Participants learn to build and optimize continuous delivery pipelines, establish DevOps culture, and implement practices that support faster, more reliable software delivery.',
@@ -149,7 +156,10 @@ const courseDetails = {
     description: 'Develop the skills needed to guide the delivery of value in a Lean enterprise by becoming a SAFe Product Owner/Product Manager. Learn to apply Lean-Agile mindset and principles.',
     duration: '2 days (16 hrs)',
     level: 'Product',
-    price: '$1,195',
+    originalPrice: '$995',
+    salePrice: '$795',
+    savings: '$200',
+    saleLabel: 'Limited-Time Discount',
     color: 'bg-purple-500',
     accent: 'border-purple-200 bg-purple-50',
     overview: 'The SAFe Product Owner/Product Manager course teaches product owners and product managers how to apply Lean-Agile mindset and practices. Learn to collaborate effectively with customers, proxy customers, development teams, and other stakeholders to deliver solutions that provide maximum economic benefit.',
@@ -212,7 +222,10 @@ const courseDetails = {
     description: 'Learn the role of Scrum Master in a SAFe enterprise. Unlike traditional Scrum Master training, this course explores the role in the context of the entire enterprise.',
     duration: '2 days (16 hrs)',
     level: 'Team',
-    price: '$1,195',
+    originalPrice: '$1,125',
+    salePrice: '$580',
+    savings: '$545',
+    saleLabel: 'Limited Time Offer',
     color: 'bg-orange-500',
     accent: 'border-orange-200 bg-orange-50',
     overview: 'The SAFe Scrum Master course teaches the responsibilities of the Scrum Master role in a SAFe environment. Learn to facilitate Agile team events and processes, coach teams to improved performance, and support the adoption of SAFe across the enterprise.',
@@ -340,8 +353,28 @@ const SafeTrainingDetail = () => {
                 <Card className="sticky top-6">
                   <CardHeader>
                     <CardTitle className="text-center">
-                      <span className="text-3xl font-bold text-gray-900">{course.price}</span>
-                      <span className="text-lg text-gray-600 block">per person</span>
+                      {course.salePrice ? (
+                        <div className="space-y-2">
+                          {course.saleLabel && (
+                            <Badge className={`${course.bestSeller ? 'bg-green-500' : 'bg-red-500'} text-white font-semibold mb-2`}>
+                              {course.saleLabel}
+                            </Badge>
+                          )}
+                          <div className="text-lg text-gray-400 line-through">{course.originalPrice}</div>
+                          <div className={`text-3xl font-bold ${course.bestSeller ? 'text-green-600' : 'text-red-600'}`}>
+                            {course.salePrice}
+                          </div>
+                          <Badge className={`${course.bestSeller ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'} text-sm`}>
+                            Save {course.savings}!
+                          </Badge>
+                          <span className="text-lg text-gray-600 block">per person</span>
+                        </div>
+                      ) : (
+                        <div>
+                          <span className="text-3xl font-bold text-gray-900">Contact for pricing</span>
+                          <span className="text-lg text-gray-600 block">per person</span>
+                        </div>
+                      )}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
