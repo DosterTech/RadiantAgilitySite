@@ -94,7 +94,9 @@ const CareerChange = () => {
       subtitle: "Gateway to Agile Career Success",
       description: "Facilitate agile teams and coach organizations in SAFe practices.",
       duration: "2 days",
-      price: "$1,195",
+      originalPrice: "$1,125",
+      salePrice: "$580",
+      savings: "$545",
       idealFor: [
         "First-time agile practitioners",
         "Former teachers or trainers",
@@ -335,15 +337,32 @@ const CareerChange = () => {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <Card className="h-full border-2 hover:border-purple-200 transition-colors">
+                <Card className={`h-full border-2 transition-colors relative ${path.salePrice ? 'border-red-200 hover:border-red-300' : 'hover:border-purple-200'}`}>
+                  {path.salePrice && (
+                    <div className="absolute -top-3 left-4 z-10">
+                      <Badge className="bg-red-500 text-white font-semibold px-3 py-1">
+                        Limited Time Offer
+                      </Badge>
+                    </div>
+                  )}
                   <CardHeader className="text-center pb-4">
                     <div className="flex justify-between items-start mb-4">
                       <Badge className="bg-purple-100 text-purple-800">
                         {path.duration}
                       </Badge>
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-gray-900">{path.price}</div>
-                        <div className="text-sm text-gray-600">per person</div>
+                        {path.salePrice ? (
+                          <div className="space-y-1">
+                            <div className="text-sm text-gray-400 line-through">{path.originalPrice}</div>
+                            <div className="text-2xl font-bold text-red-600">{path.salePrice}</div>
+                            <Badge className="bg-red-100 text-red-800 text-xs">
+                              Save {path.savings} Today!
+                            </Badge>
+                          </div>
+                        ) : (
+                          <div className="text-2xl font-bold text-gray-900">{path.price}</div>
+                        )}
+                        <div className="text-sm text-gray-600 mt-1">per person</div>
                       </div>
                     </div>
                     <CardTitle className="text-2xl mb-2">{path.title}</CardTitle>

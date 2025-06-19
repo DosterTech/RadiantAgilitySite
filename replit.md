@@ -98,6 +98,9 @@ Changelog:
 - June 15, 2025. Removed "Lead Generation & Growth" service section and replaced with SAFe Certification Courses section featuring corporate training offerings
 - June 15, 2025. Added three SEO-optimized SAFe blog posts: "What Is SAFe® Agile", "7 Mistakes to Avoid When Implementing SAFe®", and "SAFe Roles Demystified" with conversion-focused CTAs
 - June 15, 2025. Enhanced navigation with improved dropdown functionality and scroll-to-top behavior
+- June 19, 2025. Consolidated duplicate SAFe certification sections into unified service block
+- June 19, 2025. Created conversion-focused career change landing page at /career-change targeting professionals seeking SAFe certification with success stories, statistics, and clear certification paths
+- June 19, 2025. Added sale pricing for Scrum Master course: original $1,125 (strikethrough) with sale price $580 and "Save $545 Today!" messaging
 ```
 
 ## User Preferences
