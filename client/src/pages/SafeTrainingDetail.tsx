@@ -94,6 +94,7 @@ const courseDetails = {
     salePrice: '$750',
     savings: '$200',
     saleLabel: 'Summer Sale - $200 Off!',
+    bestSeller: false,
     color: 'bg-green-500',
     accent: 'border-green-200 bg-green-50',
     overview: 'The SAFe DevOps course provides comprehensive training on implementing DevOps practices within the Scaled Agile Framework. Participants learn to build and optimize continuous delivery pipelines, establish DevOps culture, and implement practices that support faster, more reliable software delivery.',
@@ -160,6 +161,7 @@ const courseDetails = {
     salePrice: '$795',
     savings: '$200',
     saleLabel: 'Limited-Time Discount',
+    bestSeller: false,
     color: 'bg-purple-500',
     accent: 'border-purple-200 bg-purple-50',
     overview: 'The SAFe Product Owner/Product Manager course teaches product owners and product managers how to apply Lean-Agile mindset and practices. Learn to collaborate effectively with customers, proxy customers, development teams, and other stakeholders to deliver solutions that provide maximum economic benefit.',
@@ -226,6 +228,7 @@ const courseDetails = {
     salePrice: '$580',
     savings: '$545',
     saleLabel: 'Limited Time Offer',
+    bestSeller: false,
     color: 'bg-orange-500',
     accent: 'border-orange-200 bg-orange-50',
     overview: 'The SAFe Scrum Master course teaches the responsibilities of the Scrum Master role in a SAFe environment. Learn to facilitate Agile team events and processes, coach teams to improved performance, and support the adoption of SAFe across the enterprise.',
@@ -465,6 +468,53 @@ const SafeTrainingDetail = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Upcoming Live Sessions - Only for SAFe Scrum Master */}
+              {id === 'safe-scrum-master' && (
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5 text-purple-600" />
+                      📅 Upcoming Live Sessions – SAFe Scrum Master
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-6">
+                      {/* Session 1 */}
+                      <div className="border border-gray-200 rounded-lg p-4">
+                        <h4 className="font-semibold text-gray-900 mb-3">Session 1: July 19–20, 2025</h4>
+                        <div className="space-y-2 text-gray-700 mb-4">
+                          <p>🕘 9:00 AM – 5:00 PM EST (Saturday & Sunday)</p>
+                          <p>📍 Live Virtual (Zoom)</p>
+                          <p>💳 <strong className="text-purple-600">$599</strong> – One-time payment</p>
+                        </div>
+                        <Button 
+                          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                          onClick={() => window.open('https://buy.stripe.com/14A28q8sp6BkdZk747ew800', '_blank')}
+                        >
+                          Register for July 19–20
+                        </Button>
+                      </div>
+
+                      {/* Session 2 */}
+                      <div className="border border-gray-200 rounded-lg p-4">
+                        <h4 className="font-semibold text-gray-900 mb-3">Session 2: July 26–27, 2025</h4>
+                        <div className="space-y-2 text-gray-700 mb-4">
+                          <p>🕘 9:00 AM – 5:00 PM EST</p>
+                          <p>📍 Live Virtual (Zoom)</p>
+                          <p>💳 <strong className="text-purple-600">$599</strong> – One-time payment</p>
+                        </div>
+                        <Button 
+                          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                          onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                        >
+                          Register for July 26–27
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Who Should Attend */}
               <Card>
