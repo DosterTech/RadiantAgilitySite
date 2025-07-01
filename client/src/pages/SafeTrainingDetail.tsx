@@ -486,7 +486,7 @@ const SafeTrainingDetail = () => {
                         <div className="space-y-2 text-gray-700 mb-4">
                           <p>🕘 9:00 AM – 5:00 PM EST (Saturday & Sunday)</p>
                           <p>📍 Live Virtual (Zoom)</p>
-                          <p>💳 <strong className="text-purple-600">$599</strong> – One-time payment</p>
+                          <p>💳 <strong className="text-purple-600">$580</strong> – One-time payment</p>
                         </div>
                         <Button 
                           className="w-full bg-purple-600 hover:bg-purple-700 text-white"
@@ -502,7 +502,7 @@ const SafeTrainingDetail = () => {
                         <div className="space-y-2 text-gray-700 mb-4">
                           <p>🕘 9:00 AM – 5:00 PM EST</p>
                           <p>📍 Live Virtual (Zoom)</p>
-                          <p>💳 <strong className="text-purple-600">$599</strong> – One-time payment</p>
+                          <p>💳 <strong className="text-purple-600">$580</strong> – One-time payment</p>
                         </div>
                         <Button 
                           className="w-full bg-purple-600 hover:bg-purple-700 text-white"
