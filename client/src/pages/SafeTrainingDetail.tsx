@@ -383,7 +383,13 @@ const SafeTrainingDetail = () => {
                   <CardContent className="space-y-4">
                     <Button 
                       className="w-full gradient-bg hover:opacity-90 text-white"
-                      onClick={() => window.open('https://eventbrite.com', '_blank')}
+                      onClick={() => {
+                        if (id === 'safe-scrum-master') {
+                          document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                          window.open('https://eventbrite.com', '_blank');
+                        }
+                      }}
                     >
                       Register Now
                     </Button>
@@ -471,7 +477,7 @@ const SafeTrainingDetail = () => {
 
               {/* Upcoming Live Sessions - Only for SAFe Scrum Master */}
               {id === 'safe-scrum-master' && (
-                <Card>
+                <Card id="sessions">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Calendar className="h-5 w-5 text-purple-600" />
@@ -614,7 +620,13 @@ const SafeTrainingDetail = () => {
                 <CardContent className="space-y-3">
                   <Button 
                     className="w-full gradient-bg hover:opacity-90 text-white"
-                    onClick={() => window.open('https://eventbrite.com', '_blank')}
+                    onClick={() => {
+                      if (id === 'safe-scrum-master') {
+                        document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        window.open('https://eventbrite.com', '_blank');
+                      }
+                    }}
                   >
                     Register Today
                   </Button>
