@@ -103,6 +103,28 @@ export default function ThankYouJuly19() {
               </p>
             </div>
 
+            {/* Share with a Colleague */}
+            <div className="text-center py-6 bg-purple-50 rounded-lg border border-purple-200">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Share with a Colleague</h3>
+              <p className="text-gray-600 mb-4">Know someone who'd benefit from this course?</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <Button
+                  variant="outline"
+                  className="border-purple-600 text-purple-600 hover:bg-purple-50"
+                  onClick={() => window.open('mailto:?subject=Check%20this%20out!&body=I%20just%20registered%20for%20the%20SAFe%20Scrum%20Master%20Certification%20course%20with%20Radiant%20Agility%20on%20July%2019–20.%20It\'s%20a%20great%202-day%20virtual%20training%20if%20you\'re%20looking%20to%20boost%20your%20Agile%20career!%20Check%20it%20out%20here:%20https://radiantagility.tech/safe-training/safe-scrum-master', '_blank')}
+                >
+                  📧 Email a Friend
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-purple-600 text-purple-600 hover:bg-purple-50"
+                  onClick={() => window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://radiantagility.tech/safe-training/safe-scrum-master', '_blank')}
+                >
+                  💼 Share on LinkedIn
+                </Button>
+              </div>
+            </div>
+
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
