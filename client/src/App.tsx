@@ -18,6 +18,7 @@ import SafeTraining from "./pages/SafeTraining";
 import SafeTrainingDetail from "./pages/SafeTrainingDetail";
 import CareerChange from "./pages/CareerChange";
 import AgileArmies from "./pages/AgileArmies";
+import SafeSprint from "./pages/SafeSprint";
 import ThankYouJuly19 from "./pages/ThankYouJuly19";
 import ThankYouJuly26 from "./pages/ThankYouJuly26";
 import NotFound from "@/pages/not-found";
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/safe-training/:id" component={SafeTrainingDetail} />
       <Route path="/career-change" component={CareerChange} />
       <Route path="/agile-armies" component={AgileArmies} />
+      <Route path="/safe-sprint" component={SafeSprint} />
       <Route path="/thank-you-july19.html" component={ThankYouJuly19} />
       <Route path="/thank-you-july26.html" component={ThankYouJuly26} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
