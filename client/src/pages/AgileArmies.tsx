@@ -303,23 +303,9 @@ export default function AgileArmies() {
             Certify With Confidence
           </h2>
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-gray-600 mb-8">
-              Your team will be trained by Jasmine Doster, Certified SAFe Practice Consultant (SPC) and industry veteran. We've helped 100s of professionals get certified and lead transformation.
+            <p className="text-lg text-gray-600">
+              Your team will be trained by Jasmine Doster, Certified SAFe Practice Consultant (SPC) and industry veteran. We've helped professionals get certified and lead transformation.
             </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">500+</div>
-                <p className="text-gray-600">Professionals Certified</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">50+</div>
-                <p className="text-gray-600">Enterprise Clients</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">95%</div>
-                <p className="text-gray-600">Pass Rate</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
