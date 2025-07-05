@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
-import { Check, Users, Award, Target, TrendingUp, Phone } from 'lucide-react';
+import { Check, Users, Award, Target, TrendingUp, Phone, Download } from 'lucide-react';
 
 export default function AgileArmies() {
   const [formData, setFormData] = useState({
@@ -59,40 +59,84 @@ export default function AgileArmies() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Train Your Agile Army™
           </h1>
-          <p className="text-xl md:text-2xl mb-8 opacity-90">
+          <p className="text-xl md:text-2xl mb-4 opacity-90">
             Private SAFe Certification for Teams & Enterprises
+          </p>
+          <p className="text-lg mb-8 opacity-80">
+            Upskill your workforce. Transform delivery. Align your enterprise.
           </p>
           <Button 
             onClick={scrollToContact}
             className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold"
           >
             <Phone className="mr-2 h-5 w-5" />
-            Book a Free Discovery Call
+            Schedule a Free Discovery Call
           </Button>
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Why Settle Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Why Train With Us?
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+            Why Settle for Generic Agile Training?
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[
-              { icon: Users, text: "Live private SAFe cohorts for your teams" },
-              { icon: Target, text: "Free Agile team health assessment" },
-              { icon: Award, text: "Product Owner & Scrum Master bundle options" },
-              { icon: TrendingUp, text: "Enterprise-wide discount tiers" },
-              { icon: Check, text: "Taught by a Certified SAFe Practice Consultant (SPC)" }
-            ].map((feature, index) => (
-              <div key={index} className="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm">
-                <div className="flex-shrink-0">
-                  <feature.icon className="h-6 w-6 text-purple-600" />
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+            Your team deserves more than theory. They need tools, techniques, and real-world application. With Radiant Agility's private SAFe certification cohorts, your organization will learn by doing—and emerge with the certifications to prove it.
+          </p>
+          
+          <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">
+            What You Get with a Corporate Cohort:
+          </h3>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <Card className="p-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 bg-purple-100 p-3 rounded-lg">
+                  <Award className="h-6 w-6 text-purple-600" />
                 </div>
-                <p className="text-gray-700 font-medium">{feature.text}</p>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Private SAFe Certification Course</h4>
+                  <p className="text-gray-600">Taught live by a SAFe Practice Consultant (SPC) with real-world Agile experience.</p>
+                </div>
               </div>
-            ))}
+            </Card>
+            
+            <Card className="p-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 bg-purple-100 p-3 rounded-lg">
+                  <Target className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Free Agile Team Health Assessment</h4>
+                  <p className="text-gray-600">We evaluate your team's current Agile maturity across 6 key dimensions—and give you a custom report.</p>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 bg-purple-100 p-3 rounded-lg">
+                  <Users className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Done-For-You Training Logistics</h4>
+                  <p className="text-gray-600">We handle everything: registration, exams, materials, and scheduling.</p>
+                </div>
+              </div>
+            </Card>
+            
+            <Card className="p-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 bg-purple-100 p-3 rounded-lg">
+                  <TrendingUp className="h-6 w-6 text-purple-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Post-Cert Coaching Session (Optional)</h4>
+                  <p className="text-gray-600">A 60-minute follow-up to reinforce learning and prep for implementation.</p>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -106,18 +150,18 @@ export default function AgileArmies() {
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="relative">
               <CardHeader className="text-center pb-4">
-                <Badge variant="outline" className="w-fit mx-auto mb-2">Team Training</Badge>
+                <Badge variant="outline" className="w-fit mx-auto mb-2">Delivery Teams</Badge>
                 <CardTitle className="text-xl text-purple-600">Core Team Boost</CardTitle>
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-600 mb-4">
-                  10 Scrum Masters<br />
-                  + Certification
+                  SAFe Scrum Master Cert<br />
+                  (10 people)
                 </p>
                 <div className="space-y-2 text-sm text-gray-500">
-                  <p>• Live virtual training</p>
-                  <p>• SAFe 6.0 materials</p>
-                  <p>• Exam vouchers included</p>
+                  <p>• Best for delivery teams</p>
+                  <p>• Perfect for pilot squads</p>
+                  <p>• Includes all materials & exams</p>
                 </div>
               </CardContent>
             </Card>
@@ -129,13 +173,13 @@ export default function AgileArmies() {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-600 mb-4">
-                  8 Product Owners<br />
-                  + Certification
+                  SAFe Product Owner/PM Cert<br />
+                  (8 people)
                 </p>
                 <div className="space-y-2 text-sm text-gray-500">
+                  <p>• Ideal for PMs & Product Leaders</p>
                   <p>• Strategic planning focus</p>
-                  <p>• Leadership coaching</p>
-                  <p>• Enterprise alignment</p>
+                  <p>• Enterprise alignment training</p>
                 </div>
               </CardContent>
             </Card>
@@ -147,16 +191,86 @@ export default function AgileArmies() {
               </CardHeader>
               <CardContent className="text-center">
                 <p className="text-gray-600 mb-4">
-                  10 SMs + 8 POs<br />
+                  Combo: 10 SMs + 8 POs<br />
                   + Team Coaching
                 </p>
                 <div className="space-y-2 text-sm text-gray-500">
-                  <p>• Complete transformation</p>
-                  <p>• 3-month support</p>
-                  <p>• Custom workshops</p>
+                  <p>• Complete scaling solution</p>
+                  <p>• For scaling Agile orgs</p>
+                  <p>• Includes implementation support</p>
                 </div>
               </CardContent>
             </Card>
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-gray-600">
+              Need a custom bundle? We can tailor one just for your org.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Enterprise Pricing */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+            Enterprise Pricing
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-12">
+            Save big when certifying your whole department or Agile Release Train.
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+            <Card className="text-center p-6">
+              <div className="text-2xl font-bold text-purple-600 mb-2">10–19 seats</div>
+              <div className="text-lg font-semibold text-red-600">10% off</div>
+            </Card>
+            <Card className="text-center p-6 border-purple-200 border-2">
+              <div className="text-2xl font-bold text-purple-600 mb-2">20–49 seats</div>
+              <div className="text-lg font-semibold text-red-600">15% off</div>
+            </Card>
+            <Card className="text-center p-6">
+              <div className="text-2xl font-bold text-purple-600 mb-2">50+ seats</div>
+              <div className="text-lg font-semibold text-red-600">20% off + free executive workshop</div>
+            </Card>
+          </div>
+          
+          <div className="text-center">
+            <p className="text-gray-600">
+              💡 Government or nonprofit? Ask about special pricing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Outcomes */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+            Outcomes You Can Expect
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="text-center p-6">
+              <div className="text-4xl mb-4">🚀</div>
+              <h3 className="font-semibold text-gray-800 mb-2">Improved Velocity</h3>
+              <p className="text-gray-600">Better delivery predictability across teams</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="text-4xl mb-4">🧠</div>
+              <h3 className="font-semibold text-gray-800 mb-2">Shared Language</h3>
+              <p className="text-gray-600">Common framework across teams and roles</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="text-4xl mb-4">🏆</div>
+              <h3 className="font-semibold text-gray-800 mb-2">Global Recognition</h3>
+              <p className="text-gray-600">Industry-recognized SAFe certifications</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="text-4xl mb-4">🔄</div>
+              <h3 className="font-semibold text-gray-800 mb-2">Faster Maturity</h3>
+              <p className="text-gray-600">Better cross-team alignment and collaboration</p>
+            </div>
           </div>
         </div>
       </section>
@@ -182,15 +296,43 @@ export default function AgileArmies() {
         </div>
       </section>
 
+      {/* Credentials */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 text-gray-800">
+            Certify With Confidence
+          </h2>
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg text-gray-600 mb-8">
+              Your team will be trained by Jasmine Doster, Certified SAFe Practice Consultant (SPC) and industry veteran. We've helped 100s of professionals get certified and lead transformation.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600">500+</div>
+                <p className="text-gray-600">Professionals Certified</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600">50+</div>
+                <p className="text-gray-600">Enterprise Clients</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600">95%</div>
+                <p className="text-gray-600">Pass Rate</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form */}
       <section id="contact" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
-              Let's Talk
+              Ready to Train Your Agile Army?
             </h2>
             <p className="text-gray-600 mb-8">
-              Fill out the form and we'll follow up within 24 hours.
+              Fill out the form below and we'll follow up within 24 hours.
             </p>
             
             <Card>
@@ -225,12 +367,34 @@ export default function AgileArmies() {
                   />
                   <Button 
                     type="submit" 
-                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-lg font-semibold"
+                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-lg font-semibold mb-4"
                     disabled={contactMutation.isPending}
                   >
                     {contactMutation.isPending ? 'Submitting...' : 'Request Info'}
                   </Button>
                 </form>
+                
+                <div className="mt-6 space-y-3">
+                  <p className="text-sm text-gray-600">Or choose an option below:</p>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button 
+                      onClick={scrollToContact}
+                      variant="outline"
+                      className="border-purple-600 text-purple-600 hover:bg-purple-50"
+                    >
+                      <Phone className="mr-2 h-4 w-4" />
+                      Schedule Discovery Call
+                    </Button>
+                    <Button 
+                      variant="outline"
+                      className="border-purple-600 text-purple-600 hover:bg-purple-50"
+                      onClick={() => window.open('mailto:hello@radiantagility.tech?subject=Corporate Training Info Pack Request&body=Please send me the corporate training information pack for the Agile Army program.', '_blank')}
+                    >
+                      <Download className="mr-2 h-4 w-4" />
+                      Download Info Pack
+                    </Button>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
