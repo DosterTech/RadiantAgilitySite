@@ -196,14 +196,14 @@ export default function SafeSprint() {
               <p className="text-gray-700 italic mb-4">
                 "Finally, SAFe explained in a way that makes sense! The daily format kept me engaged without overwhelming my schedule."
               </p>
-              <div className="font-semibold text-gray-800">— Sarah M., Product Manager</div>
+              <div className="font-semibold text-gray-800">— Amy M., Product Manager</div>
             </Card>
             
             <Card className="p-6">
               <p className="text-gray-700 italic mb-4">
                 "I went from confused about SAFe to confident enough to lead our transformation. This sprint was the perfect starting point."
               </p>
-              <div className="font-semibold text-gray-800">— Mike R., Scrum Master</div>
+              <div className="font-semibold text-gray-800">— Jason R., Scrum Master</div>
             </Card>
           </div>
         </div>
