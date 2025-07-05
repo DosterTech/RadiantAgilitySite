@@ -16,6 +16,7 @@ export default function AgileArmies() {
     company: '',
     message: ''
   });
+  const [sprintEmail, setSprintEmail] = useState('');
   const { toast } = useToast();
 
   const contactMutation = useMutation({
@@ -42,9 +43,41 @@ export default function AgileArmies() {
     },
   });
 
+  const sprintSignupMutation = useMutation({
+    mutationFn: async (email: string) => {
+      return await apiRequest('POST', '/api/leads', {
+        name: 'Sprint Signup',
+        email: email,
+        company: 'Unknown',
+        service: '5-Day SAFe Sprint'
+      });
+    },
+    onSuccess: () => {
+      toast({
+        title: "Welcome to the 5-Day SAFe Sprint!",
+        description: "Check your email for Day 1 content. We'll send you one lesson per day.",
+      });
+      setSprintEmail('');
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "Failed to sign up for the sprint. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     contactMutation.mutate(formData);
+  };
+
+  const handleSprintSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (sprintEmail) {
+      sprintSignupMutation.mutate(sprintEmail);
+    }
   };
 
   const scrollToContact = () => {
@@ -306,6 +339,84 @@ export default function AgileArmies() {
             <p className="text-lg text-gray-600">
               Your team will be trained by Jasmine Doster, Certified SAFe Practice Consultant (SPC) and industry veteran. We've helped professionals get certified and lead transformation.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Micro-learning Module Teaser */}
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Not Ready for Full Training Yet?
+            </h2>
+            <p className="text-lg mb-8 opacity-90">
+              Start with our free micro-learning series
+            </p>
+            
+            <Card className="bg-white text-gray-800 p-8 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center mb-6">
+                <div className="bg-purple-100 p-4 rounded-full">
+                  <Target className="h-8 w-8 text-purple-600" />
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4 text-purple-800">
+                5-Day SAFe Sprint
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Learn the Basics in 5 Minutes a Day
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-4 mb-6 text-left">
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Day 1: SAFe Fundamentals</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Day 2: Agile Release Trains</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Day 3: Lean Portfolio Management</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Day 4: Continuous Delivery</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Day 5: SAFe Implementation</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Check className="h-5 w-5 text-green-600" />
+                  <span className="text-sm">Bonus: Team Assessment Tool</span>
+                </div>
+              </div>
+              
+              <form onSubmit={handleSprintSignup} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={sprintEmail}
+                  onChange={(e) => setSprintEmail(e.target.value)}
+                  className="flex-1"
+                  required
+                />
+                <Button 
+                  type="submit"
+                  className="bg-purple-600 hover:bg-purple-700 text-white"
+                  disabled={sprintSignupMutation.isPending}
+                >
+                  {sprintSignupMutation.isPending ? 'Signing Up...' : 'Start Free Sprint'}
+                </Button>
+              </form>
+              
+              <p className="text-xs text-gray-500 mt-3">
+                No spam. Unsubscribe anytime. Perfect for busy executives.
+              </p>
+            </Card>
           </div>
         </div>
       </section>
