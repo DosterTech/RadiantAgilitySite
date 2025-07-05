@@ -1,0 +1,237 @@
+Here is your updated Replit prompt with brand-aligned colors and styling based on your Radiant Agility site (from the screenshot). This matches the purple, red, light gray, and clean font structure from your current course pages.
+
+⸻
+
+✅ Updated Files for Replit Project
+
+You’ll create two files:
+
+⸻
+
+📄 index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Train your Agile Army with private SAFe certification for teams. Corporate bundles, discounts, and team health assessments.">
+  <title>Train Your Agile Army | Radiant Agility</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Train Your Agile Army™</h1>
+      <p>Private SAFe Certification for Teams & Enterprises</p>
+      <a href="#contact" class="cta-btn">Book a Free Discovery Call</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <h2>Why Train With Us?</h2>
+      <ul>
+        <li>✅ Live private SAFe cohorts for your teams</li>
+        <li>✅ Free Agile team health assessment</li>
+        <li>✅ Product Owner & Scrum Master bundle options</li>
+        <li>✅ Enterprise-wide discount tiers</li>
+        <li>✅ Taught by a Certified SAFe Practice Consultant (SPC)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="packages">
+    <div class="container">
+      <h2>Bundle Options</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Core Team Boost</h3>
+          <p>10 Scrum Masters<br>+ Certification</p>
+        </div>
+        <div class="card">
+          <h3>Agile Leadership Track</h3>
+          <p>8 Product Owners<br>+ Certification</p>
+        </div>
+        <div class="card">
+          <h3>Full-Stack Transformation</h3>
+          <p>10 SMs + 8 POs<br>+ Team Coaching</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <blockquote>
+        “This training transformed our teams. The SAFe framework finally clicked—and we’ve seen real improvements in delivery.”
+        <footer>— VP of Engineering, FinTech Company</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Let’s Talk</h2>
+      <p>Fill out the form and we’ll follow up within 24 hours.</p>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Tell us about your team or training needs..." required></textarea>
+        <button type="submit">Request Info</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Radiant Agility Tech | radiantagility.tech</p>
+  </footer>
+
+</body>
+</html>
+
+
+⸻
+
+🎨 styles.css
+
+:root {
+  --primary: #6A46FF;      /* Radiant Agility Purple */
+  --accent: #E53935;       /* Discount Red */
+  --bg-light: #FAFAFA;     /* Light Gray Background */
+  --gray: #F2F2F2;
+  --text: #1C1C1E;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: white;
+}
+
+.hero {
+  background: var(--primary);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.25rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 30%;
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--accent);
+  padding-left: 20px;
+  background: var(--bg-light);
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact input, .contact textarea {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact button:hover {
+  background: #5433cc;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-light);
+  font-size: 0.9rem;
+}
+
+
+⸻
+
+✅ You Can Now:
+	•	Paste this into your Replit project
+	•	Preview the layout on mobile—it will match the look and feel of your live course pages
+	•	Hook up a free form service like Formspree for lead capture
+
+Would you like me to:
+	•	Add a working form submission endpoint (no backend needed)?
+	•	Help you embed this as a /agile-army page in your existing site?
+	•	Convert this into a Notion/Canva one-pager as a backup asset?
+
+Let me know!

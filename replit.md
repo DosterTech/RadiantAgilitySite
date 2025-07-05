@@ -104,6 +104,7 @@ Changelog:
 - June 19, 2025. Updated SAFe Agilist pricing with sale display: original $1,185 → $895 with "Best Seller" and "Limited Seats" badges
 - June 19, 2025. Added sale pricing for SAFe POPM course: original $995 → $795 with "Limited-Time Discount" messaging
 - June 19, 2025. Added sale pricing for SAFe DevOps course: original $950 → $750 with "Summer Sale - $200 Off!" messaging
+- January 5, 2025. Created new Agile Armies landing page at /agile-armies featuring enterprise team training with brand-aligned purple/red styling, conversion-focused design, and integrated contact form
 ```
 
 ## User Preferences
