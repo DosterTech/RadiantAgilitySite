@@ -1,5 +1,6 @@
 import { MailService } from '@sendgrid/mail';
 import type { Inquiry } from '@shared/schema';
+import { sendEmailSMTP } from './emailSMTP';
 
 const mailService = new MailService();
 
@@ -24,18 +25,33 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     return false;
   }
 
+  // Try SendGrid Web API first
   try {
-    await mailService.send({
+    console.log(`Attempting to send email via SendGrid API from ${params.from} to ${params.to}`);
+    const response = await mailService.send({
       to: params.to,
       from: params.from,
       subject: params.subject,
       text: params.text,
       html: params.html,
     });
+    console.log('Email sent successfully via API:', response[0].statusCode);
     return true;
   } catch (error) {
-    console.error('SendGrid email error:', error);
-    return false;
+    console.error('SendGrid API error:', error);
+    if (error.response) {
+      console.error('SendGrid API response:', error.response.body);
+      
+      // If credits exceeded, try SMTP relay
+      if (error.response.body?.errors?.[0]?.message?.includes('Maximum credits exceeded')) {
+        console.log('Credits exceeded, trying SMTP relay...');
+        return await sendEmailSMTP(params);
+      }
+    }
+    
+    // Try SMTP as fallback for other errors
+    console.log('API failed, trying SMTP relay...');
+    return await sendEmailSMTP(params);
   }
 }
 
