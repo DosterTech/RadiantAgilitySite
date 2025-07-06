@@ -4,7 +4,8 @@ import {
   leads, type Lead, type InsertLead,
   contacts, type Contact, type InsertContact,
   chatMessages, type ChatMessage, type InsertChatMessage,
-  inquiries, type Inquiry, type InsertInquiry
+  inquiries, type Inquiry, type InsertInquiry,
+  emailSubscriptions, type EmailSubscription, type InsertEmailSubscription
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, asc } from "drizzle-orm";
@@ -34,6 +35,14 @@ export interface IStorage {
   getInquiry(id: number): Promise<Inquiry | undefined>;
   markInquiryAsRead(id: number): Promise<void>;
   markInquiryAsUnread(id: number): Promise<void>;
+
+  // Email subscription methods
+  createEmailSubscription(subscription: InsertEmailSubscription): Promise<EmailSubscription>;
+  getEmailSubscriptions(courseType?: string): Promise<EmailSubscription[]>;
+  getEmailSubscriptionByEmail(email: string, courseType: string): Promise<EmailSubscription | undefined>;
+  updateEmailSubscriptionDay(id: number, day: number): Promise<void>;
+  markEmailSubscriptionCompleted(id: number): Promise<void>;
+  updateLastEmailSent(id: number): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -130,6 +139,51 @@ export class DatabaseStorage implements IStorage {
       .update(inquiries)
       .set({ isRead: false })
       .where(eq(inquiries.id, id));
+  }
+
+  async createEmailSubscription(insertEmailSubscription: InsertEmailSubscription): Promise<EmailSubscription> {
+    const [subscription] = await db
+      .insert(emailSubscriptions)
+      .values(insertEmailSubscription)
+      .returning();
+    return subscription;
+  }
+
+  async getEmailSubscriptions(courseType?: string): Promise<EmailSubscription[]> {
+    if (courseType) {
+      return await db.select().from(emailSubscriptions).where(eq(emailSubscriptions.courseType, courseType));
+    }
+    return await db.select().from(emailSubscriptions);
+  }
+
+  async getEmailSubscriptionByEmail(email: string, courseType: string): Promise<EmailSubscription | undefined> {
+    const [subscription] = await db
+      .select()
+      .from(emailSubscriptions)
+      .where(eq(emailSubscriptions.email, email))
+      .where(eq(emailSubscriptions.courseType, courseType));
+    return subscription || undefined;
+  }
+
+  async updateEmailSubscriptionDay(id: number, day: number): Promise<void> {
+    await db
+      .update(emailSubscriptions)
+      .set({ currentDay: day, lastEmailSent: new Date() })
+      .where(eq(emailSubscriptions.id, id));
+  }
+
+  async markEmailSubscriptionCompleted(id: number): Promise<void> {
+    await db
+      .update(emailSubscriptions)
+      .set({ completed: true })
+      .where(eq(emailSubscriptions.id, id));
+  }
+
+  async updateLastEmailSent(id: number): Promise<void> {
+    await db
+      .update(emailSubscriptions)
+      .set({ lastEmailSent: new Date() })
+      .where(eq(emailSubscriptions.id, id));
   }
 }
 

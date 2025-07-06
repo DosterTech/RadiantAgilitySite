@@ -102,3 +102,24 @@ export type Inquiry = typeof inquiries.$inferSelect;
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+// Email subscriptions schema for the 5-day SAFe Sprint course
+export const emailSubscriptions = pgTable("email_subscriptions", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull(),
+  name: text("name").notNull(),
+  courseType: text("course_type").notNull(), // 'safe-sprint'
+  subscriptionDate: timestamp("subscription_date").defaultNow().notNull(),
+  currentDay: integer("current_day").default(0).notNull(), // 0-5 (0 = welcome, 1-5 = lessons)
+  completed: boolean("completed").default(false).notNull(),
+  lastEmailSent: timestamp("last_email_sent"),
+});
+
+export const insertEmailSubscriptionSchema = createInsertSchema(emailSubscriptions).pick({
+  email: true,
+  name: true,
+  courseType: true,
+});
+
+export type InsertEmailSubscription = z.infer<typeof insertEmailSubscriptionSchema>;
+export type EmailSubscription = typeof emailSubscriptions.$inferSelect;

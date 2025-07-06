@@ -1,10 +1,11 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema } from "@shared/schema";
+import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema, insertEmailSubscriptionSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from 'zod-validation-error';
 import { sendInquiryNotification } from "./email";
+import { sendWelcomeEmail, processDailyEmails } from "./emailCourse";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes with /api prefix
@@ -15,7 +16,31 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedLead = insertLeadSchema.parse(req.body);
       const lead = await storage.createLead(validatedLead);
       
-      // In a real implementation, we would integrate with email marketing platform here
+      // Check if this is a Safe Sprint subscription
+      if (validatedLead.service === "5-Day SAFe Sprint") {
+        try {
+          // Check if already subscribed
+          const existingSubscription = await storage.getEmailSubscriptionByEmail(
+            validatedLead.email, 
+            'safe-sprint'
+          );
+          
+          if (!existingSubscription) {
+            // Create email subscription
+            await storage.createEmailSubscription({
+              email: validatedLead.email,
+              name: validatedLead.name,
+              courseType: 'safe-sprint'
+            });
+            
+            // Send welcome email immediately
+            await sendWelcomeEmail(validatedLead.email, validatedLead.name);
+          }
+        } catch (emailError) {
+          console.error('Error setting up email course:', emailError);
+          // Continue with success response even if email fails
+        }
+      }
       
       res.status(201).json({
         success: true,
@@ -300,6 +325,56 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin endpoint to manually trigger daily email processing
+  app.post("/api/admin/process-emails", async (req, res) => {
+    try {
+      await processDailyEmails();
+      res.json({
+        success: true,
+        message: "Daily emails processed successfully"
+      });
+    } catch (error) {
+      console.error('Error processing daily emails:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error processing daily emails"
+      });
+    }
+  });
+
+  // Get email subscription stats (admin only)
+  app.get("/api/admin/email-subscriptions", async (req, res) => {
+    try {
+      const subscriptions = await storage.getEmailSubscriptions('safe-sprint');
+      res.json({
+        success: true,
+        data: subscriptions,
+        stats: {
+          total: subscriptions.length,
+          active: subscriptions.filter(s => !s.completed).length,
+          completed: subscriptions.filter(s => s.completed).length
+        }
+      });
+    } catch (error) {
+      console.error('Error fetching email subscriptions:', error);
+      res.status(500).json({
+        success: false,
+        message: "Error fetching subscription data"
+      });
+    }
+  });
+
   const httpServer = createServer(app);
+  
+  // Simple email scheduler - process emails every hour
+  setInterval(async () => {
+    try {
+      await processDailyEmails();
+      console.log('Automated email processing completed');
+    } catch (error) {
+      console.error('Error in automated email processing:', error);
+    }
+  }, 60 * 60 * 1000); // Run every hour
+
   return httpServer;
 }
