@@ -477,7 +477,7 @@ export async function sendWelcomeEmail(email: string, name: string): Promise<boo
   
   return await sendEmail({
     to: email,
-    from: 'noreply@radiantagility.tech',
+    from: 'jasminedoster@gmail.com', // Use verified sender address
     subject: content.subject,
     text: content.text,
     html: content.html
@@ -494,7 +494,7 @@ export async function sendCourseEmail(subscription: EmailSubscription): Promise<
   
   return await sendEmail({
     to: subscription.email,
-    from: 'noreply@radiantagility.tech',
+    from: 'jasminedoster@gmail.com', // Use verified sender address
     subject: content.subject,
     text: content.text,
     html: content.html

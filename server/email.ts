@@ -4,7 +4,10 @@ import type { Inquiry } from '@shared/schema';
 const mailService = new MailService();
 
 if (process.env.SENDGRID_API_KEY) {
-  mailService.setApiKey(process.env.SENDGRID_API_KEY);
+  // Clean the API key by removing any quotes and whitespace
+  const cleanApiKey = process.env.SENDGRID_API_KEY.trim().replace(/['"]/g, '');
+  mailService.setApiKey(cleanApiKey);
+  console.log(`SendGrid API key configured (length: ${cleanApiKey.length}, starts with: ${cleanApiKey.substring(0, 3)})`);
 }
 
 interface EmailParams {
