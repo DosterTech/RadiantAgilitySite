@@ -31,22 +31,34 @@ export default function ZoeChat() {
       {/* Zoe Chat Modal */}
       {isOpen && (
         <div 
-          className="fixed bottom-24 right-5 w-90 h-96 bg-white rounded-2xl overflow-hidden shadow-xl"
+          className="fixed bg-white rounded-2xl overflow-hidden"
           style={{
             zIndex: 1001,
-            width: '360px',
-            height: '500px'
+            width: '340px',
+            maxHeight: '85vh',
+            bottom: '20px',
+            right: '20px',
+            borderRadius: '16px',
+            boxShadow: '0 0 12px rgba(0,0,0,0.15)'
           }}
         >
           <div className="relative w-full h-full">
             {/* Chat Header */}
-            <div className="bg-purple-600 text-white p-4 flex justify-between items-center">
+            <div 
+              className="text-white flex justify-between items-center"
+              style={{
+                background: 'linear-gradient(to right, #8e2de2, #4a00e0)',
+                fontWeight: 'bold',
+                padding: '16px',
+                fontSize: '1rem'
+              }}
+            >
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-sm">
+                <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-sm">
                   🤖
                 </div>
                 <div>
-                  <div className="font-semibold">Zoe</div>
+                  <div className="font-bold">Zoe</div>
                   <div className="text-xs opacity-90">AI Course Advisor</div>
                 </div>
               </div>
@@ -64,7 +76,8 @@ export default function ZoeChat() {
               src="https://radiant-bot.replit.app/"
               className="w-full border-none"
               style={{ 
-                height: 'calc(100% - 64px)',
+                height: 'calc(85vh - 120px)',
+                maxHeight: 'calc(85vh - 120px)',
                 border: 'none'
               }}
               title="Zoe AI Chat"
