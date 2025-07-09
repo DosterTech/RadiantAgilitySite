@@ -61,7 +61,7 @@ export default function ZoeChat() {
             
             {/* Chat Iframe */}
             <iframe
-              src="https://3swla9gpvq5jn.kirk.replit.dev"
+              src="https://radiant-bot.replit.app/"
               className="w-full border-none"
               style={{ 
                 height: 'calc(100% - 64px)',
