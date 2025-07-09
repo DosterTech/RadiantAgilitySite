@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import ChatWidget from "./components/widgets/ChatWidget";
+import ZoeChat from "./components/widgets/ZoeChat";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -57,6 +58,7 @@ function App() {
         </main>
         <Footer />
         <ChatWidget />
+        <ZoeChat />
       </div>
       <Toaster />
     </QueryClientProvider>

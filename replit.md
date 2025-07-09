@@ -106,6 +106,8 @@ Changelog:
 - June 19, 2025. Added sale pricing for SAFe DevOps course: original $950 → $750 with "Summer Sale - $200 Off!" messaging
 - January 5, 2025. Created new Agile Armies landing page at /agile-armies featuring enterprise team training with brand-aligned purple/red styling, conversion-focused design, and integrated contact form
 - January 5, 2025. Created separate B2C landing page at /safe-sprint for "5-Day SAFe Sprint" micro-learning email course targeting individual professionals with daily bite-sized lessons
+- January 6, 2025. Added automated 5-day SAFe Sprint email course system with SendGrid integration, complete course content, and daily delivery automation
+- January 9, 2025. Integrated Zoe AI course advisor chat widget across all pages with professional purple branding and responsive design
 ```
 
 ## User Preferences
