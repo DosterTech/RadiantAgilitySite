@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import reelBiteLogo from "@assets/ReelBite logo_1752760777177.png";
 import planFuelLogo from "@assets/Planfuel icon_1752760912950.png";
 import simStackLogo from "@assets/Simstack lite logo_1752761618074.png";
-import smartJobHunterLogo from "@assets/SmartJobHunterlogo_1752761618076.PNG";
+import smartJobHunterLogo from "@assets/SmartJobHunterlogo_1752761618076.png";
 
 const products = [
   {
@@ -47,7 +47,7 @@ const products = [
     monetization: "Freemium model with Pro upgrade",
     status: "Alpha build complete",
     cta: "Join Early Access",
-    logo: "@assets/SmartJobHunterlogo_1752761618076.PNG",
+    logo: "@assets/SmartJobHunterlogo_1752761618076.png",
     link: "https://smartjobhunter.app/"
   },
   {
