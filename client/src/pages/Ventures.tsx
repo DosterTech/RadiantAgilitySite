@@ -3,6 +3,8 @@ import { ExternalLink, Download, Rocket, TrendingUp, Target, DollarSign } from "
 import { Button } from "@/components/ui/button";
 import reelBiteLogo from "@assets/ReelBite logo_1752760777177.png";
 import planFuelLogo from "@assets/Planfuel icon_1752760912950.png";
+import simStackLogo from "@assets/Simstack lite logo_1752761618074.png";
+import smartJobHunterLogo from "@assets/SmartJobHunterlogo_1752761618076.PNG";
 
 const products = [
   {
@@ -23,7 +25,9 @@ const products = [
     description: "SimStack is an AI-powered simulation platform that helps professionals master Agile roles through hands-on decision-making. Designed for Scrum Masters, Product Owners, and DevOps professionals, SimStack delivers adaptive case studies, branching logic, and personalized coaching — all aligned with SAFe and Scrum certifications.",
     monetization: "B2B licensing, bootcamp partnerships, LMS integration",
     status: "Live MVP | Partnering with agile educators",
-    cta: "View Demo"
+    cta: "View Demo",
+    logo: "@assets/Simstack lite logo_1752761618074.png",
+    link: "https://simstack.app/"
   },
   {
     emoji: "📈",
@@ -32,7 +36,8 @@ const products = [
     description: "ZinnFluence is a dual-mode Chrome extension that helps marketers manage influencer campaigns and helps creators track brand outreach. The tool features a smart CRM, pitch templates, DM tracking, team collaboration, and AI contract generation — all in a lightweight UI that supports both solo creators and small brand teams.",
     monetization: "Pro plan subscription, brand-side B2B sales",
     status: "Beta live | Chrome Store launch pending",
-    cta: "Join Beta"
+    cta: "Join Beta",
+    link: "https://zinnfluence.com/"
   },
   {
     emoji: "💼",
@@ -41,7 +46,9 @@ const products = [
     description: "Smart Job Hunter is a browser extension that transforms the job search process. It auto-fills job applications, generates tailored AI cover letters, tracks opportunities, and scans resumes for keyword optimization. Built for job seekers, students, and career switchers, the tool eliminates busywork and boosts application success rates.",
     monetization: "Freemium model with Pro upgrade",
     status: "Alpha build complete",
-    cta: "Join Early Access"
+    cta: "Join Early Access",
+    logo: "@assets/SmartJobHunterlogo_1752761618076.PNG",
+    link: "https://smartjobhunter.app/"
   },
   {
     emoji: "🧘",
@@ -51,7 +58,8 @@ const products = [
     monetization: "Subscription (monthly/yearly)",
     status: "Public MVP live | Available via app stores",
     cta: "Start Free Trial",
-    logo: "@assets/Planfuel icon_1752760912950.png"
+    logo: "@assets/Planfuel icon_1752760912950.png",
+    link: "https://planfueljournal.com/"
   },
   {
     emoji: "🤖",
@@ -115,7 +123,13 @@ export default function Ventures() {
                   <div className="w-16 h-16 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
                     {product.logo ? (
                       <img 
-                        src={product.name === "ReelBite" ? reelBiteLogo : product.name === "PlanFuel" ? planFuelLogo : undefined} 
+                        src={
+                          product.name === "ReelBite" ? reelBiteLogo :
+                          product.name === "PlanFuel" ? planFuelLogo :
+                          product.name === "SimStack" ? simStackLogo :
+                          product.name === "Smart Job Hunter" ? smartJobHunterLogo :
+                          undefined
+                        } 
                         alt={`${product.name} logo`} 
                         className="w-12 h-12 object-contain" 
                       />
@@ -152,12 +166,24 @@ export default function Ventures() {
                 </div>
 
                 {/* CTA Button */}
-                <Button 
-                  variant="outline" 
-                  className="w-full border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300"
-                >
-                  {product.cta}
-                </Button>
+                {product.link ? (
+                  <a href={product.link} target="_blank" rel="noopener noreferrer" className="block w-full">
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300"
+                    >
+                      {product.cta}
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </Button>
+                  </a>
+                ) : (
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300"
+                  >
+                    {product.cta}
+                  </Button>
+                )}
               </motion.div>
             ))}
           </div>
