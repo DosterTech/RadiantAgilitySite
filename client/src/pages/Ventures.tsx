@@ -5,6 +5,7 @@ import reelBiteLogo from "@assets/ReelBite logo_1752760777177.png";
 import planFuelLogo from "@assets/Planfuel icon_1752760912950.png";
 import simStackLogo from "@assets/Simstack lite logo_1752761618074.png";
 import smartJobHunterLogo from "@assets/SmartJobHunterlogo_1752761618076.png";
+import zinnfluenceScreenshot from "@assets/zinnfluence-screenshot.svg";
 
 const products = [
   {
@@ -16,7 +17,8 @@ const products = [
     monetization: "Subscriptions, affiliate revenue, and restaurant partnerships",
     status: "Delaware C-Corp. Currently raising funds.",
     cta: "Join Waitlist",
-    logo: "@assets/ReelBite logo_1752760777177.png"
+    logo: "@assets/ReelBite logo_1752760777177.png",
+    link: "https://joinreelbite.com/"
   },
   {
     emoji: "🧠",
@@ -37,6 +39,7 @@ const products = [
     monetization: "Pro plan subscription, brand-side B2B sales",
     status: "Beta live | Chrome Store launch pending",
     cta: "Join Beta",
+    logo: "@assets/zinnfluence-screenshot.svg",
     link: "https://zinnfluence.com/"
   },
   {
@@ -128,6 +131,7 @@ export default function Ventures() {
                           product.name === "PlanFuel" ? planFuelLogo :
                           product.name === "SimStack" ? simStackLogo :
                           product.name === "Smart Job Hunter" ? smartJobHunterLogo :
+                          product.name === "ZinnFluence" ? zinnfluenceScreenshot :
                           undefined
                         } 
                         alt={`${product.name} logo`} 

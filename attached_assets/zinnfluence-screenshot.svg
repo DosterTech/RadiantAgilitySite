@@ -1,0 +1,45 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Chrome Extension Header -->
+  <rect x="0" y="0" width="400" height="40" fill="#6366f1"/>
+  <text x="20" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">ZinnFluence - Influencer CRM</text>
+  
+  <!-- Main Content Area -->
+  <rect x="20" y="60" width="360" height="220" fill="white" rx="8" stroke="#e5e7eb" stroke-width="1"/>
+  
+  <!-- Dashboard Header -->
+  <text x="40" y="85" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">Campaign Dashboard</text>
+  
+  <!-- Stats Cards -->
+  <rect x="40" y="100" width="100" height="60" fill="#f3f4f6" rx="4"/>
+  <text x="50" y="120" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Active Campaigns</text>
+  <text x="50" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#6366f1">12</text>
+  
+  <rect x="160" y="100" width="100" height="60" fill="#f3f4f6" rx="4"/>
+  <text x="170" y="120" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Response Rate</text>
+  <text x="170" y="140" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#10b981">85%</text>
+  
+  <rect x="280" y="100" width="80" height="60" fill="#f3f4f6" rx="4"/>
+  <text x="290" y="120" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Revenue</text>
+  <text x="290" y="140" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#059669">$45K</text>
+  
+  <!-- Campaign List -->
+  <text x="40" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">Recent Campaigns</text>
+  
+  <!-- Campaign Items -->
+  <rect x="40" y="200" width="320" height="25" fill="#f9fafb" rx="2"/>
+  <circle cx="55" cy="212" r="6" fill="#6366f1"/>
+  <text x="75" y="217" font-family="Arial, sans-serif" font-size="12" fill="#374151">@fashionista_pro - Beauty Campaign</text>
+  <text x="320" y="217" font-family="Arial, sans-serif" font-size="12" fill="#10b981">Active</text>
+  
+  <rect x="40" y="230" width="320" height="25" fill="white" rx="2"/>
+  <circle cx="55" cy="242" r="6" fill="#f59e0b"/>
+  <text x="75" y="247" font-family="Arial, sans-serif" font-size="12" fill="#374151">@tech_reviewer - Product Launch</text>
+  <text x="320" y="247" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b">Pending</text>
+  
+  <!-- Action Buttons -->
+  <rect x="280" y="260" width="80" height="20" fill="#6366f1" rx="4"/>
+  <text x="310" y="273" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">+ New Campaign</text>
+</svg>
