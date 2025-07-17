@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Download, Rocket, TrendingUp, Target, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import reelBiteLogo from "@assets/ReelBite logo_1752760777177.png";
+import planFuelLogo from "@assets/Planfuel icon_1752760912950.png";
 
 const products = [
   {
@@ -49,7 +50,8 @@ const products = [
     description: "PlanFuel is a productivity app that blends journaling, vision boarding, and weekly goal setting. Designed for creatives and mindful planners, it offers mood tracking, visualization tools, and easy-to-use planning flows. PlanFuel promotes balance, wellness, and progress in an elegant, low-friction interface.",
     monetization: "Subscription (monthly/yearly)",
     status: "Public MVP live | Available via app stores",
-    cta: "Start Free Trial"
+    cta: "Start Free Trial",
+    logo: "@assets/Planfuel icon_1752760912950.png"
   },
   {
     emoji: "🤖",
@@ -112,7 +114,11 @@ export default function Ventures() {
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-16 h-16 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
                     {product.logo ? (
-                      <img src={reelBiteLogo} alt={`${product.name} logo`} className="w-12 h-12 object-contain" />
+                      <img 
+                        src={product.name === "ReelBite" ? reelBiteLogo : product.name === "PlanFuel" ? planFuelLogo : undefined} 
+                        alt={`${product.name} logo`} 
+                        className="w-12 h-12 object-contain" 
+                      />
                     ) : (
                       <span className="text-2xl">{product.emoji}</span>
                     )}
