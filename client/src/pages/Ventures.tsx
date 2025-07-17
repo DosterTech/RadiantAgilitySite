@@ -1,42 +1,64 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Download, Rocket, TrendingUp, Target, DollarSign } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import reelBiteLogo from "@assets/ReelBite logo_1752760777177.png";
 
 const products = [
   {
     emoji: "🍽️",
-    name: "ReelBite (ReelBite Inc.)",
-    description: "Mood-based food discovery powered by social reels. Crave IQ™ helps users match with restaurants and foodie friends.",
-    monetization: "Subscriptions, affiliate deals, partner integrations"
+    name: "ReelBite",
+    company: "(ReelBite Inc.)",
+    tagline: "Crave better. Discover meals from the reels you love.",
+    description: "ReelBite is a mood-based food discovery app powered by social media reels. Users create a Crave IQ™ taste profile, sync saved videos from Instagram or TikTok, and instantly get matched with top-rated restaurants. ReelBite blends AI recommendations, viral food content, and real-time trip planning — turning foodie inspiration into curated experiences.",
+    monetization: "Subscriptions, affiliate revenue, and restaurant partnerships",
+    status: "Delaware C-Corp. Currently raising funds.",
+    cta: "Join Waitlist",
+    logo: "@assets/ReelBite logo_1752760777177.png"
   },
   {
     emoji: "🧠",
     name: "SimStack",
-    description: "Role-based Agile simulations for Scrum Masters, Product Owners, and DevOps professionals. Adaptive scoring + AI coaching.",
-    monetization: "B2B licensing, L&D platform sales"
+    tagline: "Train Agile roles through real-world scenarios.",
+    description: "SimStack is an AI-powered simulation platform that helps professionals master Agile roles through hands-on decision-making. Designed for Scrum Masters, Product Owners, and DevOps professionals, SimStack delivers adaptive case studies, branching logic, and personalized coaching — all aligned with SAFe and Scrum certifications.",
+    monetization: "B2B licensing, bootcamp partnerships, LMS integration",
+    status: "Live MVP | Partnering with agile educators",
+    cta: "View Demo"
   },
   {
     emoji: "📈",
     name: "ZinnFluence",
-    description: "Dual-mode Chrome CRM for influencers and brands to manage outreach, DMs, campaigns, and smart templates.",
-    monetization: "Pro plan subscription, brand partnerships"
+    tagline: "Influencer CRM reimagined for creators and marketers.",
+    description: "ZinnFluence is a dual-mode Chrome extension that helps marketers manage influencer campaigns and helps creators track brand outreach. The tool features a smart CRM, pitch templates, DM tracking, team collaboration, and AI contract generation — all in a lightweight UI that supports both solo creators and small brand teams.",
+    monetization: "Pro plan subscription, brand-side B2B sales",
+    status: "Beta live | Chrome Store launch pending",
+    cta: "Join Beta"
   },
   {
     emoji: "💼",
     name: "Smart Job Hunter",
-    description: "Job-seeking browser extension that autofills applications, creates AI cover letters, and tracks the entire process.",
-    monetization: "Freemium + Pro extension sales"
+    tagline: "From click to career — simplified.",
+    description: "Smart Job Hunter is a browser extension that transforms the job search process. It auto-fills job applications, generates tailored AI cover letters, tracks opportunities, and scans resumes for keyword optimization. Built for job seekers, students, and career switchers, the tool eliminates busywork and boosts application success rates.",
+    monetization: "Freemium model with Pro upgrade",
+    status: "Alpha build complete",
+    cta: "Join Early Access"
   },
   {
     emoji: "🧘",
     name: "PlanFuel",
-    description: "Wellness-driven digital planner and journal with vision boards, weekly goals, and habit tracking.",
-    monetization: "Low-cost subscriptions"
+    tagline: "Reflect, reset, and plan with intention.",
+    description: "PlanFuel is a productivity app that blends journaling, vision boarding, and weekly goal setting. Designed for creatives and mindful planners, it offers mood tracking, visualization tools, and easy-to-use planning flows. PlanFuel promotes balance, wellness, and progress in an elegant, low-friction interface.",
+    monetization: "Subscription (monthly/yearly)",
+    status: "Public MVP live | Available via app stores",
+    cta: "Start Free Trial"
   },
   {
     emoji: "🤖",
     name: "ZinnBots",
-    description: "Custom-branded AI chatbots for lead capture, sales, and onboarding — tailored for small businesses and service pros.",
-    monetization: "SaaS license + setup service"
+    tagline: "Your brand. Your bot. No code needed.",
+    description: "ZinnBots offers white-labeled AI chat agents for small businesses, coaches, and creators. Each bot can be customized with brand voice, sales flows, onboarding logic, and lead capture automations — all without writing code. Powered by GPT-4 and styled for each use case, ZinnBots serve as a smart front door for digital businesses.",
+    monetization: "SaaS license + setup service fees",
+    status: "Internal client use | Commercial rollout in progress",
+    cta: "Get a Custom Bot"
   }
 ];
 
@@ -77,27 +99,59 @@ export default function Ventures() {
       {/* Products Grid */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {products.map((product, index) => (
               <motion.div
                 key={product.name}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300 bg-white"
+                className="border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 bg-white"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                  <span className="text-2xl">{product.emoji}</span>
-                  {product.name}
-                </h3>
-                <p className="text-gray-700 mb-4 leading-relaxed">
+                {/* Logo and Header */}
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="w-16 h-16 rounded-xl bg-gray-100 flex items-center justify-center flex-shrink-0">
+                    {product.logo ? (
+                      <img src={reelBiteLogo} alt={`${product.name} logo`} className="w-12 h-12 object-contain" />
+                    ) : (
+                      <span className="text-2xl">{product.emoji}</span>
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      {product.name}
+                      {product.company && <span className="text-sm font-normal text-gray-600 ml-1">{product.company}</span>}
+                    </h3>
+                    <p className="text-purple-600 font-medium text-sm mb-3">{product.tagline}</p>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-700 mb-4 leading-relaxed text-sm">
                   {product.description}
                 </p>
-                <div className="bg-purple-50 rounded-lg p-3">
-                  <p className="text-sm text-gray-800">
-                    <span className="font-semibold text-purple-700">Monetization:</span> {product.monetization}
+
+                {/* Status */}
+                <div className="bg-green-50 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-green-800">
+                    <span className="font-semibold">Status:</span> {product.status}
                   </p>
                 </div>
+
+                {/* Monetization */}
+                <div className="bg-purple-50 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-purple-800">
+                    <span className="font-semibold">Monetization:</span> {product.monetization}
+                  </p>
+                </div>
+
+                {/* CTA Button */}
+                <Button 
+                  variant="outline" 
+                  className="w-full border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300"
+                >
+                  {product.cta}
+                </Button>
               </motion.div>
             ))}
           </div>
