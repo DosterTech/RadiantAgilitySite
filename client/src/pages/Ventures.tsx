@@ -56,7 +56,7 @@ const products = [
   {
     emoji: "🧘",
     name: "PlanFuel",
-    tagline: "Reflect, reset, and plan with intention.",
+    tagline: "Visualize. Plan. Achieve.",
     description: "PlanFuel is a productivity app that blends journaling, vision boarding, and weekly goal setting. Designed for creatives and mindful planners, it offers mood tracking, visualization tools, and easy-to-use planning flows. PlanFuel promotes balance, wellness, and progress in an elegant, low-friction interface.",
     monetization: "Subscription (monthly/yearly)",
     status: "Public MVP live | Available via app stores",
