@@ -1,0 +1,66 @@
+<section id="ventures" style="padding: 60px 20px; font-family: sans-serif; background-color: #ffffff;">
+  <h2 style="font-size: 2.4em; margin-bottom: 10px;">🚀 Our Products & Vision</h2>
+  <p style="max-width: 800px; font-size: 1.1em; margin-bottom: 40px;">
+    Radiant Agility Technology is a SaaS innovation lab building high-impact tools across AI, food tech, edtech, and productivity. Below are the core products powering our revenue and investor interest.
+  </p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
+    <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+      <h3>🍽️ ReelBite (ReelBite Inc.)</h3>
+      <p>Mood-based food discovery powered by social reels. Crave IQ™ helps users match with restaurants and foodie friends.</p>
+      <p><strong>Monetization:</strong> Subscriptions, affiliate deals, partner integrations</p>
+    </div>
+
+    <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+      <h3>🧠 SimStack</h3>
+      <p>Role-based Agile simulations for Scrum Masters, Product Owners, and DevOps professionals. Adaptive scoring + AI coaching.</p>
+      <p><strong>Monetization:</strong> B2B licensing, L&D platform sales</p>
+    </div>
+
+    <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+      <h3>📈 ZinnFluence</h3>
+      <p>Dual-mode Chrome CRM for influencers and brands to manage outreach, DMs, campaigns, and smart templates.</p>
+      <p><strong>Monetization:</strong> Pro plan subscription, brand partnerships</p>
+    </div>
+
+    <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+      <h3>💼 Smart Job Hunter</h3>
+      <p>Job-seeking browser extension that autofills applications, creates AI cover letters, and tracks the entire process.</p>
+      <p><strong>Monetization:</strong> Freemium + Pro extension sales</p>
+    </div>
+
+    <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+      <h3>🧘 PlanFuel</h3>
+      <p>Wellness-driven digital planner and journal with vision boards, weekly goals, and habit tracking.</p>
+      <p><strong>Monetization:</strong> Low-cost subscriptions</p>
+    </div>
+
+    <div style="border: 1px solid #e0e0e0; padding: 20px; border-radius: 10px;">
+      <h3>🤖 ZinnBots</h3>
+      <p>Custom-branded AI chatbots for lead capture, sales, and onboarding — tailored for small businesses and service pros.</p>
+      <p><strong>Monetization:</strong> SaaS license + setup service</p>
+    </div>
+  </div>
+
+  <h2 style="font-size: 2em; margin-bottom: 10px;">📈 Market Opportunity</h2>
+  <p style="max-width: 800px; font-size: 1.1em; margin-bottom: 30px;">
+    We build at the intersection of fast-growing markets: AI, food discovery, career tools, and Agile learning. Our multi-product strategy opens access to diverse, scalable revenue streams.
+  </p>
+
+  <ul style="font-size: 1em; line-height: 1.6; margin-bottom: 40px;">
+    <li>🌍 <strong>TAM:</strong> $90B+ across AI tools, EdTech, and FoodTech</li>
+    <li>🎯 <strong>SAM:</strong> $10B in highly targeted SaaS segments for SMBs, creators, and learners</li>
+    <li>🚀 <strong>SOM:</strong> $15M–$20M ARR within 3 years via direct sales, partner deals, and freemium funnels</li>
+  </ul>
+
+  <h3 style="font-size: 1.5em; margin-bottom: 10px;">💸 ARR Projection (Year 2)</h3>
+  <ul style="font-size: 1em; line-height: 1.6;">
+    <li><strong>Total ARR Goal:</strong> <span style="color: #4C2A85;">$6.5M+</span></li>
+    <li><strong>ReelBite Inc.:</strong> $1.2M+ via subscriptions + affiliate revenue</li>
+    <li><strong>Radiant Agility Products:</strong> $5.3M+ across SimStack, ZinnFluence, Smart Job Hunter, PlanFuel, and ZinnBots</li>
+  </ul>
+
+  <div style="margin-top: 30px;">
+    <a href="/pitchdeck.pdf" style="background: #4C2A85; color: white; padding: 14px 28px; border-radius: 6px; text-decoration: none; font-weight: bold;">📥 Download Investor Pitch Deck</a>
+  </div>
+</section>

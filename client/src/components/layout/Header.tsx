@@ -146,6 +146,13 @@ const Header = () => {
             </Link>
             
             <Link 
+              href="/ventures"
+              className={`font-medium ${location === '/ventures' ? 'text-primary' : 'text-gray-500 hover:text-primary'} transition-colors`}
+            >
+              Ventures
+            </Link>
+            
+            <Link 
               href="/contact"
               className={`font-medium ${location === '/contact' ? 'text-primary' : 'text-gray-500 hover:text-primary'} transition-colors`}
             >
@@ -229,6 +236,14 @@ const Header = () => {
               className={`px-3 py-3 rounded-md font-medium ${location === '/blog' ? 'text-primary bg-primary/10' : 'text-gray-700 hover:bg-gray-100 hover:text-primary'}`}
             >
               Blog
+            </Link>
+            
+            <Link 
+              href="/ventures" 
+              onClick={closeMobileMenu}
+              className={`px-3 py-3 rounded-md font-medium ${location === '/ventures' ? 'text-primary bg-primary/10' : 'text-gray-700 hover:bg-gray-100 hover:text-primary'}`}
+            >
+              Ventures
             </Link>
             
             <Link 
