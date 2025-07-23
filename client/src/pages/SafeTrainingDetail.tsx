@@ -486,25 +486,11 @@ const SafeTrainingDetail = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-6">
+
+
                       {/* Session 1 */}
                       <div className="border border-gray-200 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-900 mb-3">Session 1: July 19–20, 2025</h4>
-                        <div className="space-y-2 text-gray-700 mb-4">
-                          <p>🕘 9:00 AM – 5:00 PM EST (Saturday & Sunday)</p>
-                          <p>📍 Live Virtual (Zoom)</p>
-                          <p>💳 <strong className="text-purple-600">$580</strong> – One-time payment</p>
-                        </div>
-                        <Button 
-                          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
-                          onClick={() => window.open('https://buy.stripe.com/14A28q8sp6BkdZk747ew800', '_blank')}
-                        >
-                          Register for July 19–20
-                        </Button>
-                      </div>
-
-                      {/* Session 2 */}
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-900 mb-3">Session 2: July 26–27, 2025</h4>
+                        <h4 className="font-semibold text-gray-900 mb-3">Session 1: July 26–27, 2025</h4>
                         <div className="space-y-2 text-gray-700 mb-4">
                           <p>🕘 9:00 AM – 5:00 PM EST</p>
                           <p>📍 Live Virtual (Zoom)</p>
