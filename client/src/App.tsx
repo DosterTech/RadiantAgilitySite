@@ -45,6 +45,7 @@ function Router() {
       <Route path="/thank-you-july19.html" component={ThankYouJuly19} />
       <Route path="/thank-you-july26.html" component={ThankYouJuly26} />
       <Route path="/thank-you-popm" component={ThankYouPopm} />
+      <Route path="/thank-you-pomp" component={ThankYouPopm} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />
