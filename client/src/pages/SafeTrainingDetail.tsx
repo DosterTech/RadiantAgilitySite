@@ -498,7 +498,7 @@ const SafeTrainingDetail = () => {
                             </div>
                             <Button 
                               className="w-full bg-purple-600 hover:bg-purple-700 text-white"
-                              onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                              onClick={() => window.open('https://buy.stripe.com/prod_SbKSrFUv6WjXwV', '_blank')}
                             >
                               Reserve Your Seat
                             </Button>
@@ -515,7 +515,7 @@ const SafeTrainingDetail = () => {
                             <Button 
                               variant="outline"
                               className="w-full border-purple-600 text-purple-600 hover:bg-purple-50"
-                              onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                              onClick={() => window.open('https://buy.stripe.com/prod_SbK2X6uJQ4LbtC', '_blank')}
                             >
                               Join Waitlist
                             </Button>
