@@ -154,13 +154,13 @@ const courseDetails = {
   'safe-popm': {
     title: 'SAFe POPM',
     subtitle: 'Certified SAFe Product Owner/Product Manager (POPM)',
-    description: 'Develop the skills needed to guide the delivery of value in a Lean enterprise by becoming a SAFe Product Owner/Product Manager. Learn to apply Lean-Agile mindset and principles.',
+    description: 'Learn how to deliver customer value at scale. This 2-day course covers the key responsibilities of Product Owners and Product Managers working in a SAFe enterprise. Ideal for product leaders, business analysts, and Agile professionals leveling up.',
     duration: '2 days (16 hrs)',
     level: 'Product',
     originalPrice: '$995',
-    salePrice: '$795',
-    savings: '$200',
-    saleLabel: 'Limited-Time Discount',
+    salePrice: '$580',
+    savings: '$415',
+    saleLabel: 'Special Pricing',
     bestSeller: false,
     color: 'bg-purple-500',
     accent: 'border-purple-200 bg-purple-50',
@@ -475,33 +475,77 @@ const SafeTrainingDetail = () => {
                 </CardContent>
               </Card>
 
-              {/* Upcoming Live Sessions - Only for SAFe Scrum Master */}
-              {id === 'safe-scrum-master' && (
+              {/* Upcoming Live Sessions - For SAFe Scrum Master and POPM */}
+              {(id === 'safe-scrum-master' || id === 'safe-popm') && (
                 <Card id="sessions">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Calendar className="h-5 w-5 text-purple-600" />
-                      📅 Upcoming Live Sessions – SAFe Scrum Master
+                      📅 Upcoming Live Sessions – {id === 'safe-scrum-master' ? 'SAFe Scrum Master' : 'SAFe POPM'}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-6">
+                      {id === 'safe-scrum-master' ? (
+                        <>
+                          {/* Scrum Master Sessions */}
+                          <div className="border border-gray-200 rounded-lg p-4">
+                            <h4 className="font-semibold text-gray-900 mb-3">Upcoming Live Virtual Weekend Cohort: August 10–11, 2025</h4>
+                            <div className="space-y-2 text-gray-700 mb-4">
+                              <p>🕘 12:00 PM – 8:00 PM EST (Saturday & Sunday)</p>
+                              <p>📍 Live Virtual (Zoom)</p>
+                              <p>💳 <strong className="text-purple-600">$499</strong> – One-time payment</p>
+                            </div>
+                            <Button 
+                              className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                              onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                            >
+                              Reserve Your Seat
+                            </Button>
+                          </div>
 
+                          <div className="border border-gray-200 rounded-lg p-4">
+                            <h4 className="font-semibold text-gray-900 mb-3">Waitlist Open: August 14–15, 2025</h4>
+                            <div className="space-y-2 text-gray-700 mb-4">
+                              <p>🕘 10:00 AM – 6:00 PM EST (Tuesday & Wednesday)</p>
+                              <p>📍 Live Virtual (Zoom)</p>
+                              <p>💳 <strong className="text-purple-600">$499</strong> – One-time payment</p>
+                              <p className="text-sm text-orange-600">⚠️ Class runs if 5+ students register</p>
+                            </div>
+                            <Button 
+                              variant="outline"
+                              className="w-full border-purple-600 text-purple-600 hover:bg-purple-50"
+                              onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                            >
+                              Join Waitlist
+                            </Button>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {/* POPM Session */}
+                          <div className="border border-gray-200 rounded-lg p-4">
+                            <h4 className="font-semibold text-gray-900 mb-3">August 23–24, 2025</h4>
+                            <div className="space-y-2 text-gray-700 mb-4">
+                              <p>🕘 12:00 PM – 8:00 PM EST (Saturday & Sunday)</p>
+                              <p>📍 Live Virtual (Zoom)</p>
+                              <p>💳 <strong className="text-purple-600">$580</strong> – includes all materials + exam voucher</p>
+                            </div>
+                            <Button 
+                              className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+                              onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                            >
+                              Register Now
+                            </Button>
+                          </div>
+                        </>
+                      )}
 
-                      {/* Session 1 */}
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-900 mb-3">Session 1: July 26–27, 2025</h4>
-                        <div className="space-y-2 text-gray-700 mb-4">
-                          <p>🕘 9:00 AM – 5:00 PM EST</p>
-                          <p>📍 Live Virtual (Zoom)</p>
-                          <p>💳 <strong className="text-purple-600">$580</strong> – One-time payment</p>
-                        </div>
-                        <Button 
-                          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
-                          onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
-                        >
-                          Register for July 26–27
-                        </Button>
+                      {/* Course Format Note */}
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <p className="text-sm text-blue-800">
+                          <strong>Course Format:</strong> This is a live, instructor-led certification course delivered via Zoom. Includes practice simulations, job interview prep tips, and exam voucher.
+                        </p>
                       </div>
                     </div>
                   </CardContent>
