@@ -123,3 +123,27 @@ export const insertEmailSubscriptionSchema = createInsertSchema(emailSubscriptio
 
 export type InsertEmailSubscription = z.infer<typeof insertEmailSubscriptionSchema>;
 export type EmailSubscription = typeof emailSubscriptions.$inferSelect;
+
+// Waitlist schema for course waitlists
+export const waitlists = pgTable("waitlists", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  courseType: text("course_type").notNull(), // e.g., 'safe-scrum-master'
+  sessionDate: text("session_date").notNull(), // e.g., 'August 14-15, 2025'
+  preferredTime: text("preferred_time").notNull(), // 'Morning', 'Midday', 'Evening'
+  notifyOnUpdate: boolean("notify_on_update").default(true).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const insertWaitlistSchema = createInsertSchema(waitlists).pick({
+  name: true,
+  email: true,
+  courseType: true,
+  sessionDate: true,
+  preferredTime: true,
+  notifyOnUpdate: true,
+});
+
+export type InsertWaitlist = z.infer<typeof insertWaitlistSchema>;
+export type Waitlist = typeof waitlists.$inferSelect;

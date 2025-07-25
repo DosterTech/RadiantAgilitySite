@@ -5,10 +5,11 @@ import {
   contacts, type Contact, type InsertContact,
   chatMessages, type ChatMessage, type InsertChatMessage,
   inquiries, type Inquiry, type InsertInquiry,
-  emailSubscriptions, type EmailSubscription, type InsertEmailSubscription
+  emailSubscriptions, type EmailSubscription, type InsertEmailSubscription,
+  waitlists, type Waitlist, type InsertWaitlist
 } from "@shared/schema";
 import { db } from "./db";
-import { eq, desc, asc } from "drizzle-orm";
+import { eq, desc, asc, and } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -43,6 +44,11 @@ export interface IStorage {
   updateEmailSubscriptionDay(id: number, day: number): Promise<void>;
   markEmailSubscriptionCompleted(id: number): Promise<void>;
   updateLastEmailSent(id: number): Promise<void>;
+
+  // Waitlist methods
+  createWaitlist(waitlist: InsertWaitlist): Promise<Waitlist>;
+  getWaitlists(courseType?: string): Promise<Waitlist[]>;
+  getWaitlistByEmail(email: string, courseType: string, sessionDate: string): Promise<Waitlist | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -160,8 +166,10 @@ export class DatabaseStorage implements IStorage {
     const [subscription] = await db
       .select()
       .from(emailSubscriptions)
-      .where(eq(emailSubscriptions.email, email))
-      .where(eq(emailSubscriptions.courseType, courseType));
+      .where(and(
+        eq(emailSubscriptions.email, email),
+        eq(emailSubscriptions.courseType, courseType)
+      ));
     return subscription || undefined;
   }
 
@@ -184,6 +192,34 @@ export class DatabaseStorage implements IStorage {
       .update(emailSubscriptions)
       .set({ lastEmailSent: new Date() })
       .where(eq(emailSubscriptions.id, id));
+  }
+
+  // Waitlist methods
+  async createWaitlist(insertWaitlist: InsertWaitlist): Promise<Waitlist> {
+    const [waitlist] = await db
+      .insert(waitlists)
+      .values(insertWaitlist)
+      .returning();
+    return waitlist;
+  }
+
+  async getWaitlists(courseType?: string): Promise<Waitlist[]> {
+    if (courseType) {
+      return await db.select().from(waitlists).where(eq(waitlists.courseType, courseType)).orderBy(desc(waitlists.createdAt));
+    }
+    return await db.select().from(waitlists).orderBy(desc(waitlists.createdAt));
+  }
+
+  async getWaitlistByEmail(email: string, courseType: string, sessionDate: string): Promise<Waitlist | undefined> {
+    const [waitlist] = await db
+      .select()
+      .from(waitlists)
+      .where(and(
+        eq(waitlists.email, email),
+        eq(waitlists.courseType, courseType),
+        eq(waitlists.sessionDate, sessionDate)
+      ));
+    return waitlist || undefined;
   }
 }
 

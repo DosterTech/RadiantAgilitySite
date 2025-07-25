@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import WaitlistModal from '@/components/modals/WaitlistModal';
 import { 
   Clock, 
   Award, 
@@ -290,6 +292,7 @@ const courseDetails = {
 const SafeTrainingDetail = () => {
   const { id } = useParams();
   const course = courseDetails[id as keyof typeof courseDetails];
+  const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
 
   if (!course) {
     return (
@@ -515,7 +518,7 @@ const SafeTrainingDetail = () => {
                             <Button 
                               variant="outline"
                               className="w-full border-purple-600 text-purple-600 hover:bg-purple-50"
-                              onClick={() => window.open('https://buy.stripe.com/14A28q8sp6BkdZk747ew800', '_blank')}
+                              onClick={() => setIsWaitlistModalOpen(true)}
                             >
                               Join Waitlist
                             </Button>
@@ -669,6 +672,15 @@ const SafeTrainingDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* Waitlist Modal */}
+      <WaitlistModal
+        isOpen={isWaitlistModalOpen}
+        onClose={() => setIsWaitlistModalOpen(false)}
+        courseType="safe-scrum-master"
+        sessionDate="August 14-15, 2025"
+        courseName="SAFe Scrum Master"
+      />
     </div>
   );
 };

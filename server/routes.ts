@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema, insertEmailSubscriptionSchema } from "@shared/schema";
+import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema, insertEmailSubscriptionSchema, insertWaitlistSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from 'zod-validation-error';
 import { sendInquiryNotification } from "./email";
@@ -361,6 +361,94 @@ export async function registerRoutes(app: Express): Promise<Server> {
         success: false,
         message: "Error fetching subscription data"
       });
+    }
+  });
+
+  // Waitlist submission endpoint
+  app.post("/api/waitlist", async (req, res) => {
+    try {
+      const validatedWaitlist = insertWaitlistSchema.parse(req.body);
+      
+      // Check if already on waitlist for this session
+      const existingWaitlist = await storage.getWaitlistByEmail(
+        validatedWaitlist.email,
+        validatedWaitlist.courseType,
+        validatedWaitlist.sessionDate
+      );
+      
+      if (existingWaitlist) {
+        return res.status(400).json({
+          success: false,
+          message: "You're already on the waitlist for this session."
+        });
+      }
+      
+      const waitlist = await storage.createWaitlist(validatedWaitlist);
+      
+      // Send confirmation email
+      try {
+        const { sendEmail } = await import('./email');
+        const courseName = validatedWaitlist.courseType === 'safe-scrum-master' ? 'SAFe Scrum Master' : validatedWaitlist.courseType;
+        
+        const emailHtml = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <h2 style="color: #7c3aed;">✅ You're on the Waitlist!</h2>
+            
+            <p>Hi ${validatedWaitlist.name},</p>
+            
+            <p>Great news! You've been successfully added to the waitlist for:</p>
+            
+            <div style="background: #f3f4f6; padding: 15px; border-radius: 8px; margin: 20px 0;">
+              <strong>Course:</strong> ${courseName} Certification<br>
+              <strong>Session:</strong> ${validatedWaitlist.sessionDate}<br>
+              <strong>Format:</strong> Live Virtual (Zoom)
+            </div>
+            
+            <h3 style="color: #7c3aed;">What happens next?</h3>
+            <ul>
+              <li>You'll be the first to know when spots become available</li>
+              <li>We'll email you immediately if seats are added to your preferred session</li>
+              <li>When notified, register within 24 hours to secure your spot</li>
+            </ul>
+            
+            <p>Questions? Reply to this email or contact us at <a href="mailto:support@radiantagility.tech">support@radiantagility.tech</a></p>
+            
+            <p>Thanks for choosing Radiant Agility!</p>
+          </div>
+        `;
+        
+        await sendEmail({
+          to: validatedWaitlist.email,
+          from: 'noreply@radiantagility.tech',
+          subject: `✅ Waitlist Confirmation - ${courseName} (${validatedWaitlist.sessionDate})`,
+          html: emailHtml,
+          text: `Hi ${validatedWaitlist.name}, You've been added to the waitlist for ${courseName} Certification on ${validatedWaitlist.sessionDate}. We'll notify you when spots become available.`
+        });
+      } catch (emailError) {
+        console.error('Error sending waitlist confirmation:', emailError);
+        // Continue with success response even if email fails
+      }
+      
+      res.status(201).json({
+        success: true,
+        message: "Successfully added to waitlist!",
+        data: waitlist
+      });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        const validationError = fromZodError(error);
+        res.status(400).json({ 
+          success: false,
+          message: "Validation error", 
+          errors: validationError.details 
+        });
+      } else {
+        console.error('Waitlist submission error:', error);
+        res.status(500).json({ 
+          success: false,
+          message: "Failed to join waitlist. Please try again."
+        });
+      }
     }
   });
 
