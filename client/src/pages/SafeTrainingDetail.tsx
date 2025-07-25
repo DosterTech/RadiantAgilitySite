@@ -533,7 +533,7 @@ const SafeTrainingDetail = () => {
                             </div>
                             <Button 
                               className="w-full bg-purple-600 hover:bg-purple-700 text-white"
-                              onClick={() => window.open('https://buy.stripe.com/4gM7sK5gdaRA2gC0FJew801', '_blank')}
+                              onClick={() => window.open('https://buy.stripe.com/4gMaEWcIF3p89J488bew802', '_blank')}
                             >
                               Register Now
                             </Button>

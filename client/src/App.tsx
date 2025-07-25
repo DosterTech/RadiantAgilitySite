@@ -23,6 +23,7 @@ import SafeSprint from "./pages/SafeSprint";
 import Ventures from "./pages/Ventures";
 import ThankYouJuly19 from "./pages/ThankYouJuly19";
 import ThankYouJuly26 from "./pages/ThankYouJuly26";
+import ThankYouPopm from "./pages/ThankYouPopm";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -43,6 +44,7 @@ function Router() {
       <Route path="/products" component={Ventures} />
       <Route path="/thank-you-july19.html" component={ThankYouJuly19} />
       <Route path="/thank-you-july26.html" component={ThankYouJuly26} />
+      <Route path="/thank-you-popm" component={ThankYouPopm} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />
