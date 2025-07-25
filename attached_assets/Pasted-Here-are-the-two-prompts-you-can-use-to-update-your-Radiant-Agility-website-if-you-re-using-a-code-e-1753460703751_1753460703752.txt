@@ -1,0 +1,55 @@
+Here are the two prompts you can use to update your Radiant Agility website if you’re using a code editor, CMS like Webflow, Framer, or even a no-code tool:
+
+⸻
+
+🟢 Prompt to Update the SAFe Scrum Master Registration Page
+
+URL: /safe-training/safe-scrum-master
+
+✅ Purpose: Update schedule, clarify course format, add registration CTA.
+
+Update the /safe-training/safe-scrum-master page with the following:
+
+1. Replace any outdated dates with:
+   - Upcoming Live Virtual Weekend Cohort: August 10–11, 2025 (Sat–Sun, 12 PM–8 PM EST)
+   - Waitlist Open: August 14–15, 2025 (Tues–Wed, 10 AM–6 PM EST — class runs if 5+ students register)
+
+2. Add note under schedule:
+   - “This is a live, instructor-led certification course delivered via Zoom. Includes practice simulations, job interview prep tips, and exam voucher.”
+
+3. Keep the price as-is (or list as $499 if you're offering a special).
+
+4. Add call-to-action:
+   - “Reserve Your Seat” button that links to registration or payment form.
+
+
+⸻
+
+🔵 Prompt to Add the SAFe Product Owner/Product Manager Course Info
+
+URL: /safe-training/safe-popm
+
+✅ Purpose: Add new class details, registration info, and update pricing.
+
+Create or update the /safe-training/safe-popm page with the following content:
+
+1. Course Header:
+   - SAFe® Product Owner / Product Manager (POPM) Certification Course
+
+2. Description:
+   - Learn how to deliver customer value at scale. This 2-day course covers the key responsibilities of Product Owners and Product Managers working in a SAFe enterprise. Ideal for product leaders, business analysts, and Agile professionals leveling up.
+
+3. Upcoming Session:
+   - August 23–24, 2025 (Sat–Sun, 12 PM–8 PM EST)  
+   - Live via Zoom
+
+4. Price:
+   - $580 (includes all materials + exam voucher)
+
+5. CTA:
+   - Add a "Register Now" or “Join the Class” button that links to the checkout or registration flow.
+
+
+⸻
+
+Would you like help writing the copy for these pages too? I can give you complete website sections if you’re using a builder like Framer or Webflow.
