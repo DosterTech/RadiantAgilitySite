@@ -1,0 +1,76 @@
+Here’s a prompt you can give your developer (or use with an AI website builder or SEO plugin like RankMath, Yoast, or SurferSEO) to optimize your SAFe Scrum Master course page for SEO:
+
+⸻
+
+🔍 SEO Optimization Prompt for /safe-training/safe-scrum-master Page
+
+Objective:
+Optimize the page for Google search ranking using high-intent keywords, clear structure, and rich metadata. The goal is to appear in the top 5 organic results when users search for “SAFe Scrum Master certification,” “SAFe Scrum Master online course,” “virtual SAFe certification,” or “affordable SAFe Scrum Master training.”
+
+⸻
+
+🛠 SEO Instructions:
+	1.	Title Tag (max 60 characters):
+SAFe® Scrum Master Certification Online | Radiant Agility
+	2.	Meta Description (max 155 characters):
+Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 10–11.
+	3.	H1 Header:
+SAFe® Scrum Master Certification (SSM) – Live Online
+	4.	Target Keywords to Include Naturally (2–3 times each):
+
+	•	SAFe Scrum Master certification
+	•	Online SAFe Scrum Master course
+	•	SAFe 6.0 training
+	•	Live SAFe certification
+	•	Affordable SAFe course
+	•	Virtual SAFe Scrum Master class
+
+	5.	Alt Text for Images:
+Ensure every image (including banners) has descriptive alt text, e.g.:
+"Radiant Agility SAFe Scrum Master class promo – August 2025"
+"SAFe Scrum Master online training via Zoom"
+	6.	Internal Linking:
+Link keywords like “SAFe Product Owner” to:
+/safe-training/safe-popm
+	7.	Schema Markup (JSON-LD):
+Add Course structured data with:
+
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "SAFe® Scrum Master Certification (SSM)",
+  "provider": {
+    "@type": "Organization",
+    "name": "Radiant Agility Technology",
+    "url": "https://radiantagility.tech"
+  },
+  "description": "Live instructor-led SAFe Scrum Master certification with exam prep, practice simulations, and job-ready skills.",
+  "offers": {
+    "@type": "Offer",
+    "price": "580",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "https://radiantagility.tech/safe-training/safe-scrum-master"
+  }
+}
+
+	8.	URL Slug:
+Keep it: /safe-training/safe-scrum-master
+	9.	Page Content Suggestions:
+Include a short paragraph (100–150 words) that answers:
+
+	•	“Why get SAFe Scrum Master certified?”
+	•	“What’s included in the course?”
+	•	“What makes Radiant Agility different?”
+
+Use bullet points for:
+	•	What you’ll learn
+	•	Who this is for
+	•	What’s included (exam, workbook, templates, etc.)
+
+	10.	Testimonials or Social Proof:
+Add 1–2 short testimonials (real or from LinkedIn) if available, or a badge graphic like “Trusted by 5,000+ agile learners.”
+
+⸻
+
+Let me know and I can auto-generate the meta tags, headers, JSON-LD, and SEO content directly from your current page. Or would you like an optimized version of your current page content?
