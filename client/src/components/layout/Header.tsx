@@ -82,58 +82,62 @@ const Header = () => {
             
             {/* Solutions Dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setSolutionsDropdownOpen(true)}
               onMouseLeave={() => setSolutionsDropdownOpen(false)}
             >
               <button
-                className="flex items-center font-medium text-gray-500 hover:text-primary transition-colors"
+                className="flex items-center font-medium text-gray-500 hover:text-primary transition-colors py-2"
               >
                 Solutions
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               
               {solutionsDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border py-2 z-50">
-                  {solutionsItems.map((item, index) => (
-                    <Link
-                      key={`${item.href}-${index}`}
-                      href={item.href}
-                      onClick={handleNavClick}
-                      className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-1 w-56 z-50">
+                  <div className="bg-white rounded-lg shadow-lg border py-2">
+                    {solutionsItems.map((item, index) => (
+                      <Link
+                        key={`${item.href}-${index}`}
+                        href={item.href}
+                        onClick={handleNavClick}
+                        className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
 
             {/* SAFe Training Dropdown */}
             <div 
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setSafeTrainingDropdownOpen(true)}
               onMouseLeave={() => setSafeTrainingDropdownOpen(false)}
             >
               <button
-                className="flex items-center font-medium text-gray-500 hover:text-primary transition-colors"
+                className="flex items-center font-medium text-gray-500 hover:text-primary transition-colors py-2"
               >
                 SAFe Training
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               
               {safeTrainingDropdownOpen && (
-                <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border py-2 z-50">
-                  {safeTrainingItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleNavClick}
-                      className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-1 w-56 z-50">
+                  <div className="bg-white rounded-lg shadow-lg border py-2">
+                    {safeTrainingItems.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleNavClick}
+                        className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

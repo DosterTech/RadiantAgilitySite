@@ -319,8 +319,8 @@ const SafeTrainingDetail = () => {
         "courseMode": "online",
         "hasCourseInstance": {
           "@type": "CourseInstance",
-          "startDate": "2025-08-10",
-          "endDate": "2025-08-11",
+          "startDate": "2025-08-16",
+          "endDate": "2025-08-17",
           "courseMode": "online"
         }
       };
@@ -346,15 +346,15 @@ const SafeTrainingDetail = () => {
       {/* SEO Meta Tags */}
       <Helmet>
         <title>{id === 'safe-scrum-master' ? 'SAFe® Scrum Master Certification Online | Radiant Agility' : course.title}</title>
-        <meta name="description" content={id === 'safe-scrum-master' ? 'Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 10–11.' : course.description} />
+        <meta name="description" content={id === 'safe-scrum-master' ? 'Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 16–17.' : course.description} />
         <meta name="keywords" content={id === 'safe-scrum-master' ? 'SAFe Scrum Master certification, Online SAFe Scrum Master course, SAFe 6.0 training, Live SAFe certification, Affordable SAFe course, Virtual SAFe Scrum Master class' : ''} />
         <meta property="og:title" content={id === 'safe-scrum-master' ? 'SAFe® Scrum Master Certification Online | Radiant Agility' : course.title} />
-        <meta property="og:description" content={id === 'safe-scrum-master' ? 'Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 10–11.' : course.description} />
+        <meta property="og:description" content={id === 'safe-scrum-master' ? 'Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 16–17.' : course.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://radiantagility.tech/safe-training/${id}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={id === 'safe-scrum-master' ? 'SAFe® Scrum Master Certification Online | Radiant Agility' : course.title} />
-        <meta name="twitter:description" content={id === 'safe-scrum-master' ? 'Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 10–11.' : course.description} />
+        <meta name="twitter:description" content={id === 'safe-scrum-master' ? 'Live SAFe® Scrum Master training with exam prep, expert instructors, and job-ready skills. Get certified online. Next class: August 16–17.' : course.description} />
         <link rel="canonical" href={`https://radiantagility.tech/safe-training/${id}`} />
         {getSchemaMarkup() && (
           <script type="application/ld+json">
@@ -592,7 +592,7 @@ const SafeTrainingDetail = () => {
                         <>
                           {/* Scrum Master Sessions */}
                           <div className="border border-gray-200 rounded-lg p-4">
-                            <h4 className="font-semibold text-gray-900 mb-3">Upcoming Live Virtual Weekend Cohort: August 10–11, 2025</h4>
+                            <h4 className="font-semibold text-gray-900 mb-3">Upcoming Live Virtual Weekend Cohort: August 16–17, 2025</h4>
                             <div className="space-y-2 text-gray-700 mb-4">
                               <p>🕘 12:00 PM – 8:00 PM EST (Saturday & Sunday)</p>
                               <p>📍 Live Virtual (Zoom)</p>
@@ -607,7 +607,7 @@ const SafeTrainingDetail = () => {
                           </div>
 
                           <div className="border border-gray-200 rounded-lg p-4">
-                            <h4 className="font-semibold text-gray-900 mb-3">Waitlist Open: August 14–15, 2025</h4>
+                            <h4 className="font-semibold text-gray-900 mb-3">Waitlist Open: August 26–27, 2025</h4>
                             <div className="space-y-2 text-gray-700 mb-4">
                               <p>🕘 10:00 AM – 6:00 PM EST (Tuesday & Wednesday)</p>
                               <p>📍 Live Virtual (Zoom)</p>
@@ -809,7 +809,7 @@ const SafeTrainingDetail = () => {
         isOpen={isWaitlistModalOpen}
         onClose={() => setIsWaitlistModalOpen(false)}
         courseType="safe-scrum-master"
-        sessionDate="August 14-15, 2025"
+        sessionDate="August 26-27, 2025"
         courseName="SAFe Scrum Master"
       />
     </div>
