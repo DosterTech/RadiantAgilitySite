@@ -441,7 +441,7 @@ const SafeTrainingDetail = () => {
                     <Button 
                       className="w-full gradient-bg hover:opacity-90 text-white"
                       onClick={() => {
-                        if (id === 'safe-scrum-master') {
+                        if (id === 'safe-scrum-master' || id === 'safe-popm') {
                           document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
                         } else {
                           window.open('https://eventbrite.com', '_blank');

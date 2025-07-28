@@ -149,12 +149,7 @@ const Header = () => {
               Blog
             </Link>
             
-            <Link 
-              href="/products"
-              className={`font-medium ${location === '/products' ? 'text-primary' : 'text-gray-500 hover:text-primary'} transition-colors`}
-            >
-              Products
-            </Link>
+
             
             <Link 
               href="/contact"
@@ -242,13 +237,7 @@ const Header = () => {
               Blog
             </Link>
             
-            <Link 
-              href="/products" 
-              onClick={closeMobileMenu}
-              className={`px-3 py-3 rounded-md font-medium ${location === '/products' ? 'text-primary bg-primary/10' : 'text-gray-700 hover:bg-gray-100 hover:text-primary'}`}
-            >
-              Products
-            </Link>
+
             
             <Link 
               href="/contact" 

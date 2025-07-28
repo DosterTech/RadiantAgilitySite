@@ -112,6 +112,8 @@ Changelog:
 - January 27, 2025. Fixed navigation dropdown hover issue by adding proper padding and removing gaps between trigger and dropdown menu
 - January 27, 2025. Updated SAFe Scrum Master class dates: Session 1 changed to Aug 16-17 (Saturday-Sunday), Waitlist session changed to Aug 26-27 (Tuesday-Wednesday)
 - January 27, 2025. Implemented comprehensive SEO optimization for SAFe Scrum Master page including Schema markup, meta tags, keywords, and structured content sections
+- January 28, 2025. Removed "Products" from public navigation menu to make it investor-only access
+- January 28, 2025. Fixed POPM course register button to scroll to sessions section instead of opening external link
 ```
 
 ## User Preferences
