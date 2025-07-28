@@ -25,6 +25,7 @@ import ThankYouJuly19 from "./pages/ThankYouJuly19";
 import ThankYouJuly26 from "./pages/ThankYouJuly26";
 import ThankYouPopm from "./pages/ThankYouPopm";
 import ThankYouWaitlist from "./pages/ThankYouWaitlist";
+import ValueFirstAssessment from "./pages/ValueFirstAssessment";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -48,6 +49,7 @@ function Router() {
       <Route path="/thank-you-popm" component={ThankYouPopm} />
       <Route path="/thank-you-pomp" component={ThankYouPopm} />
       <Route path="/thank-you-waitlist" component={ThankYouWaitlist} />
+      <Route path="/value-first-assessment" component={ValueFirstAssessment} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />
