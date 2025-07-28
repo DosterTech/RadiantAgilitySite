@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value-First Agile Assessment - Radiant Agility</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4c63d2 0%, #5a67d8 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 15px;
+            border-left: 5px solid #4c63d2;
+        }
+
+        .intro h2 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .question-section {
+            margin-bottom: 35px;
+            padding: 25px;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .question-section:hover {
+            border-color: #4c63d2;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(76, 99, 210, 0.1);
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-icon {
+            font-size: 1.8rem;
+            margin-right: 12px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 4px solid #cbd5e0;
+        }
+
+        .question h4 {
+            color: #2d3748;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover {
+            border-color: #4c63d2;
+            background: #f0f4ff;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+            accent-color: #4c63d2;
+        }
+
+        .option label {
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1.4;
+            color: #2d3748;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #4c63d2 0%, #5a67d8 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 99, 210, 0.3);
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(76, 99, 210, 0.4);
+        }
+
+        .results {
+            display: none;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .results.show {
+            display: block;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .level-1 { background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%); }
+        .level-1 .score-display { color: #c53030; }
+
+        .level-2 { background: linear-gradient(135deg, #feebc8 0%, #fbd38d 100%); }
+        .level-2 .score-display { color: #dd6b20; }
+
+        .level-3 { background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%); }
+        .level-3 .score-display { color: #38a169; }
+
+        .recommendations {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .recommendation-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #4c63d2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 15px;
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(72, 187, 120, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(72, 187, 120, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .header p { font-size: 1rem; }
+            .content { padding: 20px; }
+            .intro { padding: 20px; }
+            .question-section { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Value-First Agile Assessment</h1>
+            <p>Discover how effectively your team delivers customer value</p>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Are You Building the Right Things?</h2>
+                <p>This assessment helps you identify gaps between activity and impact. Answer honestly for the most accurate insights into your team's value delivery capabilities.</p>
+            </div>
+
+            <form id="assessmentForm">
+                <div class="question-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">🎯</span>
+                        Value Definition & Alignment
+                    </h3>
+                    
+                    <div class="question">
+                        <h4>How clearly can your team articulate the customer value of their current work?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q1" value="1" id="q1_1">
+                                <label for="q1_1">We focus on completing tickets, not customer outcomes</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="2" id="q1_2">
+                                <label for="q1_2">Some team members can explain value, but it's inconsistent</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q1" value="3" id="q1_3">
+                                <label for="q1_3">Everyone can clearly connect their work to customer outcomes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>How often do stakeholders change priorities mid-sprint?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q2" value="1" id="q2_1">
+                                <label for="q2_1">Constantly - priorities shift multiple times per sprint</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="2" id="q2_2">
+                                <label for="q2_2">Occasionally - maybe once per sprint with good reasons</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q2" value="3" id="q2_3">
+                                <label for="q2_3">Rarely - we have clear, stable value-based priorities</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">📊</span>
+                        Measurement & Feedback
+                    </h3>
+                    
+                    <div class="question">
+                        <h4>What metrics does your team primarily track?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q3" value="1" id="q3_1">
+                                <label for="q3_1">Velocity, story points, and burndown charts</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="2" id="q3_2">
+                                <label for="q3_2">Mix of activity metrics and some outcome measures</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q3" value="3" id="q3_3">
+                                <label for="q3_3">Customer behavior, business outcomes, and impact metrics</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>How quickly do you get feedback on whether your work creates value?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q4" value="1" id="q4_1">
+                                <label for="q4_1">Months later, if at all</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="2" id="q4_2">
+                                <label for="q4_2">Within a few weeks through various channels</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q4" value="3" id="q4_3">
+                                <label for="q4_3">Within days through direct customer feedback loops</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">🔄</span>
+                        Delivery & Adaptation
+                    </h3>
+                    
+                    <div class="question">
+                        <h4>How often does your team deliver working software to real users?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q5" value="1" id="q5_1">
+                                <label for="q5_1">Major releases every few months</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="2" id="q5_2">
+                                <label for="q5_2">Every sprint or two, but often behind feature flags</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q5" value="3" id="q5_3">
+                                <label for="q5_3">Continuously or multiple times per week</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>When you discover a feature isn't working as expected, how does your team respond?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q6" value="1" id="q6_1">
+                                <label for="q6_1">We keep building as planned - we'll fix it later</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="2" id="q6_2">
+                                <label for="q6_2">We discuss it in retrospectives and plan improvements</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q6" value="3" id="q6_3">
+                                <label for="q6_3">We immediately pivot and iterate based on learnings</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-section">
+                    <h3 class="section-title">
+                        <span class="section-icon">🧠</span>
+                        Learning & Experimentation
+                    </h3>
+                    
+                    <div class="question">
+                        <h4>How does your team validate ideas before building full features?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q7" value="1" id="q7_1">
+                                <label for="q7_1">We don't - we build what's requested in the requirements</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" value="2" id="q7_2">
+                                <label for="q7_2">Sometimes through user testing or stakeholder reviews</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q7" value="3" id="q7_3">
+                                <label for="q7_3">Always through prototypes, A/B tests, or MVP approaches</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question">
+                        <h4>What happens when your team "fails" or a feature doesn't work?</h4>
+                        <div class="options">
+                            <div class="option">
+                                <input type="radio" name="q8" value="1" id="q8_1">
+                                <label for="q8_1">We're blamed and need to work longer hours to "fix" it</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" value="2" id="q8_2">
+                                <label for="q8_2">We analyze what went wrong and document lessons learned</label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" name="q8" value="3" id="q8_3">
+                                <label for="q8_3">We celebrate the learning and apply insights to improve</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="calculate-btn" onclick="calculateScore()">
+                    Calculate My Value-First Score
+                </button>
+            </form>
+
+            <div id="results" class="results">
+                <div id="scoreDisplay" class="score-display"></div>
+                <h3 id="resultTitle"></h3>
+                <p id="resultDescription"></p>
+                
+                <div class="recommendations">
+                    <h4>Your Personalized Action Plan:</h4>
+                    <div id="recommendationsList"></div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Ready to Transform Your Team?</h3>
+                    <p>Our SAFe Scrum Master certification goes beyond frameworks to build the value-first mindset your team needs.</p>
+                    <a href="https://radiantagility.tech" class="cta-btn">Join Our Next Class - Aug 16-17</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('assessmentForm');
+            const formData = new FormData(form);
+            
+            let totalScore = 0;
+            let answeredQuestions = 0;
+            
+            // Check if all questions are answered
+            for (let i = 1; i <= 8; i++) {
+                const answer = formData.get(`q${i}`);
+                if (answer) {
+                    totalScore += parseInt(answer);
+                    answeredQuestions++;
+                }
+            }
+            
+            if (answeredQuestions < 8) {
+                alert('Please answer all questions to get your personalized assessment.');
+                return;
+            }
+            
+            displayResults(totalScore);
+        }
+        
+        function displayResults(score) {
+            const resultsDiv = document.getElementById('results');
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultDescription = document.getElementById('resultDescription');
+            const recommendationsList = document.getElementById('recommendationsList');
+            
+            let level, title, description, recommendations;
+            
+            if (score <= 12) {
+                level = 'level-1';
+                title = 'Activity-Focused Team';
+                description = 'Your team is working hard but may be trapped in the "feature factory" mindset. There\'s significant opportunity to shift toward value-driven delivery.';
+                recommendations = [
+                    '🎯 Start with Value Stream Mapping to identify waste and bottlenecks',
+                    '📊 Replace velocity tracking with outcome-based metrics',
+                    '🔄 Implement weekly customer feedback sessions',
+                    '🧠 Begin each sprint planning with "What customer problem are we solving?"'
+                ];
+            } else if (score <= 18) {
+                level = 'level-2';
+                title = 'Transitioning Team';
+                description = 'You\'re on the right path! Your team shows awareness of value delivery but needs more consistent practices and stronger feedback loops.';
+                recommendations = [
+                    '📈 Establish clear success criteria for each feature before development',
+                    '⚡ Reduce time-to-feedback through continuous deployment practices',
+                    '🎭 Transform ceremonies from status updates to value discussions',
+                    '🔬 Introduce experimentation frameworks like Design Thinking'
+                ];
+            } else {
+                level = 'level-3';
+                title = 'Value-First Champions';
+                description = 'Excellent! Your team demonstrates strong value-first practices. Focus on scaling these practices across the organization and mentoring other teams.';
+                recommendations = [
+                    '🌟 Become internal coaches for other teams adopting value-first practices',
+                    '📚 Share your success stories and lessons learned organization-wide',
+                    '🔄 Continuously refine your feedback loops and experimentation capabilities',
+                    '🎯 Help leadership establish value-based budgeting and roadmap planning'
+                ];
+            }
+            
+            scoreDisplay.textContent = `${score}/24`;
+            resultTitle.textContent = title;
+            resultDescription.textContent = description;
+            
+            recommendationsList.innerHTML = recommendations
+                .map(rec => `<div class="recommendation-item">${rec}</div>`)
+                .join('');
+            
+            resultsDiv.className = `results show ${level}`;
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

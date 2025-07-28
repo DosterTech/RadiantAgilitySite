@@ -1,0 +1,89 @@
+Create a new page called "Value-First Agile Assessment" with the following specifications:
+Page Title: Value-First Agile Assessment - Discover Your Team's Value Delivery Potential
+Page URL/Slug: /value-first-assessment
+Page Description: Take our free 5-minute assessment to discover how effectively your agile team delivers customer value. Get personalized recommendations and an actionable roadmap for transformation.
+Page Content Structure:
+Header Section:
+
+Hero headline: "Are Your Teams Building the Right Things?"
+Subheadline: "Discover how effectively your agile team delivers customer value with our free 5-minute assessment"
+Call-to-action button: "Take the Assessment"
+
+Problem Section:
+
+Headline: "The Hidden Challenge Every Agile Team Faces"
+Content: Explain the difference between being busy vs. delivering value
+Include statistics or pain points about feature factory mentality
+
+Assessment Description Section:
+
+Headline: "The Value-First Agile Assessment"
+Bullet points highlighting:
+
+8 targeted questions across 4 critical areas
+Interactive scoring with immediate results
+Personalized recommendations based on your score
+Professional design optimized for all devices
+
+
+
+How It Works Section:
+
+Headline: "Four Critical Areas We Evaluate"
+Four subsections:
+
+Value Definition & Alignment
+Measurement & Feedback
+Delivery & Adaptation
+Learning & Experimentation
+
+
+
+Results Preview Section:
+
+Headline: "Your Personalized Results"
+Three result levels:
+
+Activity-Focused Teams (8-12 points)
+Transitioning Teams (13-18 points)
+Value-First Champions (19-24 points)
+
+
+
+Assessment Integration:
+
+Embed the interactive assessment tool I created earlier
+Ensure it's mobile-responsive
+Include form capture for email/name before showing results
+
+Post-Assessment Section:
+
+Thank you message
+Call-to-action for consultation booking
+Links to related services (SAFe training, consulting)
+
+Footer CTA:
+
+"Ready to transform your team from busy to valuable?"
+Contact information and next steps
+
+SEO Requirements:
+
+Meta title: "Free Agile Assessment - Value-First Team Evaluation | [Your Company]"
+Meta description: "Take our free Value-First Agile Assessment. Discover if your team is trapped in feature factory mode or delivering real customer value. Get personalized recommendations in 5 minutes."
+Include relevant keywords: agile assessment, value delivery, team evaluation, agile transformation
+
+Design Notes:
+
+Use professional color scheme matching your brand
+Include progress indicators for the assessment
+Add testimonial or social proof elements if available
+Ensure fast loading times and mobile optimization
+Include sharing buttons for results
+
+Technical Requirements:
+
+Form should capture email addresses before showing results
+Results should be downloadable as PDF
+Include analytics tracking for assessment completion
+Set up email automation for follow-up sequences
