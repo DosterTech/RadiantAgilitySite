@@ -116,6 +116,7 @@ Changelog:
 - January 28, 2025. Fixed POMP course register button to scroll to sessions section instead of opening external link
 - January 28, 2025. Updated brand colors to match Radiant Agility theme: primary purple (#4c63d2), gradient backgrounds, and consistent purple color scheme throughout the application
 - January 28, 2025. Created Value-First Agile Assessment page at /value-first-assessment with interactive 8-question assessment, personalized scoring (8-12, 13-18, 19-24 points), and targeted recommendations for teams transitioning from activity-focused to value-driven development
+- January 28, 2025. Removed results preview section from assessment page to keep result types as a surprise until completion
 ```
 
 ## User Preferences

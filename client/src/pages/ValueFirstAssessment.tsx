@@ -396,39 +396,7 @@ const ValueFirstAssessment = () => {
           </div>
         </section>
 
-        {/* Results Preview */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-                Your Personalized Results
-              </h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                <Card className="border-red-200">
-                  <CardContent className="pt-6 text-center">
-                    <Badge className="bg-red-500 text-white mb-4">8-12 points</Badge>
-                    <h3 className="text-lg font-semibold text-red-800 mb-2">Activity-Focused Teams</h3>
-                    <p className="text-sm text-red-600">Teams focused on completing tasks rather than delivering customer value</p>
-                  </CardContent>
-                </Card>
-                <Card className="border-orange-200">
-                  <CardContent className="pt-6 text-center">
-                    <Badge className="bg-orange-500 text-white mb-4">13-18 points</Badge>
-                    <h3 className="text-lg font-semibold text-orange-800 mb-2">Transitioning Teams</h3>
-                    <p className="text-sm text-orange-600">Making progress toward value-driven practices with room for improvement</p>
-                  </CardContent>
-                </Card>
-                <Card className="border-green-200">
-                  <CardContent className="pt-6 text-center">
-                    <Badge className="bg-green-500 text-white mb-4">19-24 points</Badge>
-                    <h3 className="text-lg font-semibold text-green-800 mb-2">Value-First Champions</h3>
-                    <p className="text-sm text-green-600">Demonstrates strong value-first practices and customer focus</p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* CTA */}
         <section className="py-16 radiant-primary-gradient text-white">
