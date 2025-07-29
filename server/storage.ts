@@ -223,4 +223,147 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Use MemStorage temporarily due to database connection issues
+class MemStorage implements IStorage {
+  private users: User[] = [];
+  private leads: Lead[] = [];
+  private contacts: Contact[] = [];
+  private chatMessages: ChatMessage[] = [];
+  private inquiries: Inquiry[] = [];
+  private emailSubscriptions: EmailSubscription[] = [];
+  private waitlists: Waitlist[] = [];
+  private nextId = 1;
+
+  async getUser(id: number): Promise<User | undefined> {
+    return this.users.find(u => u.id === id);
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    return this.users.find(u => u.username === username);
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const user: User = { ...insertUser, id: this.nextId++ };
+    this.users.push(user);
+    return user;
+  }
+
+  async createLead(insertLead: InsertLead): Promise<Lead> {
+    const lead: Lead = { ...insertLead, id: this.nextId++, createdAt: new Date() };
+    this.leads.push(lead);
+    return lead;
+  }
+
+  async getLeads(): Promise<Lead[]> {
+    return [...this.leads];
+  }
+
+  async createContact(insertContact: InsertContact): Promise<Contact> {
+    const contact: Contact = { ...insertContact, id: this.nextId++, createdAt: new Date() };
+    this.contacts.push(contact);
+    return contact;
+  }
+
+  async getContacts(): Promise<Contact[]> {
+    return [...this.contacts];
+  }
+
+  generateSessionId(): string {
+    return uuidv4();
+  }
+
+  async createChatMessage(insertMessage: InsertChatMessage): Promise<ChatMessage> {
+    const message: ChatMessage = { ...insertMessage, id: this.nextId++, createdAt: new Date() };
+    this.chatMessages.push(message);
+    return message;
+  }
+
+  async getChatMessagesBySessionId(sessionId: string): Promise<ChatMessage[]> {
+    return this.chatMessages.filter(m => m.sessionId === sessionId);
+  }
+
+  async createInquiry(insertInquiry: InsertInquiry): Promise<Inquiry> {
+    const inquiry: Inquiry = { ...insertInquiry, id: this.nextId++, createdAt: new Date(), isRead: false };
+    this.inquiries.push(inquiry);
+    return inquiry;
+  }
+
+  async getInquiries(sortOrder: 'newest' | 'oldest' = 'newest'): Promise<Inquiry[]> {
+    const sorted = [...this.inquiries].sort((a, b) => {
+      return sortOrder === 'newest' 
+        ? b.createdAt.getTime() - a.createdAt.getTime()
+        : a.createdAt.getTime() - b.createdAt.getTime();
+    });
+    return sorted;
+  }
+
+  async getInquiry(id: number): Promise<Inquiry | undefined> {
+    return this.inquiries.find(i => i.id === id);
+  }
+
+  async markInquiryAsRead(id: number): Promise<void> {
+    const inquiry = this.inquiries.find(i => i.id === id);
+    if (inquiry) inquiry.isRead = true;
+  }
+
+  async markInquiryAsUnread(id: number): Promise<void> {
+    const inquiry = this.inquiries.find(i => i.id === id);
+    if (inquiry) inquiry.isRead = false;
+  }
+
+  async createEmailSubscription(insertSubscription: InsertEmailSubscription): Promise<EmailSubscription> {
+    const subscription: EmailSubscription = { 
+      ...insertSubscription, 
+      id: this.nextId++, 
+      createdAt: new Date(),
+      currentDay: 0,
+      isCompleted: false,
+      lastEmailSent: null
+    };
+    this.emailSubscriptions.push(subscription);
+    return subscription;
+  }
+
+  async getEmailSubscriptions(courseType?: string): Promise<EmailSubscription[]> {
+    return courseType 
+      ? this.emailSubscriptions.filter(s => s.courseType === courseType)
+      : [...this.emailSubscriptions];
+  }
+
+  async getEmailSubscriptionByEmail(email: string, courseType: string): Promise<EmailSubscription | undefined> {
+    return this.emailSubscriptions.find(s => s.email === email && s.courseType === courseType);
+  }
+
+  async updateEmailSubscriptionDay(id: number, day: number): Promise<void> {
+    const subscription = this.emailSubscriptions.find(s => s.id === id);
+    if (subscription) subscription.currentDay = day;
+  }
+
+  async markEmailSubscriptionCompleted(id: number): Promise<void> {
+    const subscription = this.emailSubscriptions.find(s => s.id === id);
+    if (subscription) subscription.isCompleted = true;
+  }
+
+  async updateLastEmailSent(id: number): Promise<void> {
+    const subscription = this.emailSubscriptions.find(s => s.id === id);
+    if (subscription) subscription.lastEmailSent = new Date();
+  }
+
+  async createWaitlist(insertWaitlist: InsertWaitlist): Promise<Waitlist> {
+    const waitlist: Waitlist = { ...insertWaitlist, id: this.nextId++, createdAt: new Date() };
+    this.waitlists.push(waitlist);
+    return waitlist;
+  }
+
+  async getWaitlists(courseType?: string): Promise<Waitlist[]> {
+    return courseType 
+      ? this.waitlists.filter(w => w.courseType === courseType)
+      : [...this.waitlists];
+  }
+
+  async getWaitlistByEmail(email: string, courseType: string, sessionDate: string): Promise<Waitlist | undefined> {
+    return this.waitlists.find(w => w.email === email && w.courseType === courseType && w.sessionDate === sessionDate);
+  }
+}
+
+export const storage = new MemStorage();

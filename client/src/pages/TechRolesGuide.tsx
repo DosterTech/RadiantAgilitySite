@@ -131,12 +131,26 @@ const TechRolesGuide = () => {
               <p className="text-sm text-gray-500 mb-6">
                 Don't see it? Check your spam folder and add noreply@radiantagility.tech to your contacts.
               </p>
-              <Button 
-                onClick={() => window.location.href = '/safe-training'}
-                className="w-full radiant-primary-gradient text-white"
-              >
-                Explore SAFe Training Programs
-              </Button>
+              <div className="flex flex-col gap-3">
+                <Button 
+                  onClick={() => window.location.href = '/safe-training'}
+                  className="w-full radiant-primary-gradient text-white"
+                >
+                  Explore SAFe Training Programs
+                </Button>
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/3-high-paying-tech-roles-guide.pdf';
+                    link.download = '3-high-paying-tech-roles-guide.pdf';
+                    link.click();
+                  }}
+                  className="w-full border-purple-600 text-purple-600 hover:bg-purple-50"
+                >
+                  Download Guide Again
+                </Button>
+              </div>
             </CardContent>
           </Card>
         </motion.div>
