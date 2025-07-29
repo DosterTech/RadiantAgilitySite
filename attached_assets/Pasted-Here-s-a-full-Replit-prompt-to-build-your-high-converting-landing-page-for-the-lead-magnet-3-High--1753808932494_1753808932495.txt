@@ -1,0 +1,80 @@
+Here’s a full Replit prompt to build your high-converting landing page for the lead magnet:
+“3 High-Paying Tech Roles You Can Land Without Learning to Code”
+
+⸻
+
+🧠 What You’re Building:
+
+A mobile-optimized, responsive landing page that:
+	•	Captures email addresses
+	•	Delivers your PDF guide
+	•	Matches Radiant Agility brand colors
+	•	Includes testimonials, role breakdowns, and CTA buttons
+
+⸻
+
+🟪 Prompt for Replit (HTML/CSS/JS Stack or Next.js if you want React-based)
+
+💬 Use this in Replit’s GPT-4 workspace or just paste into a new HTML/CSS/JS project:
+
+⸻
+
+🔧 Prompt:
+
+Build a single-page, responsive HTML/CSS landing page for a free guide titled:
+"3 High-Paying Tech Roles You Can Land Without Learning to Code" by Jasmine Doster.
+
+📌 Structure:
+- Hero section with bold headline, subheadline, and email signup form
+- What you’ll learn (bullet list with checkmarks)
+- Role overview section (Scrum Master, Product Owner, DevOps Enabler)
+- Testimonials section
+- Final CTA section with sticky CTA button on mobile
+- Footer with social links
+
+🎨 Styling:
+- Use Radiant Agility brand colors:
+  - Deep Purple: #7A3FFC
+  - Soft White: #FAFAFA
+  - Charcoal: #2D2D2D
+- Font: Use Poppins or Open Sans via Google Fonts
+- Add soft curved edges, spacing, and mobile-first layout
+- Use checkmark icons and modern button styles
+
+⚙️ Functional Requirements:
+- Email form should connect to an external form handler (like ConvertKit, Beehiiv, or Formspree — include placeholder endpoint)
+- After form submission, auto-download or redirect to PDF (placeholder URL for now)
+- Add animated scroll or fade-in transitions for sections
+- All content should be customizable via HTML for fast edits
+
+💡 Bonus:
+- Add responsive meta tags for mobile performance
+- Add favicon and page title "Get the Free Guide – Radiant Agility"
+
+
+⸻
+
+🧾 Assets You’ll Need
+	1.	✅ Your lead magnet PDF (host it in Dropbox, Google Drive, or Gumroad)
+	2.	✅ A form handler (Formspree, ConvertKit, or Beehiiv embed form)
+	3.	✅ Your Radiant Agility logo (PNG or SVG)
+	4.	✅ Testimonials (2–3 lines each, already in your doc)
+	5.	✅ Your CTA link to bootcamp: https://radiantagility.tech/safe-training
+
+⸻
+
+💻 Replit Setup Tips
+
+If using plain HTML/CSS/JS:
+	•	Make a landing.html, style.css, and script.js
+	•	Upload assets (logo, favicon) to your public or root folder
+	•	Host on Replit with HTTPS enabled for form submissions
+
+If using React or Next.js:
+	•	Use Tailwind for easier styling with brand tokens
+	•	Set up a form submission handler via Netlify or Formspree
+
+⸻
+
+Want me to generate the starter HTML + CSS template directly for Replit?
+I can deliver the full code with placeholder links ready to deploy.
