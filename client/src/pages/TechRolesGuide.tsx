@@ -45,10 +45,10 @@ const TechRolesGuide = () => {
           description: "Your guide is being emailed to you now. Check your inbox!",
         });
         
-        // Simulate PDF download (replace with actual PDF URL)
+        // Download the actual PDF
         setTimeout(() => {
           const link = document.createElement('a');
-          link.href = '#'; // Replace with actual PDF URL
+          link.href = '/3-high-paying-tech-roles-guide.pdf';
           link.download = '3-high-paying-tech-roles-guide.pdf';
           link.click();
         }, 1000);

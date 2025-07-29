@@ -443,12 +443,14 @@ const SafeTrainingDetail = () => {
                       onClick={() => {
                         if (id === 'safe-scrum-master' || id === 'safe-popm') {
                           document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
+                        } else if (id === 'leading-safe' || id === 'safe-devops') {
+                          setIsWaitlistModalOpen(true);
                         } else {
                           window.open('https://eventbrite.com', '_blank');
                         }
                       }}
                     >
-                      Register Now
+                      {(id === 'leading-safe' || id === 'safe-devops') ? 'Join Waitlist - Coming Soon' : 'Register Now'}
                     </Button>
                     <Button 
                       variant="outline" 
