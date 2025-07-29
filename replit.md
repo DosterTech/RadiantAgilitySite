@@ -118,6 +118,7 @@ Changelog:
 - January 28, 2025. Created Value-First Agile Assessment page at /value-first-assessment with interactive 8-question assessment, personalized scoring (8-12, 13-18, 19-24 points), and targeted recommendations for teams transitioning from activity-focused to value-driven development
 - January 28, 2025. Removed results preview section from assessment page to keep result types as a surprise until completion
 - January 29, 2025. Created high-converting lead magnet landing page at /tech-roles-guide for "3 High-Paying Tech Roles You Can Land Without Learning to Code" with email capture, role breakdowns, testimonials, and conversion-focused design
+- January 29, 2025. Changed tech roles guide URL slug from /tech-roles-guide to /free for better social media bio compatibility and character limit optimization
 ```
 
 ## User Preferences

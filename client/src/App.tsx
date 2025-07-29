@@ -51,7 +51,7 @@ function Router() {
       <Route path="/thank-you-pomp" component={ThankYouPopm} />
       <Route path="/thank-you-waitlist" component={ThankYouWaitlist} />
       <Route path="/value-first-assessment" component={ValueFirstAssessment} />
-      <Route path="/tech-roles-guide" component={TechRolesGuide} />
+      <Route path="/free" component={TechRolesGuide} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route component={NotFound} />
