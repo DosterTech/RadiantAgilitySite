@@ -69,8 +69,8 @@ const courses = [
     duration: '2 days (16 hrs)',
     level: 'Product',
     originalPrice: '$995',
-    salePrice: '$795',
-    savings: '$200',
+    salePrice: '$580',
+    savings: '$415',
     saleLabel: 'Limited-Time Discount',
     features: [
       'Apply Design Thinking for customer-centricity',
@@ -296,12 +296,13 @@ const SafeTraining = () => {
                           Learn More
                         </Button>
                       </Link>
-                      <Button 
-                        className="w-full gradient-bg hover:opacity-90 text-white"
-                        onClick={() => window.open('https://eventbrite.com', '_blank')}
-                      >
-                        Register Now
-                      </Button>
+                      <Link href={`/safe-training/${course.id}`}>
+                        <Button 
+                          className="w-full gradient-bg hover:opacity-90 text-white"
+                        >
+                          Register Now
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>

@@ -295,6 +295,28 @@ const SafeTrainingDetail = () => {
   const { id } = useParams();
   const course = courseDetails[id as keyof typeof courseDetails];
   const [isWaitlistModalOpen, setIsWaitlistModalOpen] = useState(false);
+  
+  const getWaitlistProps = () => {
+    if (id === 'leading-safe') {
+      return {
+        courseType: 'leading-safe',
+        sessionDate: 'TBD',
+        courseName: 'Leading SAFe (SA)'
+      };
+    } else if (id === 'safe-devops') {
+      return {
+        courseType: 'safe-devops', 
+        sessionDate: 'TBD',
+        courseName: 'SAFe DevOps Practitioner (SDP)'
+      };
+    } else {
+      return {
+        courseType: 'safe-scrum-master',
+        sessionDate: 'August 26-27, 2025',
+        courseName: 'SAFe Scrum Master (SSM)'
+      };
+    }
+  };
 
   // SEO Schema Markup for SAFe Scrum Master
   const getSchemaMarkup = () => {
@@ -446,7 +468,7 @@ const SafeTrainingDetail = () => {
                         } else if (id === 'leading-safe' || id === 'safe-devops') {
                           setIsWaitlistModalOpen(true);
                         } else {
-                          window.open('https://eventbrite.com', '_blank');
+                          document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
                         }
                       }}
                     >
@@ -783,7 +805,7 @@ const SafeTrainingDetail = () => {
                       if (id === 'safe-scrum-master') {
                         document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
                       } else {
-                        window.open('https://buy.stripe.com/4gMaEWcIF3p89J488bew802', '_blank');
+                        document.getElementById('sessions')?.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
                   >
@@ -810,9 +832,7 @@ const SafeTrainingDetail = () => {
       <WaitlistModal
         isOpen={isWaitlistModalOpen}
         onClose={() => setIsWaitlistModalOpen(false)}
-        courseType="safe-scrum-master"
-        sessionDate="August 26-27, 2025"
-        courseName="SAFe Scrum Master"
+        {...getWaitlistProps()}
       />
     </div>
   );
