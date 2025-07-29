@@ -4,11 +4,35 @@ import { storage } from "./storage";
 import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema, insertEmailSubscriptionSchema, insertWaitlistSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from 'zod-validation-error';
-import { sendInquiryNotification } from "./email";
+import { sendInquiryNotification, sendEmail } from "./email";
 import { sendWelcomeEmail, processDailyEmails } from "./emailCourse";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes with /api prefix
+  
+  // Test email endpoint for debugging
+  app.post("/api/test-email", async (req, res) => {
+    try {
+      const success = await sendEmail({
+        to: 'test@radiantagility.tech',
+        from: 'noreply@radiantagility.tech', 
+        subject: 'SendGrid Test Email',
+        text: 'This is a test email to verify SendGrid configuration is working.',
+        html: '<p>This is a test email to verify SendGrid configuration is working.</p>'
+      });
+      
+      res.status(200).json({
+        success,
+        message: success ? "Test email sent successfully" : "Test email failed"
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        message: "Failed to send test email",
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
   
   // Lead capture form endpoint
   app.post("/api/leads", async (req, res) => {

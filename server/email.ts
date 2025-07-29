@@ -37,7 +37,7 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
     });
     console.log('Email sent successfully via API:', response[0].statusCode);
     return true;
-  } catch (error) {
+  } catch (error: any) {
     console.error('SendGrid API error:', error);
     if (error.response) {
       console.error('SendGrid API response:', error.response.body);
