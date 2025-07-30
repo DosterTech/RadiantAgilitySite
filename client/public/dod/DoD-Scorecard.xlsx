@@ -1,0 +1,31 @@
+# DoD Quality Scorecard - Excel Placeholder
+
+## Scorecard Metrics:
+
+### Completion Tracking
+- Stories Completed: [COUNT]
+- DoD Items Completed: [PERCENTAGE]
+- Average DoD Score: [SCORE]
+
+### Quality Metrics
+- Defects Found Post-Release: [COUNT]
+- Customer Satisfaction: [RATING]
+- Technical Debt: [SCORE]
+
+### Team Performance
+- DoD Compliance Rate: [PERCENTAGE]
+- Time to Complete DoD: [HOURS]
+- Rework Required: [PERCENTAGE]
+
+### Improvement Areas
+- Most Missed DoD Items
+- Common Quality Issues
+- Recommended Process Changes
+
+## Usage Instructions:
+1. Enter story data in the Stories tab
+2. Track DoD completion in the Checklist tab
+3. View metrics in the Dashboard tab
+4. Export reports for team reviews
+
+Contact support@radiantagility.tech for the complete Excel scorecard with formulas and dashboards.

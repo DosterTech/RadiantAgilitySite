@@ -119,6 +119,8 @@ Changelog:
 - January 28, 2025. Removed results preview section from assessment page to keep result types as a surprise until completion
 - January 29, 2025. Created high-converting lead magnet landing page at /tech-roles-guide for "3 High-Paying Tech Roles You Can Land Without Learning to Code" with email capture, role breakdowns, testimonials, and conversion-focused design
 - January 29, 2025. Changed tech roles guide URL slug from /tech-roles-guide to /free for better social media bio compatibility and character limit optimization
+- January 30, 2025. Created comprehensive Lead Magnet Dashboard at /admin/leads with filtering, CSV export, and lead tracking for all download funnels
+- January 30, 2025. Built Agile Alphabet Series landing pages: AI-CI Toolkit (/ai-ci-toolkit) and Definition of Done Toolkit (/definition-of-done-toolkit) with email capture and automatic file downloads
 ```
 
 ## User Preferences

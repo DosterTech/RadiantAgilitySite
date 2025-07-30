@@ -1,0 +1,26 @@
+# DoD Prompt Library - PDF Placeholder
+
+This file contains 50+ AI prompts for generating Definition of Done criteria.
+
+## Sample Prompts:
+
+### For User Stories:
+"Generate a comprehensive Definition of Done checklist for a user story about [FEATURE]. Include technical requirements, testing criteria, and acceptance conditions."
+
+### For Bug Fixes:
+"Create DoD criteria for a bug fix that addresses [ISSUE]. Ensure regression testing and verification steps are included."
+
+### For API Development:
+"Generate Definition of Done criteria for REST API development including documentation, testing, security, and performance requirements."
+
+## Categories Include:
+- Frontend Development DoD
+- Backend API DoD  
+- Database Changes DoD
+- Security Feature DoD
+- Performance Feature DoD
+- Integration DoD
+- Bug Fix DoD
+- Infrastructure DoD
+
+Contact support@radiantagility.tech for the complete PDF with all 50+ prompts.

@@ -28,6 +28,8 @@ import ThankYouPopm from "./pages/ThankYouPopm";
 import ThankYouWaitlist from "./pages/ThankYouWaitlist";
 import ValueFirstAssessment from "./pages/ValueFirstAssessment";
 import TechRolesGuide from "./pages/TechRolesGuide";
+import AiCiToolkit from "./pages/AiCiToolkit";
+import DodToolkit from "./pages/DodToolkit";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -53,6 +55,8 @@ function Router() {
       <Route path="/thank-you-waitlist" component={ThankYouWaitlist} />
       <Route path="/value-first-assessment" component={ValueFirstAssessment} />
       <Route path="/free" component={TechRolesGuide} />
+      <Route path="/ai-ci-toolkit" component={AiCiToolkit} />
+      <Route path="/definition-of-done-toolkit" component={DodToolkit} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route path="/admin/leads" component={AdminLeads} />
