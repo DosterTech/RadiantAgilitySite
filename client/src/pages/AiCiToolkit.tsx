@@ -43,9 +43,8 @@ export default function AiCiToolkit() {
       // Auto-download the toolkit files
       setTimeout(() => {
         const files = [
-          { name: 'AI-CI-Toolkit-Complete.tar.gz', path: '/ai-ci/AI-CI-Toolkit-Complete.tar.gz' },
-          { name: 'README.md', path: '/ai-ci/README.md' },
-          { name: '30-Minute-Implementation-Guide.md', path: '/ai-ci/30-Minute-Implementation-Guide.md' }
+          { name: 'GitHub Actions AI-CI Templates Collection.pdf', path: '/ai-ci/GitHub-Actions-AI-CI-Templates-Collection.pdf' },
+          { name: 'AI-Enhanced CI-CD Setup Guide.pdf', path: '/ai-ci/AI-Enhanced-CI-CD-Setup-Guide.pdf' }
         ];
         
         files.forEach((file, index) => {
@@ -114,15 +113,11 @@ export default function AiCiToolkit() {
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center justify-center gap-2 text-sm text-green-600">
                     <Download className="h-4 w-4" />
-                    <span>AI-CI-Toolkit-Complete.tar.gz</span>
+                    <span>GitHub Actions AI-CI Templates Collection.pdf</span>
                   </div>
                   <div className="flex items-center justify-center gap-2 text-sm text-green-600">
                     <Download className="h-4 w-4" />
-                    <span>README.md</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2 text-sm text-green-600">
-                    <Download className="h-4 w-4" />
-                    <span>30-Minute-Implementation-Guide.md</span>
+                    <span>AI-Enhanced CI/CD Setup Guide.pdf</span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -136,9 +131,8 @@ export default function AiCiToolkit() {
                     variant="outline"
                     onClick={() => {
                       const files = [
-                        { name: 'AI-CI-Toolkit-Complete.tar.gz', path: '/ai-ci/AI-CI-Toolkit-Complete.tar.gz' },
-                        { name: 'README.md', path: '/ai-ci/README.md' },
-                        { name: '30-Minute-Implementation-Guide.md', path: '/ai-ci/30-Minute-Implementation-Guide.md' }
+                        { name: 'GitHub Actions AI-CI Templates Collection.pdf', path: '/ai-ci/GitHub-Actions-AI-CI-Templates-Collection.pdf' },
+                        { name: 'AI-Enhanced CI-CD Setup Guide.pdf', path: '/ai-ci/AI-Enhanced-CI-CD-Setup-Guide.pdf' }
                       ];
                       
                       files.forEach((file, index) => {
@@ -185,8 +179,8 @@ export default function AiCiToolkit() {
                 </span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                Automate test coverage, predict merge conflicts, and reduce deployment risk with 
-                AI-enhanced CI/CD pipelines. Get your team from manual testing to intelligent automation in 30 minutes.
+                Get complete GitHub Actions templates and a 15-minute setup guide to implement 
+                AI-powered merge conflict prediction, intelligent test coverage, and smart deployment risk assessment.
               </p>
             </motion.div>
 
@@ -201,7 +195,7 @@ export default function AiCiToolkit() {
               </div>
               <div className="flex items-center gap-2 text-gray-700">
                 <Clock className="h-5 w-5 text-blue-500" />
-                <span>30-Min Setup</span>
+                <span>15-Min Setup</span>
               </div>
               <div className="flex items-center gap-2 text-gray-700">
                 <Users className="h-5 w-5 text-orange-500" />
@@ -229,9 +223,9 @@ export default function AiCiToolkit() {
                     <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                       <Bot className="h-6 w-6 text-purple-600" />
                     </div>
-                    <CardTitle className="text-xl">AI Test Prediction</CardTitle>
+              <CardTitle className="text-xl">GitHub Actions Templates</CardTitle>
                     <CardDescription>
-                      Predict which tests will fail before running them, saving 60% of CI time
+                      Complete workflow files for AI merge prediction, test coverage analysis, and deployment intelligence
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -243,9 +237,9 @@ export default function AiCiToolkit() {
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                       <GitBranch className="h-6 w-6 text-green-600" />
                     </div>
-                    <CardTitle className="text-xl">Merge Conflict Detection</CardTitle>
+                    <CardTitle className="text-xl">15-Minute Setup Guide</CardTitle>
                     <CardDescription>
-                      AI analyzes code patterns to predict and prevent merge conflicts before they happen
+                      Step-by-step implementation guide to go from broken builds to predictive deployments in 15 minutes
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -257,9 +251,9 @@ export default function AiCiToolkit() {
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                       <Zap className="h-6 w-6 text-blue-600" />
                     </div>
-                    <CardTitle className="text-xl">Smart Deployment Risk</CardTitle>
+                    <CardTitle className="text-xl">Ready-to-Use Configuration</CardTitle>
                     <CardDescription>
-                      Automatically assess deployment risk and suggest optimal release windows
+                      Pre-configured risk thresholds, team-specific prompts, and monitoring metrics for immediate deployment
                     </CardDescription>
                   </CardHeader>
                 </Card>
@@ -279,7 +273,7 @@ export default function AiCiToolkit() {
                   Download Your AI-CI Toolkit
                 </CardTitle>
                 <CardDescription className="text-lg">
-                  Get instant access to implementation guides, code templates, and AI prompts
+                  Get complete GitHub Actions workflows and step-by-step setup guide
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -289,8 +283,8 @@ export default function AiCiToolkit() {
                       <Download className="h-4 w-4 text-purple-600" />
                     </div>
                     <div>
-                      <div className="font-medium text-gray-900">Complete Toolkit Archive</div>
-                      <div className="text-sm text-gray-500">AI-CI-Toolkit-Complete.tar.gz</div>
+                      <div className="font-medium text-gray-900">GitHub Actions Templates Collection</div>
+                      <div className="text-sm text-gray-500">Complete workflow files for AI-CI implementation</div>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg">
@@ -298,17 +292,8 @@ export default function AiCiToolkit() {
                       <Cpu className="h-4 w-4 text-blue-600" />
                     </div>
                     <div>
-                      <div className="font-medium text-gray-900">Implementation Guide</div>
-                      <div className="text-sm text-gray-500">30-Minute-Implementation-Guide.md</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 p-4 bg-green-50 rounded-lg">
-                    <div className="w-8 h-8 bg-green-100 rounded flex items-center justify-center">
-                      <CheckCircle className="h-4 w-4 text-green-600" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-900">Setup Instructions</div>
-                      <div className="text-sm text-gray-500">README.md with examples</div>
+                      <div className="font-medium text-gray-900">AI-Enhanced CI/CD Setup Guide</div>
+                      <div className="text-sm text-gray-500">15-minute implementation with troubleshooting</div>
                     </div>
                   </div>
                 </div>
