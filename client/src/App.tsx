@@ -15,6 +15,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import AdminInquiries from "./pages/AdminInquiries";
 import AdminInquiryDetail from "./pages/AdminInquiryDetail";
+import AdminLeads from "./pages/AdminLeads";
 import SafeTraining from "./pages/SafeTraining";
 import SafeTrainingDetail from "./pages/SafeTrainingDetail";
 import CareerChange from "./pages/CareerChange";
@@ -54,6 +55,7 @@ function Router() {
       <Route path="/free" component={TechRolesGuide} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
+      <Route path="/admin/leads" component={AdminLeads} />
       <Route component={NotFound} />
     </Switch>
   );

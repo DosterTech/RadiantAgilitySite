@@ -476,6 +476,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin endpoint to get leads with filtering
+  app.get("/api/admin/leads", async (req, res) => {
+    try {
+      const { service } = req.query;
+      const leads = await storage.getLeads();
+      
+      // Filter by service if specified
+      const filteredLeads = service 
+        ? leads.filter(lead => lead.service === service)
+        : leads;
+      
+      res.json(filteredLeads);
+    } catch (error) {
+      console.error("Error fetching admin leads:", error);
+      res.status(500).json({ error: "Failed to fetch leads" });
+    }
+  });
+
   const httpServer = createServer(app);
   
   // Simple email scheduler - process emails every hour
