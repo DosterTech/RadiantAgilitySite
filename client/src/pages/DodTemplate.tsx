@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 import { insertLeadSchema } from '@shared/schema';
-import { Download, CheckCircle, Users, Clock, Shield, Target, ArrowDown, Star, Quote } from 'lucide-react';
+import { Download, CheckCircle, Users, Clock, Shield, Target, ArrowDown, Star, Quote, Bot, Zap } from 'lucide-react';
 
 const leadFormSchema = insertLeadSchema.extend({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -471,6 +471,47 @@ export default function DodTemplate() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Cross-Promotion Section */}
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600">
+        <div className="container mx-auto px-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="max-w-4xl mx-auto text-center text-white"
+          >
+            <motion.div variants={itemVariants}>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Want the Complete DoD Toolkit?
+              </h3>
+              <p className="text-xl text-purple-100 mb-8">
+                Supercharge your Definition of Done process with AI-powered prompts
+              </p>
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <Button 
+                  onClick={() => window.location.href = '/dod-prompts'}
+                  size="lg"
+                  className="bg-white text-purple-600 hover:bg-purple-50 font-semibold px-8 py-4"
+                >
+                  Get the AI DoD Prompt Library
+                  <Bot className="h-5 w-5 ml-2" />
+                </Button>
+                <Button 
+                  onClick={() => window.location.href = '/ai-ci-toolkit'}
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-purple-600 font-semibold px-8 py-4"
+                >
+                  Check Out AI-CI Toolkit
+                  <Zap className="h-5 w-5 ml-2" />
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

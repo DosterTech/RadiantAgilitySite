@@ -487,6 +487,47 @@ export default function DodPrompts() {
         </div>
       </section>
 
+      {/* Cross-Promotion Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="container mx-auto px-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="max-w-4xl mx-auto text-center text-white"
+          >
+            <motion.div variants={itemVariants}>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                Complete Your DoD Toolkit
+              </h3>
+              <p className="text-xl text-blue-100 mb-8">
+                Get the comprehensive DoD template to go with your AI prompts
+              </p>
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
+                <Button 
+                  onClick={() => window.location.href = '/dod-template'}
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-4"
+                >
+                  Get the DoD Template
+                  <Target className="h-5 w-5 ml-2" />
+                </Button>
+                <Button 
+                  onClick={() => window.location.href = '/ai-ci-toolkit'}
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4"
+                >
+                  Explore AI-CI Toolkit
+                  <Zap className="h-5 w-5 ml-2" />
+                </Button>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-12 bg-gray-900">
         <div className="container mx-auto px-4">
