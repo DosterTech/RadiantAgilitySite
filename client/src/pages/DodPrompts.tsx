@@ -517,10 +517,10 @@ export default function DodPrompts() {
                   onClick={() => window.location.href = '/ai-ci-toolkit'}
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4"
+                  className="border-white text-white hover:bg-white hover:text-blue-600 font-semibold px-8 py-4 bg-transparent"
                 >
-                  Explore AI-CI Toolkit
-                  <Zap className="h-5 w-5 ml-2" />
+                  <span className="text-white group-hover:text-blue-600">Explore AI-CI Toolkit</span>
+                  <Zap className="h-5 w-5 ml-2 text-white group-hover:text-blue-600" />
                 </Button>
               </div>
             </motion.div>

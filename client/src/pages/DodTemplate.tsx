@@ -504,10 +504,10 @@ export default function DodTemplate() {
                   onClick={() => window.location.href = '/ai-ci-toolkit'}
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-purple-600 font-semibold px-8 py-4"
+                  className="border-white text-white hover:bg-white hover:text-purple-600 font-semibold px-8 py-4 bg-transparent"
                 >
-                  Check Out AI-CI Toolkit
-                  <Zap className="h-5 w-5 ml-2" />
+                  <span className="text-white group-hover:text-purple-600">Check Out AI-CI Toolkit</span>
+                  <Zap className="h-5 w-5 ml-2 text-white group-hover:text-purple-600" />
                 </Button>
               </div>
             </motion.div>
