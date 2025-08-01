@@ -357,7 +357,7 @@ export default function DodTemplate() {
                       <Users className="h-5 w-5 text-purple-600" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Sarah Johnson</p>
+                      <p className="font-medium text-gray-900">Rachel Brown</p>
                       <p className="text-sm text-gray-500">Scrum Master, TechCorp</p>
                     </div>
                   </div>
@@ -376,7 +376,7 @@ export default function DodTemplate() {
                       <Target className="h-5 w-5 text-blue-600" />
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Mike Chen</p>
+                      <p className="font-medium text-gray-900">Daniel Kim</p>
                       <p className="text-sm text-gray-500">Product Owner, StartupXYZ</p>
                     </div>
                   </div>
