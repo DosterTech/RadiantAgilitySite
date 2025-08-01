@@ -43,8 +43,8 @@ export default function DodTemplate() {
       // Auto-download the template
       setTimeout(() => {
         const link = document.createElement('a');
-        link.href = '/dod/DoD-Template.docx';
-        link.download = 'Definition-of-Done-Template.docx';
+        link.href = '/dod/DoD-Template.pdf';
+        link.download = 'RadiantAgility-DoD-Checklist-Template.pdf';
         link.click();
       }, 1000);
 
@@ -120,8 +120,8 @@ export default function DodTemplate() {
                     variant="outline"
                     onClick={() => {
                       const link = document.createElement('a');
-                      link.href = '/dod/DoD-Template.docx';
-                      link.download = 'Definition-of-Done-Template.docx';
+                      link.href = '/dod/DoD-Template.pdf';
+                      link.download = 'RadiantAgility-DoD-Checklist-Template.pdf';
                       link.click();
                     }}
                     className="w-full border-purple-600 text-purple-600 hover:bg-purple-50"
@@ -159,8 +159,8 @@ export default function DodTemplate() {
                 </span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Ensure every story meets quality standards before it's called done. 
-                Eliminate ambiguity and build shared understanding across your entire team.
+                Transform your team's quality and velocity with our comprehensive DoD checklist. 
+                Includes customization guides, AI automation prompts, and implementation roadmap.
               </p>
               <Button 
                 onClick={scrollToForm}
@@ -190,8 +190,8 @@ export default function DodTemplate() {
                 Why Definition of Done Matters
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                In Agile development, clarity drives success. A well-defined DoD creates shared understanding, 
-                improves quality, and builds trust across your entire organization.
+                Our comprehensive DoD template covers 6 key areas: Development Standards, Quality Assurance, 
+                Documentation, Stakeholder Validation, Deployment Readiness, plus team-specific customizations.
               </p>
             </motion.div>
 
@@ -272,10 +272,10 @@ export default function DodTemplate() {
           >
             <motion.div variants={itemVariants} className="mb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Professional DoD Template
+                Complete DoD Implementation Kit
               </h3>
               <p className="text-lg text-gray-600 mb-8">
-                Ready-to-use Word document with customizable checklists for different story types
+                Universal checklist + customization guides + AI automation + 4-week implementation roadmap
               </p>
             </motion.div>
             
@@ -288,32 +288,31 @@ export default function DodTemplate() {
                       <Target className="h-6 w-6 text-purple-600" />
                     </div>
                     <div className="space-y-3 text-left">
+                      <div className="text-xs text-purple-600 font-semibold mb-2">✅ DEVELOPMENT STANDARDS</div>
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 border-2 border-green-500 rounded flex items-center justify-center">
                           <CheckCircle className="h-3 w-3 text-green-500" />
                         </div>
-                        <span className="text-sm text-gray-700">Code review completed</span>
+                        <span className="text-sm text-gray-700">Code peer reviewed and approved</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 border-2 border-green-500 rounded flex items-center justify-center">
                           <CheckCircle className="h-3 w-3 text-green-500" />
                         </div>
-                        <span className="text-sm text-gray-700">Unit tests written and passing</span>
+                        <span className="text-sm text-gray-700">Unit tests pass (80% coverage)</span>
                       </div>
+                      <div className="text-xs text-blue-600 font-semibold mb-1 mt-3">✅ QUALITY ASSURANCE</div>
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 border-2 border-green-500 rounded flex items-center justify-center">
                           <CheckCircle className="h-3 w-3 text-green-500" />
                         </div>
-                        <span className="text-sm text-gray-700">Acceptance criteria verified</span>
+                        <span className="text-sm text-gray-700">All acceptance criteria met</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <div className="w-4 h-4 border-2 border-gray-300 rounded"></div>
-                        <span className="text-sm text-gray-500">Documentation updated</span>
+                        <span className="text-sm text-gray-500">Cross-browser testing completed</span>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-4 h-4 border-2 border-gray-300 rounded"></div>
-                        <span className="text-sm text-gray-500">Deployed to staging</span>
-                      </div>
+                      <div className="text-xs text-gray-400 mt-2">+ 20+ more criteria...</div>
                     </div>
                   </div>
                 </div>
@@ -350,8 +349,8 @@ export default function DodTemplate() {
                 <CardContent className="p-6">
                   <Quote className="h-8 w-8 text-purple-400 mb-4" />
                   <p className="text-gray-700 mb-4">
-                    "This DoD template transformed how our team approaches story completion. 
-                    No more confusion about what 'done' means."
+                    "The AI automation prompts and customization guides made implementation seamless. 
+                    Our sprint reviews are 50% faster now."
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
@@ -369,8 +368,8 @@ export default function DodTemplate() {
                 <CardContent className="p-6">
                   <Quote className="h-8 w-8 text-blue-400 mb-4" />
                   <p className="text-gray-700 mb-4">
-                    "Finally, a DoD template that covers all the bases. Our sprint reviews 
-                    are so much smoother now."
+                    "The 4-week implementation roadmap helped us roll this out without disrupting our delivery. 
+                    Quality improved immediately."
                   </p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
