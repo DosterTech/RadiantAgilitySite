@@ -121,6 +121,7 @@ Changelog:
 - January 29, 2025. Changed tech roles guide URL slug from /tech-roles-guide to /free for better social media bio compatibility and character limit optimization
 - January 30, 2025. Created comprehensive Lead Magnet Dashboard at /admin/leads with filtering, CSV export, and lead tracking for all download funnels
 - January 30, 2025. Built Agile Alphabet Series landing pages: AI-CI Toolkit (/ai-ci-toolkit) and Definition of Done Toolkit (/definition-of-done-toolkit) with email capture and automatic file downloads
+- January 31, 2025. Created dedicated DoD Template landing page (/dod-template) with modern design, value propositions, visual template preview, testimonials, and integrated email capture form following brand guidelines
 ```
 
 ## User Preferences
