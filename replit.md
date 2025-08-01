@@ -122,6 +122,7 @@ Changelog:
 - January 30, 2025. Created comprehensive Lead Magnet Dashboard at /admin/leads with filtering, CSV export, and lead tracking for all download funnels
 - January 30, 2025. Built Agile Alphabet Series landing pages: AI-CI Toolkit (/ai-ci-toolkit) and Definition of Done Toolkit (/definition-of-done-toolkit) with email capture and automatic file downloads
 - January 31, 2025. Created dedicated DoD Template landing page (/dod-template) with modern design, value propositions, visual template preview, testimonials, and integrated email capture form following brand guidelines
+- January 31, 2025. Built AI-powered DoD Prompts Library landing page (/dod-prompts) featuring interactive prompt previews, copy-to-clipboard functionality, and comprehensive AI prompts for ChatGPT/Claude to create Definition of Done criteria faster
 ```
 
 ## User Preferences

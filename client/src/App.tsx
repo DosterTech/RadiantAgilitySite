@@ -31,6 +31,7 @@ import TechRolesGuide from "./pages/TechRolesGuide";
 import AiCiToolkit from "./pages/AiCiToolkit";
 import DodToolkit from "./pages/DodToolkit";
 import DodTemplate from "./pages/DodTemplate";
+import DodPrompts from "./pages/DodPrompts";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -59,6 +60,7 @@ function Router() {
       <Route path="/ai-ci-toolkit" component={AiCiToolkit} />
       <Route path="/definition-of-done-toolkit" component={DodToolkit} />
       <Route path="/dod-template" component={DodTemplate} />
+      <Route path="/dod-prompts" component={DodPrompts} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route path="/admin/leads" component={AdminLeads} />
