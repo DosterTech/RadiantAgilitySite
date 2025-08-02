@@ -123,6 +123,7 @@ Changelog:
 - January 30, 2025. Built Agile Alphabet Series landing pages: AI-CI Toolkit (/ai-ci-toolkit) and Definition of Done Toolkit (/definition-of-done-toolkit) with email capture and automatic file downloads
 - January 31, 2025. Created dedicated DoD Template landing page (/dod-template) with modern design, value propositions, visual template preview, testimonials, and integrated email capture form following brand guidelines
 - January 31, 2025. Built AI-powered DoD Prompts Library landing page (/dod-prompts) featuring interactive prompt previews, copy-to-clipboard functionality, and comprehensive AI prompts for ChatGPT/Claude to create Definition of Done criteria faster
+- February 2, 2025. Created interactive Flow Bottleneck Bingo game at /flow-bingo as single HTML file with 5x5 board, confetti celebrations, customization, PNG export, and Radiant Agility branding for agile retrospectives
 ```
 
 ## User Preferences
