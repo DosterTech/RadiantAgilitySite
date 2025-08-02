@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import AdminLogin from '@/components/AdminLogin';
 import { getQueryFn } from '@/lib/queryClient';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,18 +12,54 @@ import type { Lead } from '@shared/schema';
 
 const AdminLeads = () => {
   const [serviceFilter, setServiceFilter] = useState<string>('all');
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [adminToken, setAdminToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (token) {
+      setAdminToken(token);
+      setIsAuthenticated(true);
+    }
+  }, []);
 
   const { data: leads, isLoading, error } = useQuery({
     queryKey: ['/api/admin/leads', serviceFilter === 'all' ? undefined : serviceFilter],
     queryFn: async () => {
       const params = serviceFilter === 'all' ? '' : `?service=${encodeURIComponent(serviceFilter)}`;
-      const response = await fetch(`/api/admin/leads${params}`);
+      const response = await fetch(`/api/admin/leads${params}`, {
+        headers: {
+          'Authorization': `Bearer ${adminToken}`,
+        },
+      });
       if (!response.ok) {
+        if (response.status === 401) {
+          localStorage.removeItem('adminToken');
+          setIsAuthenticated(false);
+          setAdminToken(null);
+          throw new Error('Authentication required');
+        }
         throw new Error('Failed to fetch leads');
       }
       return response.json();
     },
+    enabled: isAuthenticated && !!adminToken,
   });
+
+  const handleLogin = (token: string) => {
+    setAdminToken(token);
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    setIsAuthenticated(false);
+    setAdminToken(null);
+  };
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={handleLogin} />;
+  }
 
   const formatDate = (date: string | Date) => {
     return new Date(date).toLocaleDateString('en-US', {
@@ -42,6 +79,12 @@ const AdminLeads = () => {
         return 'bg-blue-100 text-blue-800';
       case 'SAFe Training':
         return 'bg-green-100 text-green-800';
+      case 'AI-CI Toolkit':
+        return 'bg-orange-100 text-orange-800';
+      case 'DoD Template':
+        return 'bg-indigo-100 text-indigo-800';
+      case 'DoD Prompts Library':
+        return 'bg-pink-100 text-pink-800';
       default:
         return 'bg-gray-100 text-gray-800';
     }
@@ -93,10 +136,15 @@ const AdminLeads = () => {
           <h1 className="text-3xl font-bold text-gray-900">Lead Magnet Dashboard</h1>
           <p className="text-gray-600 mt-2">Track downloads and lead generation performance</p>
         </div>
-        <Button onClick={downloadCSV} disabled={!leads || leads.length === 0}>
-          <Download className="h-4 w-4 mr-2" />
-          Export CSV
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button onClick={downloadCSV} disabled={!leads || leads.length === 0}>
+            <Download className="h-4 w-4 mr-2" />
+            Export CSV
+          </Button>
+          <Button onClick={handleLogout} variant="outline" size="sm">
+            Logout
+          </Button>
+        </div>
       </div>
 
       {/* Summary Cards */}
@@ -164,6 +212,9 @@ const AdminLeads = () => {
                   <SelectItem value="3 High-Paying Tech Roles Guide">Tech Roles Guide</SelectItem>
                   <SelectItem value="5-Day SAFe Sprint">SAFe Sprint</SelectItem>
                   <SelectItem value="SAFe Training">SAFe Training</SelectItem>
+                  <SelectItem value="AI-CI Toolkit">AI-CI Toolkit</SelectItem>
+                  <SelectItem value="DoD Template">DoD Template</SelectItem>
+                  <SelectItem value="DoD Prompts Library">DoD Prompts Library</SelectItem>
                 </SelectContent>
               </Select>
             </div>

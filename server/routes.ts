@@ -6,6 +6,26 @@ import { ZodError } from "zod";
 import { fromZodError } from 'zod-validation-error';
 import { sendInquiryNotification, sendEmail } from "./email";
 import { sendWelcomeEmail, processDailyEmails } from "./emailCourse";
+import crypto from "crypto";
+
+// Admin authentication middleware
+const adminAuth = (req: any, res: any, next: any) => {
+  const authHeader = req.headers.authorization;
+  
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: "Admin authentication required" });
+  }
+  
+  const token = authHeader.substring(7);
+  const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+  const expectedToken = crypto.createHash('sha256').update(adminPassword).digest('hex');
+  
+  if (token !== expectedToken) {
+    return res.status(401).json({ message: "Invalid admin credentials" });
+  }
+  
+  next();
+};
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API routes with /api prefix
@@ -273,8 +293,35 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Admin login endpoint
+  app.post("/api/admin/login", async (req, res) => {
+    try {
+      const { password } = req.body;
+      const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
+      
+      if (password === adminPassword) {
+        const token = crypto.createHash('sha256').update(adminPassword).digest('hex');
+        res.json({ 
+          success: true, 
+          token,
+          message: "Admin login successful" 
+        });
+      } else {
+        res.status(401).json({ 
+          success: false, 
+          message: "Invalid admin password" 
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ 
+        success: false, 
+        message: "Login failed" 
+      });
+    }
+  });
+
   // Admin dashboard endpoints
-  app.get("/api/admin/inquiries", async (req, res) => {
+  app.get("/api/admin/inquiries", adminAuth, async (req, res) => {
     try {
       const sortOrder = req.query.sort as 'newest' | 'oldest' || 'newest';
       const inquiries = await storage.getInquiries(sortOrder);
@@ -291,7 +338,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/admin/inquiries/:id", async (req, res) => {
+  app.get("/api/admin/inquiries/:id", adminAuth, async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       const inquiry = await storage.getInquiry(id);
@@ -315,7 +362,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.patch("/api/admin/inquiries/:id/read", async (req, res) => {
+  app.patch("/api/admin/inquiries/:id/read", adminAuth, async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       await storage.markInquiryAsRead(id);
@@ -332,7 +379,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.patch("/api/admin/inquiries/:id/unread", async (req, res) => {
+  app.patch("/api/admin/inquiries/:id/unread", adminAuth, async (req, res) => {
     try {
       const id = parseInt(req.params.id);
       await storage.markInquiryAsUnread(id);
@@ -350,7 +397,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Admin endpoint to manually trigger daily email processing
-  app.post("/api/admin/process-emails", async (req, res) => {
+  app.post("/api/admin/process-emails", adminAuth, async (req, res) => {
     try {
       await processDailyEmails();
       res.json({
@@ -367,7 +414,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get email subscription stats (admin only)
-  app.get("/api/admin/email-subscriptions", async (req, res) => {
+  app.get("/api/admin/email-subscriptions", adminAuth, async (req, res) => {
     try {
       const subscriptions = await storage.getEmailSubscriptions('safe-sprint');
       res.json({
@@ -477,7 +524,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Admin endpoint to get leads with filtering
-  app.get("/api/admin/leads", async (req, res) => {
+  app.get("/api/admin/leads", adminAuth, async (req, res) => {
     try {
       const { service } = req.query;
       const leads = await storage.getLeads();
