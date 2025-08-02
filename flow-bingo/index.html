@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow Bottleneck Bingo | Radiant Agility</title>
+    <meta name="description" content="Interactive bingo game to identify and discuss agile flow bottlenecks in your team retrospectives.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #F6F3FF 0%, #FFFFFF 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #4B1D8C 0%, #E5332A 100%);
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 8px 32px rgba(75, 29, 140, 0.3);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .game-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4B1D8C 0%, #E5332A 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(75, 29, 140, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4B1D8C;
+            border: 2px solid #4B1D8C;
+        }
+
+        .btn-secondary:hover {
+            background: #4B1D8C;
+            color: white;
+        }
+
+        /* Game Layout */
+        .game-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Bingo Board */
+        .bingo-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bingo-cell {
+            aspect-ratio: 1;
+            background: white;
+            border: 3px solid #E0E0E0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bingo-cell:hover {
+            border-color: #4B1D8C;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(75, 29, 140, 0.2);
+        }
+
+        .bingo-cell.marked {
+            background: linear-gradient(135deg, #4B1D8C 0%, #E5332A 100%);
+            color: white;
+            border-color: #4B1D8C;
+        }
+
+        .bingo-cell.center {
+            background: linear-gradient(135deg, #4B1D8C 0%, #E5332A 100%);
+            color: white;
+            border-color: #4B1D8C;
+            font-weight: bold;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            min-width: 280px;
+        }
+
+        .sidebar h3 {
+            color: #4B1D8C;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .targets-list {
+            list-style: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .targets-list li {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: #F6F3FF;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #6B6B6B;
+            border-left: 4px solid #4B1D8C;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal h3 {
+            color: #4B1D8C;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            height: 200px;
+            resize: vertical;
+        }
+
+        /* Bingo Celebration */
+        .bingo-celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #4B1D8C 0%, #E5332A 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            z-index: 2000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: bingoPopup 0.5s ease-out;
+        }
+
+        @keyframes bingoPopup {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #E5332A;
+            animation: confetti-fall 3s linear infinite;
+            z-index: 1500;
+        }
+
+        .confetti:nth-child(odd) {
+            background: #4B1D8C;
+            animation-delay: -0.5s;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .game-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .bingo-cell {
+                font-size: 10px;
+                padding: 4px;
+            }
+            
+            .game-title {
+                font-size: 24px;
+            }
+            
+            .sidebar {
+                min-width: auto;
+            }
+        }
+
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+            background: #F6F3FF;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stats-item {
+            display: inline-block;
+            margin: 0 15px;
+            color: #6B6B6B;
+            font-size: 14px;
+        }
+
+        .stats-number {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #4B1D8C;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">🚀 Radiant Agility</div>
+            <div class="game-title">Flow Bottleneck Bingo</div>
+            <div class="tagline">Gamify your retrospectives • Identify flow blockers • Build better teams</div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="btn btn-primary" onclick="randomizeBoard()">
+                🎲 Randomize Board
+            </button>
+            <button class="btn btn-secondary" onclick="resetBoard()">
+                🔄 Reset Board
+            </button>
+            <button class="btn btn-secondary" onclick="openCustomizeModal()">
+                ⚙️ Customize
+            </button>
+            <button class="btn btn-secondary" onclick="exportToPNG()">
+                📸 Export PNG
+            </button>
+        </div>
+
+        <!-- Game Container -->
+        <div class="game-container">
+            <!-- Bingo Board -->
+            <div>
+                <div class="bingo-board" id="bingoBoard">
+                    <!-- Cells will be generated by JavaScript -->
+                </div>
+                
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stats-item">
+                        <span class="stats-number" id="markedCount">0</span>
+                        <span>Marked</span>
+                    </div>
+                    <div class="stats-item">
+                        <span class="stats-number" id="bingoCount">0</span>
+                        <span>BINGOs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h3>🎯 Today's Targets</h3>
+                <p style="color: #6B6B6B; font-size: 13px; margin-bottom: 15px;">
+                    Focus on these unmarked bottlenecks in your next sprint planning:
+                </p>
+                <ul class="targets-list" id="targetsList">
+                    <!-- Targets will be populated by JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customize Modal -->
+    <div class="modal" id="customizeModal">
+        <div class="modal-content">
+            <h3>Customize Your Bingo Board</h3>
+            <div class="form-group">
+                <label for="boardTitle">Board Title:</label>
+                <input type="text" id="boardTitle" placeholder="Flow Bottleneck Bingo">
+            </div>
+            <div class="form-group">
+                <label for="boardItems">Board Items (one per line, need 24 items):</label>
+                <textarea id="boardItems" placeholder="Enter your custom bottlenecks..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeCustomizeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveCustomization()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Default bottleneck items from the provided list
+        const DEFAULT_ITEMS = [
+            "Waiting for Review", "Too Many Priorities", "Blocked by Dependency", "Unclear Requirements",
+            "Environment Issues", "Approval Delays", "Context Switching", "Missing SME",
+            "Work Stuck in Testing", "Incomplete Handoffs", "No Definition of Done", "Overloaded Stage",
+            "Last-Minute Changes", "Waiting for Customer Feedback", "Long Meetings", "High Rework Rate",
+            "Unplanned Work", "Unreachable Stakeholder", "Tooling Issues", "Scope Creep",
+            "Missed WIP Limits", "Multiple Blockers", "Incomplete Documentation", "Team Member Out Sick"
+        ];
+
+        let currentItems = [...DEFAULT_ITEMS];
+        let boardState = Array(25).fill(false);
+        let bingoCount = 0;
+
+        // Initialize game
+        function initGame() {
+            loadCustomization();
+            generateBoard();
+            updateStats();
+            updateTargets();
+        }
+
+        // Generate bingo board
+        function generateBoard() {
+            const board = document.getElementById('bingoBoard');
+            board.innerHTML = '';
+            
+            // Shuffle items for random placement
+            const shuffledItems = [...currentItems].sort(() => Math.random() - 0.5);
+            
+            for (let i = 0; i < 25; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'bingo-cell';
+                cell.onclick = () => toggleCell(i);
+                
+                if (i === 12) { // Center cell
+                    cell.className += ' center';
+                    cell.textContent = 'FREE';
+                    boardState[i] = true;
+                } else {
+                    const itemIndex = i < 12 ? i : i - 1;
+                    cell.textContent = shuffledItems[itemIndex];
+                    cell.className += boardState[i] ? ' marked' : '';
+                }
+                
+                board.appendChild(cell);
+            }
+        }
+
+        // Toggle cell state
+        function toggleCell(index) {
+            if (index === 12) return; // Can't toggle center cell
+            
+            boardState[index] = !boardState[index];
+            generateBoard();
+            updateStats();
+            updateTargets();
+            checkForBingo();
+        }
+
+        // Check for bingo (row, column, or diagonal)
+        function checkForBingo() {
+            const lines = [
+                // Rows
+                [0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [10, 11, 12, 13, 14], [15, 16, 17, 18, 19], [20, 21, 22, 23, 24],
+                // Columns
+                [0, 5, 10, 15, 20], [1, 6, 11, 16, 21], [2, 7, 12, 17, 22], [3, 8, 13, 18, 23], [4, 9, 14, 19, 24],
+                // Diagonals
+                [0, 6, 12, 18, 24], [4, 8, 12, 16, 20]
+            ];
+
+            let newBingos = 0;
+            lines.forEach(line => {
+                if (line.every(i => boardState[i])) {
+                    newBingos++;
+                }
+            });
+
+            if (newBingos > bingoCount) {
+                bingoCount = newBingos;
+                showBingocelebration();
+                createConfetti();
+            }
+        }
+
+        // Show bingo celebration
+        function showBingocelebration() {
+            const celebration = document.createElement('div');
+            celebration.className = 'bingo-celebration';
+            celebration.textContent = '🎉 BINGO! 🎉';
+            document.body.appendChild(celebration);
+            
+            setTimeout(() => {
+                document.body.removeChild(celebration);
+            }, 3000);
+        }
+
+        // Create confetti animation
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        if (document.body.contains(confetti)) {
+                            document.body.removeChild(confetti);
+                        }
+                    }, 3000);
+                }, i * 50);
+            }
+        }
+
+        // Randomize board
+        function randomizeBoard() {
+            boardState = Array(25).fill(false);
+            boardState[12] = true; // Keep center marked
+            bingoCount = 0;
+            generateBoard();
+            updateStats();
+            updateTargets();
+        }
+
+        // Reset board
+        function resetBoard() {
+            boardState = Array(25).fill(false);
+            boardState[12] = true; // Keep center marked
+            bingoCount = 0;
+            generateBoard();
+            updateStats();
+            updateTargets();
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('markedCount').textContent = boardState.filter(Boolean).length;
+            document.getElementById('bingoCount').textContent = bingoCount;
+        }
+
+        // Update targets list
+        function updateTargets() {
+            const targetsList = document.getElementById('targetsList');
+            targetsList.innerHTML = '';
+            
+            const unmarkedItems = [];
+            for (let i = 0; i < 25; i++) {
+                if (i === 12) continue; // Skip center
+                if (!boardState[i]) {
+                    const itemIndex = i < 12 ? i : i - 1;
+                    unmarkedItems.push(currentItems[itemIndex]);
+                }
+            }
+            
+            if (unmarkedItems.length === 0) {
+                const li = document.createElement('li');
+                li.textContent = '🎉 All bottlenecks identified!';
+                li.style.color = '#4B1D8C';
+                li.style.fontWeight = 'bold';
+                targetsList.appendChild(li);
+            } else {
+                unmarkedItems.slice(0, 8).forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    targetsList.appendChild(li);
+                });
+                
+                if (unmarkedItems.length > 8) {
+                    const li = document.createElement('li');
+                    li.textContent = `... and ${unmarkedItems.length - 8} more`;
+                    li.style.fontStyle = 'italic';
+                    targetsList.appendChild(li);
+                }
+            }
+        }
+
+        // Customization functions
+        function openCustomizeModal() {
+            document.getElementById('boardTitle').value = document.querySelector('.game-title').textContent;
+            document.getElementById('boardItems').value = currentItems.join('\n');
+            document.getElementById('customizeModal').style.display = 'flex';
+        }
+
+        function closeCustomizeModal() {
+            document.getElementById('customizeModal').style.display = 'none';
+        }
+
+        function saveCustomization() {
+            const title = document.getElementById('boardTitle').value.trim();
+            const items = document.getElementById('boardItems').value.trim().split('\n').filter(item => item.trim());
+            
+            if (items.length < 24) {
+                alert('Please provide at least 24 items for the bingo board.');
+                return;
+            }
+            
+            if (title) {
+                document.querySelector('.game-title').textContent = title;
+                localStorage.setItem('bingoTitle', title);
+            }
+            
+            currentItems = items.slice(0, 24);
+            localStorage.setItem('bingoItems', JSON.stringify(currentItems));
+            
+            resetBoard();
+            closeCustomizeModal();
+        }
+
+        function loadCustomization() {
+            const savedTitle = localStorage.getItem('bingoTitle');
+            const savedItems = localStorage.getItem('bingoItems');
+            
+            if (savedTitle) {
+                document.querySelector('.game-title').textContent = savedTitle;
+            }
+            
+            if (savedItems) {
+                currentItems = JSON.parse(savedItems);
+            }
+        }
+
+        // Export to PNG
+        function exportToPNG() {
+            // Create a canvas element
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const scale = 2; // For higher resolution
+            
+            canvas.width = 800 * scale;
+            canvas.height = 800 * scale;
+            ctx.scale(scale, scale);
+            
+            // Draw background
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillRect(0, 0, 800, 800);
+            
+            // Draw title
+            ctx.fillStyle = '#4B1D8C';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(document.querySelector('.game-title').textContent, 400, 40);
+            
+            // Draw grid
+            const cellSize = 140;
+            const startX = 50;
+            const startY = 80;
+            
+            for (let i = 0; i < 25; i++) {
+                const row = Math.floor(i / 5);
+                const col = i % 5;
+                const x = startX + col * cellSize;
+                const y = startY + row * cellSize;
+                
+                // Draw cell background
+                if (boardState[i] || i === 12) {
+                    const gradient = ctx.createLinearGradient(x, y, x + cellSize - 10, y + cellSize - 10);
+                    gradient.addColorStop(0, '#4B1D8C');
+                    gradient.addColorStop(1, '#E5332A');
+                    ctx.fillStyle = gradient;
+                } else {
+                    ctx.fillStyle = '#FFFFFF';
+                }
+                
+                ctx.fillRect(x, y, cellSize - 10, cellSize - 10);
+                
+                // Draw cell border
+                ctx.strokeStyle = '#E0E0E0';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(x, y, cellSize - 10, cellSize - 10);
+                
+                // Draw cell text
+                ctx.fillStyle = (boardState[i] || i === 12) ? '#FFFFFF' : '#333333';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                
+                let text;
+                if (i === 12) {
+                    text = 'FREE';
+                } else {
+                    const itemIndex = i < 12 ? i : i - 1;
+                    text = currentItems[itemIndex];
+                }
+                
+                // Word wrap for long text
+                const words = text.split(' ');
+                const lines = [];
+                let currentLine = words[0];
+                
+                for (let j = 1; j < words.length; j++) {
+                    const testLine = currentLine + ' ' + words[j];
+                    const testWidth = ctx.measureText(testLine).width;
+                    if (testWidth > cellSize - 20) {
+                        lines.push(currentLine);
+                        currentLine = words[j];
+                    } else {
+                        currentLine = testLine;
+                    }
+                }
+                lines.push(currentLine);
+                
+                const lineHeight = 16;
+                const textStartY = y + (cellSize - 10) / 2 - (lines.length - 1) * lineHeight / 2;
+                
+                lines.forEach((line, index) => {
+                    ctx.fillText(line, x + (cellSize - 10) / 2, textStartY + index * lineHeight);
+                });
+            }
+            
+            // Convert to blob and download
+            canvas.toBlob(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'flow-bottleneck-bingo.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        // Initialize the game when page loads
+        document.addEventListener('DOMContentLoaded', initGame);
+
+        // Close modal when clicking outside
+        document.getElementById('customizeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCustomizeModal();
+            }
+        });
+    </script>
+</body>
+</html>

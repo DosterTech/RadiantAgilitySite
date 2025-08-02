@@ -1,5 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import express from "express";
+import path from "path";
 import { storage } from "./storage";
 import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema, insertEmailSubscriptionSchema, insertWaitlistSchema } from "@shared/schema";
 import { ZodError } from "zod";
@@ -28,6 +30,9 @@ const adminAuth = (req: any, res: any, next: any) => {
 };
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve flow-bingo static files
+  app.use('/flow-bingo', express.static(path.join(process.cwd(), 'flow-bingo')));
+
   // API routes with /api prefix
   
   // Test email endpoint for debugging
