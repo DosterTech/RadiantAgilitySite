@@ -22,7 +22,9 @@ import {
   ArrowRight,
   Star,
   BookOpen,
-  Award
+  Award,
+  Brain,
+  Zap
 } from 'lucide-react';
 
 const formSchema = insertLeadSchema.pick({
@@ -133,7 +135,7 @@ export default function EpicToolkit() {
             </h1>
             
             <p className="text-xl text-gray-600 mb-8">
-              Your Epic Dependency Mapping Template is on its way. Check your inbox (and spam folder) for the download link.
+              Your Epic Toolkit (Dependency Mapping Template + AI Prompts Library) is on its way. Check your inbox (and spam folder) for the download link.
             </p>
             
             <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
@@ -206,7 +208,7 @@ export default function EpicToolkit() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Download the Epic Dependency Mapping Template to visualize and manage dependencies like a pro.
+              Download the Epic Dependency Mapping Template + AI Prompts Library to visualize, manage, and split epics like a pro.
             </p>
             
             {/* Credibility Badges */}
@@ -246,9 +248,9 @@ export default function EpicToolkit() {
                 </CardContent>
               </Card>
 
-              {/* Key Features */}
+              {/* Template Features */}
               <div className="mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">What's Inside the Template</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Epic Dependency Mapping Template</h2>
                 <div className="grid grid-cols-1 gap-4">
                   {features.map((feature, index) => (
                     <div key={index} className="flex items-start gap-4 bg-white p-4 rounded-lg shadow-sm">
@@ -261,6 +263,60 @@ export default function EpicToolkit() {
                       </div>
                     </div>
                   ))}
+                </div>
+              </div>
+
+              {/* AI Prompts Library */}
+              <div className="mb-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <Brain className="w-8 h-8 text-purple-600" />
+                  <h2 className="text-3xl font-bold text-gray-900">Epic Splitting AI Prompts Library</h2>
+                </div>
+                
+                <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 mb-6">
+                  <div className="flex items-start gap-4">
+                    <Zap className="w-6 h-6 text-purple-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        Turn Vague 6-Month Initiatives into Sprint-Ready Stories
+                      </h3>
+                      <p className="text-gray-700 mb-4">
+                        Use AI to slice, sequence, and clarify large epics. Ideal for Product Owners, SAFe teams, and anyone doing PI planning.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4">
+                  <div className="flex items-start gap-4 bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Target className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Epic Breakdown Prompts</h3>
+                      <p className="text-gray-600 text-sm">ChatGPT/Claude prompts to decompose large initiatives into manageable user stories</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Sequencing & Prioritization</h3>
+                      <p className="text-gray-600 text-sm">AI prompts to order stories by value, risk, and dependencies</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4 bg-white p-4 rounded-lg shadow-sm border-l-4 border-purple-500">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Users className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-900 mb-1">Acceptance Criteria Generation</h3>
+                      <p className="text-gray-600 text-sm">Create clear, testable acceptance criteria for every story</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -287,11 +343,32 @@ export default function EpicToolkit() {
                       <Download className="w-8 h-8 text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      Get Your Free Template
+                      Get Your Free Epic Toolkit
                     </h3>
                     <p className="text-gray-600">
                       Join 2,500+ Agile professionals who've downloaded our templates
                     </p>
+                  </div>
+
+                  {/* Toolkit Contents */}
+                  <div className="bg-purple-50 rounded-lg p-4 mb-6">
+                    <h4 className="font-semibold text-gray-900 mb-3 text-center">What You'll Get:</h4>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <Network className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <h5 className="font-medium text-gray-900">Epic Dependency Mapping Template</h5>
+                          <p className="text-sm text-gray-600">Visual worksheets for dependency tracking and risk analysis</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Brain className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <h5 className="font-medium text-gray-900">Epic Splitting AI Prompts Library</h5>
+                          <p className="text-sm text-gray-600">Turn 6-month initiatives into sprint-ready stories with AI</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -340,7 +417,7 @@ export default function EpicToolkit() {
                       ) : (
                         <>
                           <Download className="w-5 h-5 mr-2" />
-                          Download the Free Template Now
+                          Download the Free Epic Toolkit Now
                         </>
                       )}
                     </Button>
