@@ -6,7 +6,7 @@ import { storage } from "./storage";
 import { insertLeadSchema, insertContactSchema, insertChatMessageSchema, insertInquirySchema, insertEmailSubscriptionSchema, insertWaitlistSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from 'zod-validation-error';
-import { sendInquiryNotification, sendEmail } from "./email";
+import { sendInquiryNotification, sendEmail, sendLeadMagnetEmail } from "./email";
 import { sendWelcomeEmail, processDailyEmails } from "./emailCourse";
 import crypto from "crypto";
 
@@ -87,6 +87,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }
         } catch (emailError) {
           console.error('Error setting up email course:', emailError);
+          // Continue with success response even if email fails
+        }
+      }
+      
+      // Send download emails for lead magnets
+      if (validatedLead.leadMagnet) {
+        try {
+          await sendLeadMagnetEmail(validatedLead);
+        } catch (emailError) {
+          console.error('Error sending lead magnet email:', emailError);
           // Continue with success response even if email fails
         }
       }
