@@ -9,6 +9,7 @@ export const leads = pgTable("leads", {
   email: text("email").notNull(),
   company: text("company").notNull(),
   service: text("service").notNull(),
+  leadMagnet: text("lead_magnet"), // For tracking which lead magnet was used
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -17,6 +18,7 @@ export const insertLeadSchema = createInsertSchema(leads).pick({
   email: true,
   company: true,
   service: true,
+  leadMagnet: true,
 });
 
 // Contact schema for the contact form

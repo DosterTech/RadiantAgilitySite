@@ -54,7 +54,8 @@ export default function EpicToolkit() {
     mutationFn: async (data: FormData) => {
       return apiRequest('POST', '/api/leads', {
         ...data,
-        source: 'Epic Dependency Mapping Template',
+        company: 'Not specified', // Default value for company
+        service: 'Epic Dependency Mapping Template',
         leadMagnet: 'epic-toolkit'
       });
     },
