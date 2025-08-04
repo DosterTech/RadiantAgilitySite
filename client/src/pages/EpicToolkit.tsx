@@ -62,9 +62,23 @@ export default function EpicToolkit() {
     onSuccess: () => {
       setIsSubmitted(true);
       reset();
+      
+      // Trigger automatic downloads
+      const dependencyTemplate = document.createElement('a');
+      dependencyTemplate.href = '/attached_assets/RadiantAgility_Epic_Dependency_Mapping_Template_1754332688219.pdf';
+      dependencyTemplate.download = 'RadiantAgility_Epic_Dependency_Mapping_Template.pdf';
+      dependencyTemplate.click();
+      
+      setTimeout(() => {
+        const aiPrompts = document.createElement('a');
+        aiPrompts.href = '/attached_assets/RadiantAgility_Epic_Splitting_AI_Prompts_Library_Minimal_1754332688219.pdf';
+        aiPrompts.download = 'RadiantAgility_Epic_Splitting_AI_Prompts_Library.pdf';
+        aiPrompts.click();
+      }, 1000);
+      
       toast({
         title: "Success!",
-        description: "Your Epic Dependency Mapping Template is being sent to your email.",
+        description: "Your Epic Toolkit is downloading now. Check your downloads folder for both PDFs.",
       });
     },
     onError: (error) => {
@@ -132,12 +146,37 @@ export default function EpicToolkit() {
             </div>
             
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              Check Your Email! 📧
+              Your Epic Toolkit is downloading! 🎉
             </h1>
             
             <p className="text-xl text-gray-600 mb-8">
-              Your Epic Toolkit (Dependency Mapping Template + AI Prompts Library) is on its way. Check your inbox (and spam folder) for the download link.
+              Both PDFs should be in your downloads folder. If they didn't download automatically, use the backup links below.
             </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                <Network className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                <h4 className="font-semibold text-purple-600 mb-2">Epic Dependency Mapping Template</h4>
+                <a 
+                  href="/attached_assets/RadiantAgility_Epic_Dependency_Mapping_Template_1754332688219.pdf"
+                  download="RadiantAgility_Epic_Dependency_Mapping_Template.pdf"
+                  className="text-purple-600 hover:text-purple-800 font-medium"
+                >
+                  Download Template
+                </a>
+              </div>
+              <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                <Brain className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                <h4 className="font-semibold text-red-600 mb-2">Epic Splitting AI Prompts Library</h4>
+                <a 
+                  href="/attached_assets/RadiantAgility_Epic_Splitting_AI_Prompts_Library_Minimal_1754332688219.pdf"
+                  download="RadiantAgility_Epic_Splitting_AI_Prompts_Library.pdf"
+                  className="text-red-600 hover:text-red-800 font-medium"
+                >
+                  Download Prompts
+                </a>
+              </div>
+            </div>
             
             <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
