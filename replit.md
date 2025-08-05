@@ -125,6 +125,8 @@ Changelog:
 - January 31, 2025. Built AI-powered DoD Prompts Library landing page (/dod-prompts) featuring interactive prompt previews, copy-to-clipboard functionality, and comprehensive AI prompts for ChatGPT/Claude to create Definition of Done criteria faster
 - February 2, 2025. Created interactive Flow Bottleneck Bingo game at /flow-bingo as single HTML file with 5x5 board, confetti celebrations, customization, PNG export, and Radiant Agility branding for agile retrospectives
 - February 2, 2025. Built Epic Dependency Mapping Template landing page at /epic-toolkit as part of "Agile Alphabet Series: E — Epic Splitting + AI" with comprehensive features showcase, lead capture form, and cross-promotion to other agile tools
+- February 3, 2025. Created Flow Toolkit landing page at /flow-toolkit as "Agile Alphabet Series: F — Flow Optimization" featuring Daily Stand-up Flow Questions, Flow Metrics Dashboard Template, and WIP Calculator with lead capture form
+- February 3, 2025. Built standalone WIP Calculator tool at /wip-calculator with interactive calculations for optimal Work-in-Progress limits, team size optimization, blocker rate analysis, and personalized recommendations
 ```
 
 ## User Preferences

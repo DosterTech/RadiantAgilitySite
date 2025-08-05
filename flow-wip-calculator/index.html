@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIP Calculator Tool - Radiant Agility Technology</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(67, 56, 202, 0.3);
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        
+        .logo::before {
+            content: '';
+            width: 50px;
+            height: 50px;
+            background: #4338ca;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .logo-rays {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .ray {
+            position: absolute;
+            width: 3px;
+            height: 16px;
+            background: white;
+            border-radius: 2px;
+            top: 50%;
+            left: 50%;
+            transform-origin: center bottom;
+        }
+        
+        .ray:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
+        .ray:nth-child(2) { transform: translate(-50%, -100%) rotate(45deg); }
+        .ray:nth-child(3) { transform: translate(-50%, -100%) rotate(90deg); }
+        .ray:nth-child(4) { transform: translate(-50%, -100%) rotate(135deg); }
+        .ray:nth-child(5) { transform: translate(-50%, -100%) rotate(180deg); }
+        .ray:nth-child(6) { transform: translate(-50%, -100%) rotate(225deg); }
+        .ray:nth-child(7) { transform: translate(-50%, -100%) rotate(270deg); }
+        .ray:nth-child(8) { transform: translate(-50%, -100%) rotate(315deg); }
+        
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .tool-title {
+            font-size: 3rem;
+            color: #4338ca;
+            font-weight: 700;
+            text-align: center;
+            margin: 2rem 0;
+            text-shadow: 2px 2px 4px rgba(67, 56, 202, 0.1);
+        }
+        
+        .tool-subtitle {
+            font-size: 1.3rem;
+            color: #6366f1;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .calculator-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 2px solid #e5e7eb;
+        }
+        
+        .section-title {
+            color: #4338ca;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .input-group {
+            margin-bottom: 2rem;
+        }
+        
+        .input-label {
+            display: block;
+            color: #374151;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #6366f1;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .calculate-btn {
+            background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(67, 56, 202, 0.3);
+            display: block;
+            margin: 2rem auto;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(67, 56, 202, 0.4);
+        }
+        
+        .results-section {
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 2px solid #a7f3d0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .results-title {
+            color: #065f46;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        
+        .result-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .result-metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .metric-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #4338ca;
+        }
+        
+        .recommendations {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .recommendations-title {
+            color: #92400e;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .recommendation-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .recommendation-icon {
+            background: #f59e0b;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        .info-section {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #93c5fd;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-title {
+            color: #1e40af;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .info-card h4 {
+            color: #4338ca;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer {
+            background: #f8fafc;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content strong {
+            color: #4338ca;
+        }
+        
+        .back-btn {
+            background: #6b7280;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .back-btn:hover {
+            background: #4b5563;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .input-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-title {
+                font-size: 2rem;
+            }
+            
+            .company-name {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/flow-toolkit" class="back-btn">← Back to Flow Toolkit</a>
+        
+        <header class="header">
+            <div class="logo">
+                <div class="logo-rays">
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                </div>
+            </div>
+            <div class="company-name">RADIANT AGILITY</div>
+            <div class="company-name" style="font-size: 1.8rem; margin-bottom: 0.5rem;">TECHNOLOGY</div>
+            <div class="tagline">Your Partner in Agile Excellence</div>
+        </header>
+        
+        <h1 class="tool-title">🎯 WIP Calculator Tool</h1>
+        <p class="tool-subtitle">Calculate Your Optimal Work-in-Progress Limits for Maximum Flow</p>
+        
+        <div class="calculator-section">
+            <h2 class="section-title">📊 Team Information</h2>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label class="input-label" for="teamSize">Team Size</label>
+                    <input type="number" id="teamSize" class="input-field" placeholder="e.g., 6" min="1" max="20">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="sprintLength">Sprint Length (weeks)</label>
+                    <input type="number" id="sprintLength" class="input-field" placeholder="e.g., 2" min="1" max="4">
+                </div>
+            </div>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label class="input-label" for="avgStorySize">Average Story Size (points)</label>
+                    <input type="number" id="avgStorySize" class="input-field" placeholder="e.g., 3" min="1" max="13">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="velocity">Historical Velocity (points/sprint)</label>
+                    <input type="number" id="velocity" class="input-field" placeholder="e.g., 24" min="1">
+                </div>
+            </div>
+            
+            <div class="input-grid">
+                <div class="input-group">
+                    <label class="input-label" for="blockerRate">Blocker Rate (%)</label>
+                    <input type="number" id="blockerRate" class="input-field" placeholder="e.g., 15" min="0" max="100">
+                </div>
+                
+                <div class="input-group">
+                    <label class="input-label" for="multitasking">Multitasking Level</label>
+                    <select id="multitasking" class="input-field">
+                        <option value="">Select level...</option>
+                        <option value="low">Low (Focus on 1-2 items)</option>
+                        <option value="medium">Medium (3-4 items)</option>
+                        <option value="high">High (5+ items)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateWIP()">
+                🧮 Calculate Optimal WIP Limits
+            </button>
+        </div>
+        
+        <div id="results" class="results-section">
+            <h2 class="results-title">📈 Your WIP Optimization Results</h2>
+            
+            <div class="result-card">
+                <div class="result-metric">
+                    <span class="metric-label">Recommended WIP Limit</span>
+                    <span class="metric-value" id="wipLimit">-</span>
+                </div>
+                <div class="result-metric">
+                    <span class="metric-label">Stories per Developer</span>
+                    <span class="metric-value" id="storiesPerDev">-</span>
+                </div>
+                <div class="result-metric">
+                    <span class="metric-label">Expected Cycle Time</span>
+                    <span class="metric-value" id="cycleTime">-</span>
+                </div>
+                <div class="result-metric">
+                    <span class="metric-label">Throughput Estimate</span>
+                    <span class="metric-value" id="throughput">-</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="recommendations" class="recommendations" style="display: none;">
+            <h3 class="recommendations-title">💡 Personalized Recommendations</h3>
+            <div id="recommendationsList"></div>
+        </div>
+        
+        <div class="info-section">
+            <h3 class="info-title">🎓 Understanding WIP Limits</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>What are WIP Limits?</h4>
+                    <p>Work-in-Progress limits restrict the number of items your team works on simultaneously, improving focus and flow.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Why Use WIP Limits?</h4>
+                    <p>They reduce context switching, identify bottlenecks faster, and improve overall team productivity and predictability.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Little's Law</h4>
+                    <p>Average Cycle Time = Work in Progress ÷ Average Throughput. Lower WIP = faster delivery.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Continuous Improvement</h4>
+                    <p>Start with calculated limits, then adjust based on team performance and feedback.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-content">
+                <strong>Radiant Agility Technology</strong> - Helping teams achieve sustainable flow and predictable delivery.
+                <br>
+                <a href="/flow-toolkit" style="color: #4338ca; text-decoration: none;">← Back to Flow Toolkit</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateWIP() {
+            // Get input values
+            const teamSize = parseInt(document.getElementById('teamSize').value);
+            const sprintLength = parseInt(document.getElementById('sprintLength').value);
+            const avgStorySize = parseInt(document.getElementById('avgStorySize').value);
+            const velocity = parseInt(document.getElementById('velocity').value);
+            const blockerRate = parseInt(document.getElementById('blockerRate').value) || 0;
+            const multitasking = document.getElementById('multitasking').value;
+            
+            // Validate inputs
+            if (!teamSize || !sprintLength || !avgStorySize || !velocity) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Calculate base metrics
+            const storiesPerSprint = Math.round(velocity / avgStorySize);
+            const baseWIPLimit = Math.ceil(teamSize * 1.5); // Base rule: 1.5 items per person
+            
+            // Adjust for multitasking
+            let multitaskingMultiplier = 1;
+            switch(multitasking) {
+                case 'low': multitaskingMultiplier = 0.8; break;
+                case 'medium': multitaskingMultiplier = 1.0; break;
+                case 'high': multitaskingMultiplier = 1.3; break;
+                default: multitaskingMultiplier = 1.0;
+            }
+            
+            // Adjust for blocker rate
+            const blockerMultiplier = 1 + (blockerRate / 100);
+            
+            // Calculate final WIP limit
+            const wipLimit = Math.ceil(baseWIPLimit * multitaskingMultiplier * blockerMultiplier);
+            const storiesPerDev = Math.round((wipLimit / teamSize) * 10) / 10;
+            
+            // Estimate cycle time (using Little's Law approximation)
+            const dailyThroughput = storiesPerSprint / (sprintLength * 5); // Assuming 5 working days per week
+            const cycleTime = Math.round((wipLimit / dailyThroughput) * 10) / 10;
+            
+            // Calculate weekly throughput
+            const weeklyThroughput = Math.round(dailyThroughput * 5 * 10) / 10;
+            
+            // Display results
+            document.getElementById('wipLimit').textContent = wipLimit;
+            document.getElementById('storiesPerDev').textContent = storiesPerDev.toFixed(1);
+            document.getElementById('cycleTime').textContent = cycleTime.toFixed(1) + ' days';
+            document.getElementById('throughput').textContent = weeklyThroughput.toFixed(1) + ' stories/week';
+            
+            // Show results section
+            document.getElementById('results').style.display = 'block';
+            
+            // Generate recommendations
+            generateRecommendations(wipLimit, teamSize, blockerRate, multitasking, storiesPerDev);
+            
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function generateRecommendations(wipLimit, teamSize, blockerRate, multitasking, storiesPerDev) {
+            const recommendations = [];
+            
+            if (storiesPerDev > 2) {
+                recommendations.push({
+                    icon: '⚠️',
+                    text: 'Your WIP limit is high. Consider reducing it to improve focus and reduce cycle time.'
+                });
+            }
+            
+            if (blockerRate > 20) {
+                recommendations.push({
+                    icon: '🚫',
+                    text: 'High blocker rate detected. Focus on removing impediments and improving team processes.'
+                });
+            }
+            
+            if (multitasking === 'high') {
+                recommendations.push({
+                    icon: '🎯',
+                    text: 'High multitasking level. Try to reduce context switching for better flow.'
+                });
+            }
+            
+            if (wipLimit > teamSize * 2) {
+                recommendations.push({
+                    icon: '📉',
+                    text: 'Consider implementing stricter WIP limits to improve team focus and delivery speed.'
+                });
+            }
+            
+            if (storiesPerDev < 1.5) {
+                recommendations.push({
+                    icon: '✅',
+                    text: 'Good WIP discipline! Your team is likely experiencing good flow and focus.'
+                });
+            }
+            
+            recommendations.push({
+                icon: '📊',
+                text: 'Monitor your actual cycle time and adjust WIP limits based on real performance data.'
+            });
+            
+            recommendations.push({
+                icon: '🔄',
+                text: 'Review and adjust WIP limits every 2-3 sprints based on team feedback and metrics.'
+            });
+            
+            // Display recommendations
+            const recommendationsList = document.getElementById('recommendationsList');
+            recommendationsList.innerHTML = '';
+            
+            recommendations.forEach(rec => {
+                const item = document.createElement('div');
+                item.className = 'recommendation-item';
+                item.innerHTML = `
+                    <div class="recommendation-icon">${rec.icon}</div>
+                    <div>${rec.text}</div>
+                `;
+                recommendationsList.appendChild(item);
+            });
+            
+            document.getElementById('recommendations').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

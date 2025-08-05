@@ -34,6 +34,7 @@ import DodTemplate from "./pages/DodTemplate";
 import DodPrompts from "./pages/DodPrompts";
 import FlowBingo from "./pages/FlowBingo";
 import EpicToolkit from "./pages/EpicToolkit";
+import FlowToolkit from "./pages/FlowToolkit";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -65,6 +66,7 @@ function Router() {
       <Route path="/dod-prompts" component={DodPrompts} />
       <Route path="/flow-bingo" component={FlowBingo} />
       <Route path="/epic-toolkit" component={EpicToolkit} />
+      <Route path="/flow-toolkit" component={FlowToolkit} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
       <Route path="/admin/leads" component={AdminLeads} />

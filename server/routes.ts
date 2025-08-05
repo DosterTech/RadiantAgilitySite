@@ -33,6 +33,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Serve flow-bingo static files
   app.use('/flow-bingo', express.static(path.join(process.cwd(), 'flow-bingo')));
   
+  // Serve WIP calculator tool
+  app.use('/wip-calculator', express.static(path.join(process.cwd(), 'flow-wip-calculator')));
+  
   // Serve attached assets (PDFs, images, etc.) with proper MIME types
   app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets'), {
     setHeaders: (res, path) => {
