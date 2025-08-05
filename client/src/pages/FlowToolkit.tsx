@@ -65,10 +65,26 @@ export default function FlowToolkit() {
       setIsSubmitted(true);
       reset();
       
-      // Future: Trigger automatic downloads when PDFs are ready
+      // Trigger automatic downloads of Flow Toolkit PDFs
+      const downloadLinks = [
+        '/attached_assets/RadiantAgility_Daily_Standup_Flow_Questions_1754424485064.pdf',
+        '/attached_assets/RadiantAgility_Flow_Metrics_Dashboard_Template_1754424485064.pdf'
+      ];
+      
+      downloadLinks.forEach((link, index) => {
+        setTimeout(() => {
+          const a = document.createElement('a');
+          a.href = link;
+          a.download = '';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        }, index * 500); // Stagger downloads by 500ms
+      });
+      
       toast({
         title: "Success!",
-        description: "Your Flow Toolkit will be available soon. We'll notify you when it's ready!",
+        description: "Your Flow Toolkit is downloading now! Check your downloads folder.",
       });
     },
     onError: (error) => {
@@ -136,16 +152,46 @@ export default function FlowToolkit() {
             </div>
             
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              Thank You! Your Flow Toolkit is Coming Soon! 🎉
+              Thank You! Your Flow Toolkit is Downloaded! 🎉
             </h1>
             
             <p className="text-xl text-gray-600 mb-8">
-              We're putting the finishing touches on your Flow Toolkit. You'll be notified as soon as it's ready for download.
+              Check your downloads folder for the Daily Stand-up Flow Questions and Flow Metrics Dashboard Template PDFs!
             </p>
             
             <div className="bg-white rounded-xl p-8 shadow-lg mb-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                While you wait, try our WIP Calculator:
+                If downloads didn't start, try manual links:
+              </h3>
+              
+              <div className="space-y-3 mb-6">
+                <a 
+                  href="/attached_assets/RadiantAgility_Daily_Standup_Flow_Questions_1754424485064.pdf"
+                  download
+                  className="flex items-center gap-3 p-3 border rounded-lg hover:border-purple-300 transition-colors"
+                >
+                  <Download className="w-5 h-5 text-purple-600" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Daily Stand-up Flow Questions</h4>
+                    <p className="text-sm text-gray-600">Transform your standups from status to flow optimization</p>
+                  </div>
+                </a>
+                
+                <a 
+                  href="/attached_assets/RadiantAgility_Flow_Metrics_Dashboard_Template_1754424485064.pdf"
+                  download
+                  className="flex items-center gap-3 p-3 border rounded-lg hover:border-purple-300 transition-colors"
+                >
+                  <Download className="w-5 h-5 text-purple-600" />
+                  <div>
+                    <h4 className="font-medium text-gray-900">Flow Metrics Dashboard Template</h4>
+                    <p className="text-sm text-gray-600">Track cycle time, throughput, and flow efficiency</p>
+                  </div>
+                </a>
+              </div>
+              
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                Also try our interactive WIP Calculator:
               </h3>
               
               <Button asChild className="bg-gradient-to-r from-purple-600 to-red-500 hover:from-purple-700 hover:to-red-600 text-white px-8 py-3 mb-6">
@@ -304,7 +350,7 @@ export default function FlowToolkit() {
 
                   {/* Toolkit Preview */}
                   <div className="bg-purple-50 rounded-lg p-4 mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-3 text-center">Coming Soon:</h4>
+                    <h4 className="font-semibold text-gray-900 mb-3 text-center">Instant Download:</h4>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
                         <Users className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
@@ -376,7 +422,7 @@ export default function FlowToolkit() {
                       ) : (
                         <>
                           <Download className="w-5 h-5 mr-2" />
-                          Get Notified When Ready
+                          Download Flow Toolkit
                         </>
                       )}
                     </Button>
@@ -384,7 +430,7 @@ export default function FlowToolkit() {
 
                   <div className="text-center mt-6 pt-6 border-t border-gray-200">
                     <p className="text-xs text-gray-500">
-                      Early access • No spam • Unsubscribe anytime
+                      Instant download • No spam • Unsubscribe anytime
                     </p>
                   </div>
                 </CardContent>
