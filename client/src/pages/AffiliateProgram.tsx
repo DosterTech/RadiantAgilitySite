@@ -135,7 +135,7 @@ export default function AffiliateProgram() {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-purple-600 to-red-500 hover:from-purple-700 hover:to-red-600 text-white px-8 py-4 text-lg font-semibold"
-              onClick={() => window.open('mailto:affiliates@radiantagility.tech?subject=Affiliate Program Application&body=Hi! I would like to apply for the Radiant Agility affiliate program. Please send me the application details and next steps.', '_blank')}
+              onClick={() => window.open('mailto:hello@radiantagility.tech?subject=Affiliate Program Application&body=Hi! I would like to apply for the Radiant Agility affiliate program. Please send me the application details and next steps.', '_blank')}
             >
               <ExternalLink className="w-5 h-5 mr-2" />
               Apply Now
@@ -317,7 +317,7 @@ export default function AffiliateProgram() {
               <Button 
                 size="lg" 
                 className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
-                onClick={() => window.open('mailto:affiliates@radiantagility.tech?subject=Affiliate Program Application&body=Hi! I would like to apply for the Radiant Agility affiliate program. Please send me the application details and next steps.', '_blank')}
+                onClick={() => window.open('mailto:hello@radiantagility.tech?subject=Affiliate Program Application&body=Hi! I would like to apply for the Radiant Agility affiliate program. Please send me the application details and next steps.', '_blank')}
               >
                 <LinkIcon className="w-5 h-5 mr-2" />
                 Become an Affiliate
@@ -325,7 +325,7 @@ export default function AffiliateProgram() {
               
               <div className="text-center sm:text-left">
                 <div className="text-lg font-semibold">Questions?</div>
-                <div className="opacity-90">Contact us at affiliates@radiantagility.tech</div>
+                <div className="opacity-90">Contact us at hello@radiantagility.tech</div>
               </div>
             </div>
             
