@@ -44,7 +44,8 @@ export default function JourneyMappingTool() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Journey Map Template - Radiant Agility</title>
+    <title>Dynamic Journey Map Template - Radiant Agility Technology</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -65,7 +66,7 @@ export default function JourneyMappingTool() {
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: linear-gradient(135deg, #4c63d2 0%, #3B1F56 100%);
             min-height: 100vh;
             padding: 20px;
@@ -89,7 +90,41 @@ export default function JourneyMappingTool() {
             position: relative;
         }
 
+        .brand-header {
+            margin-bottom: 20px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+        }
+
+        .brand-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: white;
+            opacity: 0.95;
+        }
+
         h1 {
+            font-family: 'Poppins', sans-serif;
             font-size: 2.5em;
             margin-bottom: 10px;
             font-weight: 700;
@@ -363,6 +398,12 @@ export default function JourneyMappingTool() {
 <body>
     <div class="container">
         <header>
+            <div class="brand-header">
+                <div class="brand-logo">
+                    <div class="logo-icon">RA</div>
+                    <span class="brand-name">Radiant Agility Technology</span>
+                </div>
+            </div>
             <h1>🗺️ Dynamic Journey Map Template</h1>
             <p class="subtitle">Map your customer's journey with AI-powered insights</p>
             <div class="download-section">
@@ -612,6 +653,23 @@ export default function JourneyMappingTool() {
         // Initialize journey info on load
         window.addEventListener('load', function() {
             updateJourneyInfo();
+        });
+
+        // Add footer with Radiant Agility Technology branding
+        document.addEventListener('DOMContentLoaded', function() {
+            const footer = document.createElement('div');
+            footer.innerHTML = \`
+                <div style="background: #f8f9fa; padding: 30px; text-align: center; border-top: 3px solid var(--primary); margin-top: 40px;">
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 15px;">
+                        <div style="width: 32px; height: 32px; background: linear-gradient(135deg, #4c63d2 0%, #3B1F56 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 14px;">RA</div>
+                        <span style="font-weight: 600; color: #1f2937; font-size: 1.1em;">Radiant Agility Technology</span>
+                    </div>
+                    <p style="color: #6b7280; margin-bottom: 10px;">Your Partner in Agile Excellence</p>
+                    <p style="color: #9ca3af; font-size: 0.9em;">© 2025 Radiant Agility Technology. Licensed for team use.</p>
+                    <p style="color: #9ca3af; font-size: 0.9em; margin-top: 5px;">Need help with journey mapping? Contact us at <a href="mailto:hello@radiantagility.tech" style="color: var(--primary);">hello@radiantagility.tech</a></p>
+                </div>
+            \`;
+            document.querySelector('.container').appendChild(footer);
         });
     </script>
 </body>
