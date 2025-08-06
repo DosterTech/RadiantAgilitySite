@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Journey Map Template - Radiant Agility</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f97316;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .download-section {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-btn, .export-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover, .export-btn:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .controls {
+            display: flex;
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9em;
+        }
+
+        input, select {
+            padding: 10px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .journey-map {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        .journey-table {
+            width: 100%;
+            min-width: 800px;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .journey-table th {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+            color: var(--dark);
+            border-bottom: 3px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .journey-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+
+        .stage-cell {
+            font-weight: 600;
+            color: var(--primary);
+            background: linear-gradient(135deg, #f0f0ff 0%, #f8f8ff 100%);
+        }
+
+        .editable {
+            background: transparent;
+            border: 1px dashed #d1d5db;
+            padding: 8px;
+            border-radius: 4px;
+            width: 100%;
+            min-height: 60px;
+            transition: all 0.3s ease;
+            white-space: pre-wrap;
+        }
+
+        .editable:hover {
+            background: #f9fafb;
+            border-color: var(--primary);
+        }
+
+        .editable:focus {
+            outline: none;
+            border: 2px solid var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .emotion-score {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .emotion-positive {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .emotion-neutral {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .emotion-negative {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .add-stage-btn {
+            background: var(--success);
+            margin-top: 20px;
+        }
+
+        .add-stage-btn:hover {
+            background: #059669;
+        }
+
+        .insights-section {
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 3px solid var(--primary);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .insight-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .insight-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+        }
+
+        .pain-point {
+            background: #fef2f2;
+            border-left: 4px solid var(--danger);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .opportunity {
+            background: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .control-group {
+                width: 100%;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .download-section, .controls {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Dynamic Journey Map Template</h1>
+            <p class="subtitle">Map your customer's journey with AI-powered insights</p>
+            <div class="download-section">
+                <button class="download-btn" onclick="downloadHTML()">💾 Download This Template</button>
+                <button class="export-btn" onclick="exportData()">📊 Export Journey Data</button>
+                <button class="export-btn" onclick="window.print()">🖨️ Print Journey Map</button>
+            </div>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="persona">Persona Name:</label>
+                <input type="text" id="persona" placeholder="e.g., Tech-Savvy Millennial" value="New Customer">
+            </div>
+            <div class="control-group">
+                <label for="scenario">Journey Scenario:</label>
+                <input type="text" id="scenario" placeholder="e.g., First-time Purchase" value="Product Discovery to Purchase">
+            </div>
+            <div class="control-group">
+                <label for="journey-type">Journey Type:</label>
+                <select id="journey-type">
+                    <option value="customer">Customer Journey</option>
+                    <option value="employee">Employee Journey</option>
+                    <option value="user">User Journey</option>
+                    <option value="partner">Partner Journey</option>
+                </select>
+            </div>
+            <button onclick="updateJourneyInfo()">Update Journey Info</button>
+        </div>
+
+        <div class="journey-map">
+            <table class="journey-table" id="journeyTable">
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>Actions</th>
+                        <th>Thoughts</th>
+                        <th>Emotions</th>
+                        <th>Touchpoints</th>
+                        <th>Pain Points</th>
+                        <th>Opportunities</th>
+                    </tr>
+                </thead>
+                <tbody id="journeyBody">
+                    <tr>
+                        <td class="stage-cell">Awareness</td>
+                        <td><div contenteditable="true" class="editable">Discovers product through social media ad</div></td>
+                        <td><div contenteditable="true" class="editable">"This looks interesting, but is it worth it?"</div></td>
+                        <td><span class="emotion-score emotion-neutral">😐 Curious</span></td>
+                        <td><div contenteditable="true" class="editable">• Instagram Ad<br>• Website Landing Page</div></td>
+                        <td><div contenteditable="true" class="editable">• Unclear value proposition<br>• Too many options</div></td>
+                        <td><div contenteditable="true" class="editable">• Clearer messaging<br>• Social proof integration</div></td>
+                    </tr>
+                    <tr>
+                        <td class="stage-cell">Consideration</td>
+                        <td><div contenteditable="true" class="editable">Compares features and reads reviews</div></td>
+                        <td><div contenteditable="true" class="editable">"How does this compare to alternatives?"</div></td>
+                        <td><span class="emotion-score emotion-positive">😊 Interested</span></td>
+                        <td><div contenteditable="true" class="editable">• Product Pages<br>• Review Sites<br>• Comparison Tools</div></td>
+                        <td><div contenteditable="true" class="editable">• Difficult to compare<br>• Information overload</div></td>
+                        <td><div contenteditable="true" class="editable">• Comparison calculator<br>• Curated reviews</div></td>
+                    </tr>
+                    <tr>
+                        <td class="stage-cell">Decision</td>
+                        <td><div contenteditable="true" class="editable">Adds to cart and completes purchase</div></td>
+                        <td><div contenteditable="true" class="editable">"Hope I'm making the right choice"</div></td>
+                        <td><span class="emotion-score emotion-positive">🎉 Excited</span></td>
+                        <td><div contenteditable="true" class="editable">• Shopping Cart<br>• Checkout Process<br>• Payment Gateway</div></td>
+                        <td><div contenteditable="true" class="editable">• Unexpected shipping costs<br>• Long checkout process</div></td>
+                        <td><div contenteditable="true" class="editable">• Transparent pricing<br>• Express checkout</div></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="add-stage-btn" onclick="addStage()">+ Add Journey Stage</button>
+        </div>
+
+        <div class="insights-section">
+            <h2>AI-Powered Insights</h2>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>
+                        <span class="icon">🎯</span>
+                        Key Friction Points
+                    </h3>
+                    <div class="pain-point">
+                        <strong>Awareness Stage:</strong> Value proposition needs clarification
+                    </div>
+                    <div class="pain-point">
+                        <strong>Decision Stage:</strong> Checkout friction causing abandonment
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>
+                        <span class="icon">💡</span>
+                        Top Opportunities
+                    </h3>
+                    <div class="opportunity">
+                        <strong>Quick Win:</strong> Add trust badges and testimonials
+                    </div>
+                    <div class="opportunity">
+                        <strong>High Impact:</strong> Implement one-click checkout
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <h3>
+                        <span class="icon">📈</span>
+                        Emotion Trajectory
+                    </h3>
+                    <p>Journey shows positive emotional progression with minor friction at checkout. Focus on maintaining momentum through decision stage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addStage() {
+            const tbody = document.getElementById('journeyBody');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td class="stage-cell"><div contenteditable="true" class="editable">New Stage</div></td>
+                <td><div contenteditable="true" class="editable">Enter actions...</div></td>
+                <td><div contenteditable="true" class="editable">Enter thoughts...</div></td>
+                <td><span class="emotion-score emotion-neutral">😐 Neutral</span></td>
+                <td><div contenteditable="true" class="editable">Enter touchpoints...</div></td>
+                <td><div contenteditable="true" class="editable">Enter pain points...</div></td>
+                <td><div contenteditable="true" class="editable">Enter opportunities...</div></td>
+            `;
+            tbody.appendChild(newRow);
+            attachEmotionListeners();
+        }
+
+        function attachEmotionListeners() {
+            document.querySelectorAll('.emotion-score').forEach(span => {
+                span.style.cursor = 'pointer';
+                span.onclick = function() {
+                    cycleEmotion(this);
+                };
+            });
+        }
+
+        function cycleEmotion(element) {
+            const emotions = [
+                { class: 'emotion-positive', text: '😊 Happy' },
+                { class: 'emotion-positive', text: '🎉 Excited' },
+                { class: 'emotion-neutral', text: '😐 Neutral' },
+                { class: 'emotion-neutral', text: '😕 Confused' },
+                { class: 'emotion-negative', text: '😔 Frustrated' },
+                { class: 'emotion-negative', text: '😡 Angry' }
+            ];
+            
+            const currentText = element.textContent;
+            const currentIndex = emotions.findIndex(e => e.text === currentText);
+            const nextIndex = (currentIndex + 1) % emotions.length;
+            const nextEmotion = emotions[nextIndex];
+            
+            element.className = `emotion-score ${nextEmotion.class}`;
+            element.textContent = nextEmotion.text;
+        }
+
+        function updateJourneyInfo() {
+            const persona = document.getElementById('persona').value;
+            const scenario = document.getElementById('scenario').value;
+            const type = document.getElementById('journey-type').value;
+            
+            alert(`Journey updated:\nPersona: ${persona}\nScenario: ${scenario}\nType: ${type}`);
+        }
+
+        function downloadHTML() {
+            const content = document.documentElement.outerHTML;
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'journey-map-template.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function exportData() {
+            const data = {
+                persona: document.getElementById('persona').value,
+                scenario: document.getElementById('scenario').value,
+                type: document.getElementById('journey-type').value,
+                stages: []
+            };
+            
+            document.querySelectorAll('#journeyBody tr').forEach(row => {
+                const cells = row.querySelectorAll('td');
+                data.stages.push({
+                    stage: cells[0].textContent.trim(),
+                    actions: cells[1].textContent.trim(),
+                    thoughts: cells[2].textContent.trim(),
+                    emotions: cells[3].textContent.trim(),
+                    touchpoints: cells[4].textContent.trim(),
+                    painPoints: cells[5].textContent.trim(),
+                    opportunities: cells[6].textContent.trim()
+                });
+            });
+            
+            const jsonStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'journey-map-data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Initialize emotion listeners
+        attachEmotionListeners();
+
+        // Auto-save to localStorage
+        setInterval(() => {
+            const content = document.getElementById('journeyBody').innerHTML;
+            localStorage.setItem('journeyMapContent', content);
+        }, 5000);
+
+        // Load saved content
+        window.onload = function() {
+            const saved = localStorage.getItem('journeyMapContent');
+            if (saved && confirm('Load previously saved journey map?')) {
+                document.getElementById('journeyBody').innerHTML = saved;
+                attachEmotionListeners();
+            }
+        };
+    </script>
+</body>
+</html>
