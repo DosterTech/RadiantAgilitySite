@@ -778,7 +778,7 @@ export default function JourneyMappingTool() {
             <p className="text-xl text-purple-100 mb-8 leading-relaxed">
               Visualize and optimize customer experiences with our comprehensive interactive journey mapping template
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Button 
                 size="lg" 
                 className="bg-white text-[#3B1F56] hover:bg-purple-50 font-semibold px-8 py-4 text-lg"
@@ -786,15 +786,6 @@ export default function JourneyMappingTool() {
               >
                 <Download className="h-5 w-5 mr-2" />
                 Get Free Interactive Tool
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-[#3B1F56] font-semibold px-8 py-4 text-lg"
-                onClick={() => document.getElementById('download-form')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                <ExternalLink className="h-5 w-5 mr-2" />
-                Get Started
               </Button>
             </div>
           </div>
