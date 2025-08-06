@@ -127,6 +127,7 @@ Changelog:
 - February 2, 2025. Built Epic Dependency Mapping Template landing page at /epic-toolkit as part of "Agile Alphabet Series: E — Epic Splitting + AI" with comprehensive features showcase, lead capture form, and cross-promotion to other agile tools
 - February 3, 2025. Created Flow Toolkit landing page at /flow-toolkit as "Agile Alphabet Series: F — Flow Optimization" featuring Daily Stand-up Flow Questions, Flow Metrics Dashboard Template, and WIP Calculator with lead capture form
 - February 3, 2025. Built standalone WIP Calculator tool at /wip-calculator with interactive calculations for optimal Work-in-Progress limits, team size optimization, blocker rate analysis, and personalized recommendations
+- February 3, 2025. Created professional Affiliate Program page at /affiliate with complete commission structure ($25 per referral), how-it-works section, affiliate perks, comprehensive FAQ section, and branded design matching Radiant Agility theme
 ```
 
 ## User Preferences
