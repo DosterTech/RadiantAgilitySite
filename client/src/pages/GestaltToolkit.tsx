@@ -28,7 +28,12 @@ export default function GestaltToolkit() {
 
   const downloadMutation = useMutation({
     mutationFn: async (data: { email: string; leadMagnet: string }) => {
-      return apiRequest('POST', '/api/leads', data);
+      return apiRequest('POST', '/api/leads', {
+        ...data,
+        name: 'Lead Magnet Download',
+        company: 'Not specified',
+        service: 'Gestalt Toolkit Download'
+      });
     },
     onSuccess: () => {
       toast({
