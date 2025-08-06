@@ -38,28 +38,38 @@ export default function GestaltToolkit() {
     onSuccess: () => {
       toast({
         title: "Download Started!",
-        description: "Check your downloads folder for the Gestalt Design Principles Toolkit.",
+        description: "Two PDFs will download: Gestalt Cheatsheet and UX Audit Template.",
       });
       
-      // Trigger download
+      // Trigger download with better timing
       setTimeout(() => {
         // Download Gestalt Design Principles Cheatsheet
-        const link1 = document.createElement('a');
-        link1.href = '/attached_assets/RadiantAgility_Gestalt_Design_Principles_Cheatsheet_1754491988609.pdf';
-        link1.download = 'RadiantAgility_Gestalt_Design_Principles_Cheatsheet.pdf';
-        document.body.appendChild(link1);
-        link1.click();
-        document.body.removeChild(link1);
-        
-        // Download Gestalt UX Audit Template (500ms delay)
-        setTimeout(() => {
-          const link2 = document.createElement('a');
-          link2.href = '/attached_assets/RadiantAgility_Gestalt_UX_Audit_Template_1754491988609.pdf';
-          link2.download = 'RadiantAgility_Gestalt_UX_Audit_Template.pdf';
-          document.body.appendChild(link2);
-          link2.click();
-          document.body.removeChild(link2);
-        }, 500);
+        try {
+          const link1 = document.createElement('a');
+          link1.href = '/attached_assets/RadiantAgility_Gestalt_Design_Principles_Cheatsheet_1754491988609.pdf';
+          link1.download = 'RadiantAgility_Gestalt_Design_Principles_Cheatsheet.pdf';
+          link1.style.display = 'none';
+          document.body.appendChild(link1);
+          link1.click();
+          document.body.removeChild(link1);
+          
+          // Download Gestalt UX Audit Template (longer delay for better browser compatibility)
+          setTimeout(() => {
+            try {
+              const link2 = document.createElement('a');
+              link2.href = '/attached_assets/RadiantAgility_Gestalt_UX_Audit_Template_1754491988609.pdf';
+              link2.download = 'RadiantAgility_Gestalt_UX_Audit_Template.pdf';
+              link2.style.display = 'none';
+              document.body.appendChild(link2);
+              link2.click();
+              document.body.removeChild(link2);
+            } catch (error) {
+              console.error('Error downloading second PDF:', error);
+            }
+          }, 1500); // Increased delay to 1.5 seconds
+        } catch (error) {
+          console.error('Error downloading first PDF:', error);
+        }
       }, 1000);
       
       setEmail('');
