@@ -745,9 +745,9 @@ export default function JourneyMappingTool() {
 
   const toolkitCrossPromo = [
     {
-      title: "Epic Toolkit",
-      description: "Dependency mapping and AI-powered epic splitting",
-      href: "/epic-toolkit"
+      title: "Emotion + Friction Analyzer",
+      description: "AI-powered prompts to decode emotions and eliminate friction",
+      href: "/emotion-analyzer"
     },
     {
       title: "Flow Toolkit", 

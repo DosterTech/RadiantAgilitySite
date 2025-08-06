@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion + Friction Analyzer AI Prompt - Radiant Agility</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gradient-start: #6A00F4;
+            --gradient-end: #FF4D6D;
+            --primary-purple: #6A00F4;
+            --primary-coral: #FF4D6D;
+            --primary-dark: #5000C4;
+            --coral-dark: #E63355;
+            --light-gray: #94A3B8;
+            --text-dark: #1E293B;
+            --white: #FFFFFF;
+            --bg-light: #F8FAFC;
+            --border-light: #E2E8F0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.15);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --glow-purple: 0 0 40px rgba(106, 0, 244, 0.3);
+            --glow-coral: 0 0 40px rgba(255, 77, 109, 0.3);
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--white);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+        }
+
+        .radiant-badge {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 77, 109, 0.4);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle .lightning {
+            display: inline-block;
+            margin: 0 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--primary-coral);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--coral-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 77, 109, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--primary-purple);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(106, 0, 244, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(106, 0, 244, 0.5);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid var(--white);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .main-content {
+            padding: 50px;
+        }
+
+        .prompt-builder {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-md);
+        }
+
+        h2 {
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            font-size: 2em;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 1em;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 4px rgba(106, 0, 244, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .analysis-type {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .type-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--border-light);
+            background: var(--white);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .type-btn.active {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--white);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(106, 0, 244, 0.3);
+        }
+
+        .type-btn:hover:not(.active) {
+            border-color: var(--primary-purple);
+            background: linear-gradient(135deg, rgba(106, 0, 244, 0.05) 0%, rgba(255, 77, 109, 0.05) 100%);
+            transform: translateY(-2px);
+        }
+
+        .prompt-output {
+            background: var(--white);
+            border: 3px solid transparent;
+            background-image: linear-gradient(var(--white), var(--white)), 
+                              linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 40px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .prompt-text {
+            background: linear-gradient(135deg, rgba(106, 0, 244, 0.03) 0%, rgba(255, 77, 109, 0.03) 100%);
+            border-left: 4px solid;
+            border-image: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) 1;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 0.95em;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(106, 0, 244, 0.3);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(106, 0, 244, 0.4);
+        }
+
+        .copy-btn.copied {
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+        }
+
+        .examples-section {
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(106, 0, 244, 0.05) 0%, rgba(255, 77, 109, 0.05) 100%);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .example-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .example-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-purple);
+        }
+
+        .example-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .example-card h3 {
+            color: var(--primary-purple);
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .example-card p {
+            color: var(--light-gray);
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .tips-section {
+            margin-top: 50px;
+            padding: 40px;
+            background: var(--white);
+            border: 3px dashed;
+            border-image: linear-gradient(135deg, var(--gradient-start), var(--gradient-end)) 1;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(106, 0, 244, 0.03) 0%, rgba(255, 77, 109, 0.03) 100%);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .tip:hover {
+            transform: translateX(5px);
+            background: linear-gradient(135deg, rgba(106, 0, 244, 0.08) 0%, rgba(255, 77, 109, 0.08) 100%);
+        }
+
+        .tip-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(106, 0, 244, 0.3);
+        }
+
+        .tip-text {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .prompt-builder {
+                padding: 25px;
+            }
+            
+            .example-grid, .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .action-buttons, .radiant-badge {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="radiant-badge">✨ RADIANT AGILITY</span>
+            <h1>📊 Emotion + Friction Analyzer</h1>
+            <p class="subtitle">
+                <span class="lightning">⚡</span>AI-Powered Journey Analysis for Deep Customer Insights
+            </p>
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="generatePrompt()">
+                    🚀 Generate Prompt
+                </button>
+                <button class="btn btn-secondary" onclick="downloadHTML()">
+                    💾 Download Template
+                </button>
+                <button class="btn btn-outline" onclick="resetForm()">
+                    🔄 Reset Form
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="prompt-builder">
+                <h2>🔧 Build Your Analysis Prompt</h2>
+                
+                <div class="input-group">
+                    <label for="journey-context">Journey Context</label>
+                    <textarea id="journey-context" placeholder="Describe the customer journey you want to analyze... (e.g., First-time user onboarding for a SaaS platform)">First-time customer purchasing from our e-commerce store</textarea>
+                </div>
+
+                <div class="input-group">
+                    <label for="persona">Target Persona</label>
+                    <input type="text" id="persona" placeholder="e.g., Tech-savvy millennial, Budget-conscious parent" value="Digital-native professional, age 25-35">
+                </div>
+
+                <div class="input-group">
+                    <label for="touchpoints">Key Touchpoints (comma-separated)</label>
+                    <input type="text" id="touchpoints" placeholder="e.g., Website, Mobile App, Customer Service, Email" value="Instagram Ad, Website, Shopping Cart, Checkout, Email Confirmation">
+                </div>
+
+                <div class="input-group">
+                    <label>Analysis Type</label>
+                    <div class="analysis-type">
+                        <button class="type-btn active" onclick="selectType(this, 'emotion')">Emotion Mapping</button>
+                        <button class="type-btn" onclick="selectType(this, 'friction')">Friction Points</button>
+                        <button class="type-btn" onclick="selectType(this, 'both')">Combined Analysis</button>
+                        <button class="type-btn" onclick="selectType(this, 'opportunity')">Opportunity Discovery</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="specific-focus">Specific Focus Areas (Optional)</label>
+                    <textarea id="specific-focus" placeholder="Any specific areas you want the AI to focus on...">Payment process, trust signals, mobile experience</textarea>
+                </div>
+            </div>
+
+            <div class="prompt-output">
+                <button class="copy-btn" onclick="copyPrompt()">📋 Copy</button>
+                <div class="prompt-text" id="prompt-text">Your AI prompt will appear here after you click "Generate Prompt"...</div>
+            </div>
+
+            <div class="examples-section">
+                <h2>💡 Example Use Cases</h2>
+                <div class="example-grid">
+                    <div class="example-card" onclick="loadExample('ecommerce')">
+                        <h3>🛍️ E-Commerce</h3>
+                        <p>Analyze friction points in the purchase process and identify abandonment triggers</p>
+                    </div>
+                    <div class="example-card" onclick="loadExample('onboarding')">
+                        <h3>🚀 SaaS Onboarding</h3>
+                        <p>Map emotional journey during trial signup and first-use experience</p>
+                    </div>
+                    <div class="example-card" onclick="loadExample('support')">
+                        <h3>💬 Customer Support</h3>
+                        <p>Identify frustration points and opportunities for proactive assistance</p>
+                    </div>
+                    <div class="example-card" onclick="loadExample('mobile')">
+                        <h3>📱 Mobile App</h3>
+                        <p>Discover usability issues and emotional responses to app features</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h2>🎯 Pro Tips for Better Analysis</h2>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <div class="tip-icon">1</div>
+                        <div class="tip-text">Be specific about the journey stage you want to analyze for more targeted insights</div>
+                    </div>
+                    <div class="tip">
+                        <div class="tip-icon">2</div>
+                        <div class="tip-text">Include actual customer quotes or feedback data when available for accuracy</div>
+                    </div>
+                    <div class="tip">
+                        <div class="tip-icon">3</div>
+                        <div class="tip-text">Focus on moments of truth where customer emotions peak or decisions are made</div>
+                    </div>
+                    <div class="tip">
+                        <div class="tip-icon">4</div>
+                        <div class="tip-text">Consider both digital and human touchpoints for comprehensive analysis</div>
+                    </div>
+                    <div class="tip">
+                        <div class="tip-icon">5</div>
+                        <div class="tip-text">Look for patterns across different persona types to find universal pain points</div>
+                    </div>
+                    <div class="tip">
+                        <div class="tip-icon">6</div>
+                        <div class="tip-text">Always validate AI insights with real user research and quantitative data</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedType = 'emotion';
+
+        function selectType(btn, type) {
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedType = type;
+        }
+
+        function generatePrompt() {
+            const context = document.getElementById('journey-context').value;
+            const persona = document.getElementById('persona').value;
+            const touchpoints = document.getElementById('touchpoints').value;
+            const focus = document.getElementById('specific-focus').value;
+
+            let promptTemplate = `You are an expert UX researcher and customer experience analyst. Analyze the following customer journey for emotional states and friction points.
+
+JOURNEY CONTEXT:
+${context || '[Describe your journey here]'}
+
+TARGET PERSONA:
+${persona || '[Define your target persona]'}
+
+KEY TOUCHPOINTS:
+${touchpoints || '[List your touchpoints]'}
+
+${focus ? `SPECIFIC FOCUS AREAS:\n${focus}\n` : ''}
+ANALYSIS REQUIRED:
+`;
+
+            if (selectedType === 'emotion') {
+                promptTemplate += `
+1. EMOTION MAPPING:
+   - Identify the emotional state at each touchpoint
+   - Rate emotional intensity (1-10)
+   - Highlight emotional peaks and valleys
+   - Suggest emotion-driven design improvements
+
+2. EMOTIONAL DRIVERS:
+   - What triggers positive emotions?
+   - What causes negative emotional responses?
+   - Where do emotions shift dramatically?
+
+3. EMPATHY INSIGHTS:
+   - Key customer thoughts/feelings
+   - Unspoken needs and desires
+   - Moments of delight vs. frustration`;
+            } else if (selectedType === 'friction') {
+                promptTemplate += `
+1. FRICTION ANALYSIS:
+   - List all friction points in order of severity
+   - Categorize friction types (Technical, Cognitive, Emotional)
+   - Estimate impact on conversion/satisfaction
+
+2. ROOT CAUSES:
+   - Why does each friction point exist?
+   - Is it systemic or isolated?
+   - Quick fixes vs. strategic changes needed
+
+3. FRICTION HEAT MAP:
+   - Which touchpoints have highest friction?
+   - Cumulative friction score
+   - Breaking points where users abandon`;
+            } else if (selectedType === 'both') {
+                promptTemplate += `
+1. COMBINED EMOTION & FRICTION ANALYSIS:
+   - Map emotions at each touchpoint (😊😐😔😡)
+   - Identify friction severity (Low/Medium/High/Critical)
+   - Show correlation between friction and emotional response
+
+2. JOURNEY SCORING:
+   - Overall emotional score: /10
+   - Total friction score: /10
+   - Net experience score: /10
+
+3. PRIORITY MATRIX:
+   - High Impact + Quick Win improvements
+   - Strategic long-term optimizations
+   - Critical fixes needed immediately`;
+            } else {
+                promptTemplate += `
+1. OPPORTUNITY DISCOVERY:
+   - Top 5 improvement opportunities ranked by impact
+   - Innovation possibilities at each touchpoint
+   - Competitive differentiation opportunities
+
+2. VALUE CREATION:
+   - How to exceed expectations
+   - Surprise and delight moments
+   - Personalization opportunities
+
+3. IMPLEMENTATION ROADMAP:
+   - Phase 1: Quick wins (1-2 weeks)
+   - Phase 2: Medium efforts (1-3 months)
+   - Phase 3: Transformational changes (3-6 months)`;
+            }
+
+            promptTemplate += `
+
+OUTPUT FORMAT:
+- Use clear headers and bullet points
+- Include specific examples and scenarios
+- Provide actionable recommendations
+- Rate confidence level for each insight (High/Medium/Low)
+- Suggest metrics to track improvements
+
+Please provide a comprehensive analysis that will help improve this customer journey.`;
+
+            document.getElementById('prompt-text').textContent = promptTemplate;
+            
+            // Animate the output
+            const output = document.querySelector('.prompt-output');
+            output.style.animation = 'none';
+            setTimeout(() => {
+                output.style.animation = 'fadeInUp 0.6s ease-out';
+            }, 10);
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('prompt-text').textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function resetForm() {
+            document.getElementById('journey-context').value = '';
+            document.getElementById('persona').value = '';
+            document.getElementById('touchpoints').value = '';
+            document.getElementById('specific-focus').value = '';
+            document.getElementById('prompt-text').textContent = 'Your AI prompt will appear here after you click "Generate Prompt"...';
+            
+            document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('.type-btn').classList.add('active');
+            selectedType = 'emotion';
+        }
+
+        function loadExample(type) {
+            const examples = {
+                ecommerce: {
+                    context: 'Customer purchasing fashion items from online boutique, from product discovery to post-purchase',
+                    persona: 'Fashion-conscious millennial, values sustainability and unique designs',
+                    touchpoints: 'Social Media Ad, Product Page, Size Guide, Shopping Cart, Payment, Order Confirmation, Delivery Tracking',
+                    focus: 'Size selection anxiety, payment security concerns, shipping transparency'
+                },
+                onboarding: {
+                    context: 'New user signing up for project management SaaS tool free trial',
+                    persona: 'Small business owner, non-technical, team of 5-10 people',
+                    touchpoints: 'Landing Page, Signup Form, Email Verification, First Login, Tutorial, First Project Creation, Team Invite',
+                    focus: 'Technical overwhelm, value realization, time to first success'
+                },
+                support: {
+                    context: 'Customer seeking help for a technical issue with their subscription service',
+                    persona: 'Busy professional, low patience for technical issues, expects quick resolution',
+                    touchpoints: 'Help Center Search, FAQ, Chat Bot, Live Chat Queue, Agent Interaction, Issue Resolution, Follow-up Survey',
+                    focus: 'Wait time frustration, resolution effectiveness, agent empathy'
+                },
+                mobile: {
+                    context: 'User journey through food delivery mobile app from hunger to meal delivery',
+                    persona: 'Urban dweller, orders 2-3 times per week, values speed and variety',
+                    touchpoints: 'App Open, Restaurant Browse, Menu Selection, Customization, Cart Review, Payment, Order Tracking, Delivery',
+                    focus: 'Choice overload, customization complexity, real-time tracking accuracy'
+                }
+            };
+
+            const example = examples[type];
+            if (example) {
+                document.getElementById('journey-context').value = example.context;
+                document.getElementById('persona').value = example.persona;
+                document.getElementById('touchpoints').value = example.touchpoints;
+                document.getElementById('specific-focus').value = example.focus;
