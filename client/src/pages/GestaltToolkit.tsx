@@ -38,19 +38,19 @@ export default function GestaltToolkit() {
       
       // Trigger download
       setTimeout(() => {
-        // Download Gestalt Cheatsheet
+        // Download Gestalt Design Principles Cheatsheet
         const link1 = document.createElement('a');
-        link1.href = '/attached_assets/RadiantAgility_Gestalt_Cheatsheet_Template.pdf';
-        link1.download = 'RadiantAgility_Gestalt_Cheatsheet_Template.pdf';
+        link1.href = '/attached_assets/RadiantAgility_Gestalt_Design_Principles_Cheatsheet_1754491988609.pdf';
+        link1.download = 'RadiantAgility_Gestalt_Design_Principles_Cheatsheet.pdf';
         document.body.appendChild(link1);
         link1.click();
         document.body.removeChild(link1);
         
-        // Download UX Audit Template (500ms delay)
+        // Download Gestalt UX Audit Template (500ms delay)
         setTimeout(() => {
           const link2 = document.createElement('a');
-          link2.href = '/attached_assets/RadiantAgility_UX_Audit_Template.pdf';
-          link2.download = 'RadiantAgility_UX_Audit_Template.pdf';
+          link2.href = '/attached_assets/RadiantAgility_Gestalt_UX_Audit_Template_1754491988609.pdf';
+          link2.download = 'RadiantAgility_Gestalt_UX_Audit_Template.pdf';
           document.body.appendChild(link2);
           link2.click();
           document.body.removeChild(link2);
@@ -90,17 +90,17 @@ export default function GestaltToolkit() {
     {
       icon: Palette,
       title: "Gestalt Cheatsheet",
-      description: "Key principles explained with practical examples for design consistency"
+      description: "6 core principles with agile team applications and quick reference guide"
     },
     {
       icon: CheckCircle,
       title: "UX Audit Template",
-      description: "Easy-to-use checklist for Agile product teams to review designs"
+      description: "Comprehensive evaluation template with scoring guide and action plans"
     },
     {
       icon: Code,
       title: "Design Tips for Devs",
-      description: "Practical tips for better frontend collaboration and handoffs"
+      description: "Sprint planning integration and design system best practices"
     }
   ];
 
