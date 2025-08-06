@@ -1029,10 +1029,10 @@ Format as an executive summary with clear action items, owners, and success crit
                 size="lg" 
                 variant="outline" 
                 className="border-white text-white hover:bg-white hover:text-[#3B1F56] font-semibold px-8 py-4 text-lg"
-                onClick={() => window.open('#', '_blank')}
+                onClick={() => document.getElementById('download-form')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Brain className="h-5 w-5 mr-2" />
-                Preview Tool
+                Get Started
               </Button>
             </div>
           </div>
