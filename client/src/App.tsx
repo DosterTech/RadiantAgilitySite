@@ -38,6 +38,7 @@ import FlowToolkit from "./pages/FlowToolkit";
 import GestaltToolkit from "./pages/GestaltToolkit";
 import JourneyMappingTool from "./pages/JourneyMappingTool";
 import EmotionAnalyzer from "./pages/EmotionAnalyzer";
+import AIHypothesisToolkit from "./pages/AIHypothesisToolkit";
 import AffiliateProgram from "./pages/AffiliateProgram";
 import NotFound from "@/pages/not-found";
 
@@ -74,6 +75,7 @@ function Router() {
       <Route path="/gestalt-toolkit" component={GestaltToolkit} />
       <Route path="/journey-toolkit" component={JourneyMappingTool} />
       <Route path="/emotion-analyzer" component={EmotionAnalyzer} />
+      <Route path="/ai-hypothesis-toolkit" component={AIHypothesisToolkit} />
       <Route path="/affiliate" component={AffiliateProgram} />
       <Route path="/admin/inquiries" component={AdminInquiries} />
       <Route path="/admin/inquiries/:id" component={AdminInquiryDetail} />
